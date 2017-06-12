@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?=
             GridView::widget([
-                'id' => 'post-grid',
+                'id' => 'pet-grid',
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'striped' => true,

@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = [
 $this->params['breadcrumbs'][] = Yii::t('miranda', 'Update');
 ?>
 
-<div class="post-update">
+<div class="pet-update">
     <h3 class="lte-hide-title"><?= Html::encode($this->title) ?></h3>
     <?= $this->render('_form', compact('model')) ?>
 </div>
