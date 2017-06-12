@@ -13,10 +13,10 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\search\PetSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('miranda/post', 'Pets');
+$this->title = Yii::t('miranda/pet', 'Pets');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="post-index">
+<div class="pet-index">
 
     <div class="row">
         <div class="col-sm-8">

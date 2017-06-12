@@ -9,7 +9,7 @@ use common\widgets\ActiveForm;
 /* @var $form common\widgets\ActiveForm */
 ?>
 
-<div class="post-form">
+<div class="pet-form">
 
     <?php
     $form = ActiveForm::begin([
