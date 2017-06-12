@@ -16,7 +16,8 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
-    public $enableOnlyActions = ['index','error'];
+    public $layout = false;
+    public $enableOnlyActions = ['index', 'error'];
 
     public function actionIndex()
     {

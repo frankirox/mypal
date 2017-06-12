@@ -11,12 +11,13 @@ return [
     'homeUrl' => '/api',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'api\controllers',
-    'bootstrap' => ['miranda','log'],
-    'on beforeAction' => function($event){
+    'bootstrap' => ['miranda', 'log'],
+    'on beforeAction' => function ($event) {
 
         Yii::$app->view->registerMetaTag([
             'name' => 'robots',
-            'content' => "NOINDEX, NOFOLLOW" ]);
+            'content' => "NOINDEX, NOFOLLOW"
+        ]);
 
     },
     'modules' => [
@@ -38,20 +39,8 @@ return [
                 'application/json' => 'yii\web\JsonParser',
             ],
         ],
-        /*'assetManager' => [
-            'bundles' => [
-                'yii\bootstrap\BootstrapAsset' => [
-                    'sourcePath' => '@backend/assets/bootstrap/',
-                    'css' => ['css/bootstrap.min.css']
-                ],
-                'yii\bootstrap\BootstrapPluginAsset' => [
-                    'sourcePath' => '@backend/assets/bootstrap/',
-                    'js' => ['js/bootstrap.min.js']
-                ],
-            ],
-        ],*/
         'urlManager' => [
-            'class'           => 'yii\web\UrlManager',
+            'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             //'enableStrictParsing' => true,
             'showScriptName' => false,

@@ -37,10 +37,12 @@ class IndexActiveAction extends IndexAction
         $modelInstance = new $this->modelClass;
         $modelClass = $this->modelClass;
 
-        if(!empty($this->orderDataProviderBy) && array_key_exists($this->orderDataProviderBy,$modelInstance->attributes)){
+        if (!empty($this->orderDataProviderBy) && array_key_exists($this->orderDataProviderBy,
+                $modelInstance->attributes)
+        ) {
             return new ActiveDataProvider([
                 'query' => $modelClass::find(),
-                'sort'=>['defaultOrder' => [$this->orderDataProviderBy => $this->orderDataProviderTo]],
+                'sort' => ['defaultOrder' => [$this->orderDataProviderBy => $this->orderDataProviderTo]],
                 'pagination' => false,
             ]);
         }

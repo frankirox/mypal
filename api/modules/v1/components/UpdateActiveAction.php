@@ -35,7 +35,7 @@ class UpdateActiveAction extends UpdateAction
             $model->refresh();
             $response = Yii::$app->getResponse();
             $response->setStatusCode(200);
-        }else{
+        } else {
 
             $response = Yii::$app->getResponse();
             $response->setStatusCode(200);

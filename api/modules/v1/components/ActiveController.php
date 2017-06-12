@@ -1,4 +1,5 @@
 <?php
+
 namespace api\modules\v1\components;
 
 
@@ -22,7 +23,6 @@ use yii\web\Response;
  *
  * @property Module $module
  */
-
 class ActiveController extends BaseController
 {
 
@@ -117,8 +117,8 @@ class ActiveController extends BaseController
     {
         return [
             'authenticator' => [
-                'class' =>  HttpBearerAuth::className(),
-                'only' => ['index','view','create','update','delete','options'],
+                'class' => HttpBearerAuth::className(),
+                'only' => ['index', 'view', 'create', 'update', 'delete', 'options'],
             ],
             'contentNegotiator' => [
                 'class' => ContentNegotiator::className(),
@@ -135,6 +135,7 @@ class ActiveController extends BaseController
             ],
         ];
     }
+
     /**
      * Checks the privilege of the current user.
      *
@@ -150,21 +151,20 @@ class ActiveController extends BaseController
     public function checkAccess($action, $model = null, $params = [], $permission = null)
     {
 
-        if(Yii::$app->user->isGuest){
+        if (Yii::$app->user->isGuest) {
 
             throw new ForbiddenHttpException();
         }
 
-        if($permission != null){
+        if ($permission != null) {
 
-            if(!Yii::$app->user->identity->hasPermission($permission)){
+            if (!Yii::$app->user->identity->hasPermission($permission)) {
 
                 throw new ForbiddenHttpException();
             }
         }
 
     }
-
 
 
 }

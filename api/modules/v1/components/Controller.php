@@ -1,4 +1,5 @@
 <?php
+
 namespace api\modules\v1\components;
 
 
@@ -19,7 +20,6 @@ use yii\web\Response;
  *
  * @property Module $module
  */
-
 class Controller extends BaseController
 {
 
@@ -30,33 +30,21 @@ class Controller extends BaseController
      * If the user does not have access, a [[ForbiddenHttpException]] should be thrown.
      *
      * @param string $permission
-     * @param boolean $store_permission
      * @throws ForbiddenHttpException if the user does not have access
+     * @internal param bool $store_permission
      */
     public function checkAccess($permission = null)
     {
 
 
-        if($this->module->validateRestUserKey()){
-
-            if(!$this->module->initializeRestUserConnection()){
-
-                throw new ForbiddenHttpException();
-            }
-
-        }else{
+        if (Yii::$app->user->isGuest) {
 
             throw new ForbiddenHttpException();
         }
 
-        if(Yii::$app->user->isGuest){
+        if ($permission != null) {
 
-            throw new ForbiddenHttpException();
-        }
-
-        if($permission != null){
-
-            if(!Yii::$app->user->identity->hasPermission($permission)){
+            if (!Yii::$app->user->identity->hasPermission($permission)) {
 
                 throw new ForbiddenHttpException();
             }
@@ -69,7 +57,7 @@ class Controller extends BaseController
     public function afterAction($action, $result)
     {
 
-        $parentAfterActionEvent =  parent::afterAction($action, $result);
+        $parentAfterActionEvent = parent::afterAction($action, $result);
 
         $this->module->terminateRestUserConnection();
 

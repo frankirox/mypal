@@ -23,14 +23,14 @@ class DeleteActiveAction extends DeleteAction
         $model = $this->findModel($id);
         Yii::$app->getResponse()->setStatusCode(204);
 
-        try{
+        try {
 
-            if($model->delete()){
+            if ($model->delete()) {
 
                 return true;
             }
 
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
 
             return false;
         }

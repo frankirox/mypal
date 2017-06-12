@@ -34,7 +34,7 @@ class OptionsActiveAction extends OptionsAction
 
         $resourceOptions = ['OPTIONS'];
 
-        if(Yii::$app->user->can($this->GETPermission) && $this->GETPermission != null){
+        if (Yii::$app->user->can($this->GETPermission) && $this->GETPermission != null) {
 
             $collectionOptions[] = 'GET';
 
@@ -42,7 +42,7 @@ class OptionsActiveAction extends OptionsAction
 
         }
 
-        if(Yii::$app->user->can($this->HEADPermission) && $this->HEADPermission != null){
+        if (Yii::$app->user->can($this->HEADPermission) && $this->HEADPermission != null) {
 
             $collectionOptions[] = 'HEAD';
 
@@ -50,7 +50,7 @@ class OptionsActiveAction extends OptionsAction
 
         }
 
-        if(Yii::$app->user->can($this->POSTPermission) && $this->POSTPermission != null){
+        if (Yii::$app->user->can($this->POSTPermission) && $this->POSTPermission != null) {
 
 
             $collectionOptions[] = 'POST';
@@ -59,14 +59,14 @@ class OptionsActiveAction extends OptionsAction
 
         }
 
-        if(Yii::$app->user->can($this->PUTPermission) && $this->PUTPermission != null){
+        if (Yii::$app->user->can($this->PUTPermission) && $this->PUTPermission != null) {
 
 
             $resourceOptions[] = 'PUT';
 
         }
 
-        if(Yii::$app->user->can($this->PATCHPermission) && $this->PATCHPermission != null){
+        if (Yii::$app->user->can($this->PATCHPermission) && $this->PATCHPermission != null) {
 
 
             $resourceOptions[] = 'PATCH';

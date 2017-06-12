@@ -79,7 +79,7 @@ class PetController extends ActiveController
                 'class' => OptionsActiveAction::className(),
                 'checkAccess' => [$this, 'checkAccess'],
                 'GETPermission' => 'viewPets',
-                'HEADPermission' =>  'viewPets',
+                'HEADPermission' => 'viewPets',
                 'POSTPermission' => 'createPets',
                 'PUTPermission' => 'editPets',
                 'PATCHPermission' => 'editPets',

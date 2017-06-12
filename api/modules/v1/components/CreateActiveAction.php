@@ -3,11 +3,8 @@
 
 namespace api\modules\v1\components;
 
-use yii\helpers\StringHelper;
 use Yii;
 use yii\helpers\Url;
-use yii\helpers\VarDumper;
-use yii\web\ServerErrorHttpException;
 
 
 class CreateActiveAction extends \yii\rest\CreateAction

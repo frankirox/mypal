@@ -34,7 +34,7 @@ class Module extends \yii\base\Module
 
         $user = User::find()->where(['username' => $username])->one();
 
-        if($user instanceof User){
+        if ($user instanceof User) {
 
 
             if ($user->status == User::STATUS_ACTIVE) {
@@ -51,7 +51,7 @@ class Module extends \yii\base\Module
                     //disable any already existent active key
                     $existentUserKey = UserAccessToken::findActiveByUser($user->id, UserAccessToken::TYPE_REST_CLIENT);
 
-                    if($existentUserKey instanceof UserAccessToken){
+                    if ($existentUserKey instanceof UserAccessToken) {
 
                         $existentUserKey->consume();
                         $existentUserKey->expire();
@@ -59,7 +59,7 @@ class Module extends \yii\base\Module
 
                     $userKey = UserAccessToken::generate($user->id, UserAccessToken::TYPE_REST_CLIENT);
 
-                    if($userKey instanceof UserAccessToken){
+                    if ($userKey instanceof UserAccessToken) {
 
                         return $userKey->key;
                     }
@@ -79,7 +79,7 @@ class Module extends \yii\base\Module
 
         $existentUserAccessToken = UserAccessToken::findActiveByKey($user_key, UserAccessToken::TYPE_REST_CLIENT);
 
-        if($existentUserAccessToken instanceof UserAccessToken){
+        if ($existentUserAccessToken instanceof UserAccessToken) {
 
             $existentUserAccessToken->consume();
             $existentUserAccessToken->expire();
@@ -95,17 +95,17 @@ class Module extends \yii\base\Module
     public function validateUserAccessToken()
     {
 
-        if(isset($_GET['token'])){
+        if (isset($_GET['token'])) {
 
-            if(!empty($_GET['token'])){
+            if (!empty($_GET['token'])) {
 
-                $userAccessToken = UserAccessToken::findActiveByKey($_GET['token'],UserAccessToken::TYPE_REST_CLIENT);
+                $userAccessToken = UserAccessToken::findActiveByKey($_GET['token'], UserAccessToken::TYPE_REST_CLIENT);
 
-                if($userAccessToken instanceof UserAccessToken){
+                if ($userAccessToken instanceof UserAccessToken) {
 
                     $user = $userAccessToken->user;
 
-                    if($user instanceof User){
+                    if ($user instanceof User) {
 
                         if ($user->status == User::STATUS_ACTIVE) {
 
@@ -113,19 +113,19 @@ class Module extends \yii\base\Module
                             $userAccessTokenExpireDateTime = new \DateTime($userAccessToken->expires_at);
                             $userAccessTokenIsExpired = true;
 
-                            if(empty($userAccessToken->expires_at)){
+                            if (empty($userAccessToken->expires_at)) {
 
                                 $userAccessTokenIsExpired = false;
 
-                            }else{
+                            } else {
 
-                                if($currentDateTime < $userAccessTokenExpireDateTime){
+                                if ($currentDateTime < $userAccessTokenExpireDateTime) {
 
                                     $userAccessTokenIsExpired = false;
                                 }
                             }
 
-                            if(!$userAccessTokenIsExpired){
+                            if (!$userAccessTokenIsExpired) {
 
                                 return true;
 
@@ -147,11 +147,11 @@ class Module extends \yii\base\Module
     public function initializeRestUserConnection()
     {
 
-        if($this->validateUserAccessToken()){
+        if ($this->validateUserAccessToken()) {
 
-            $identity = User::findIdentityByAccessToken($_GET['token'],UserAccessToken::TYPE_REST_CLIENT);
+            $identity = User::findIdentityByAccessToken($_GET['token'], UserAccessToken::TYPE_REST_CLIENT);
 
-            if($identity instanceof User) {
+            if ($identity instanceof User) {
 
 
                 return Yii::$app->user->login($identity);
@@ -164,7 +164,7 @@ class Module extends \yii\base\Module
     public function terminateRestUserConnection()
     {
 
-        if(!Yii::$app->user->isGuest){
+        if (!Yii::$app->user->isGuest) {
 
             Yii::$app->user->logout();
         }
