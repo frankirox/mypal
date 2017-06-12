@@ -1,4 +1,4 @@
-# Miranda CMS Based On Yii2 PHP Framework
+# MyPal Pet Store App Based On Miranda CMS And Yii2 PHP Framework
 
 Installation
 ------------
