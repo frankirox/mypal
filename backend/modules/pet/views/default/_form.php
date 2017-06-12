@@ -76,12 +76,6 @@ use common\models\PostTag;
                                 <span><?= $model->updated_at ?></span>
                             </div>
 
-                            <div class="form-group clearfix">
-                                <label class="control-label" style="float: left; padding-right: 5px;">
-                                    <?= $model->attributeLabels()['updated_by'] ?> :
-                                </label>
-                                <span><?php /*$model->updatedBy->username*/ ?></span>
-                            </div>
 
                             <hr>
 
