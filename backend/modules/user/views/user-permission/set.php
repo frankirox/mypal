@@ -12,7 +12,10 @@ use common\helpers\Html;
 
 $this->title = Yii::t('miranda/user', 'Roles and Permissions for "{user}"', ['user' => $user->username]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('miranda/user', 'Users'), 'url' => ['/user/default/index']];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('miranda/user', $user->username), 'url' => ['/user/default/update', 'id' => $user->id]];
+$this->params['breadcrumbs'][] = [
+    'label' => Yii::t('miranda/user', $user->username),
+    'url' => ['/user/default/update', 'id' => $user->id]
+];
 $this->params['breadcrumbs'][] = $this->title;
 
 BootstrapPluginAsset::register($this);
@@ -47,7 +50,8 @@ BootstrapPluginAsset::register($this);
                                 $list .= '</ul>';
 
                                 $helpIcon = Html::beginTag('span', [
-                                    'title' => Yii::t('miranda/user', 'Permissions for "{role}" role', ['role' => $label]),
+                                    'title' => Yii::t('miranda/user', 'Permissions for "{role}" role',
+                                        ['role' => $label]),
                                     'data-content' => $list,
                                     'data-html' => 'true',
                                     'role' => 'button',
@@ -56,8 +60,9 @@ BootstrapPluginAsset::register($this);
                                 ]);
                                 $helpIcon .= '?';
                                 $helpIcon .= Html::endTag('span');
-                                
-                                $checkbox = Html::checkbox($name, $checked, ['label' => $label, 'value' => $value, 'style' => 'margin: 2px 0 0 -16px;']);
+
+                                $checkbox = Html::checkbox($name, $checked,
+                                    ['label' => $label, 'value' => $value, 'style' => 'margin: 2px 0 0 -16px;']);
                                 return "<div><div style='margin-left: 15px; display: inline-block;'>{$checkbox}</div><div style='display: inline-block; margin-left: 15px;'>{$helpIcon}</div></div>";
                             },
                         ]

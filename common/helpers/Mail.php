@@ -1,4 +1,5 @@
 <?php
+
 namespace common\helpers;
 
 use Yii;
@@ -8,7 +9,7 @@ class Mail
 {
     public static function send($toEmail, $subject, $template, $data = [], $options = [])
     {
-        if(!filter_var($toEmail, FILTER_VALIDATE_EMAIL) || !$subject || !$template){
+        if (!filter_var($toEmail, FILTER_VALIDATE_EMAIL) || !$subject || !$template) {
             return false;
         }
         $data['subject'] = trim($subject);
@@ -17,11 +18,11 @@ class Mail
             ->setTo($toEmail)
             ->setSubject($data['subject']);
 
-        if(filter_var(Setting::get('robot_email'), FILTER_VALIDATE_EMAIL)){
+        if (filter_var(Setting::get('robot_email'), FILTER_VALIDATE_EMAIL)) {
             $message->setFrom(Setting::get('robot_email'));
         }
 
-        if(!empty($options['replyTo']) && filter_var($options['replyTo'], FILTER_VALIDATE_EMAIL)){
+        if (!empty($options['replyTo']) && filter_var($options['replyTo'], FILTER_VALIDATE_EMAIL)) {
             $message->setReplyTo($options['replyTo']);
         }
 

@@ -445,7 +445,7 @@ class DefaultController extends BaseController
      */
     public function actionUpdateCredentials()
     {
-               
+
         if (Yii::$app->user->isGuest) {
             throw new NotFoundHttpException(Yii::t('yii', 'Page not found.'));
         }
@@ -682,14 +682,14 @@ class DefaultController extends BaseController
     public function actionProfile()
     {
 
-        if($this->module->profileLayout){
+        if ($this->module->profileLayout) {
             $this->layout = $this->module->profileLayout;
         }
 
         if (Yii::$app->user->isGuest) {
 
             return $this->redirect(['login']);
-           //throw new NotFoundHttpException(Yii::t('yii', 'Page not found.'));
+            //throw new NotFoundHttpException(Yii::t('yii', 'Page not found.'));
         }
 
         $model = User::findIdentity(Yii::$app->user->id)->profile;

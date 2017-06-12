@@ -28,7 +28,10 @@ return [
         'en-US' => 'en',
         'es-ES' => 'es',
     ],
-    'phoneFormat' => ['9999-999-9999'], //Please refer to http://demos.krajee.com/masked-input to configure the input as need it.
-    'merchantIdFormat' => ['A-9{1,8}-9{1}'], //Please refer to http://demos.krajee.com/masked-input to configure the input as need it.
-    'documentIdFormat' => ['A-9{1,8}'], //Please refer to http://demos.krajee.com/masked-input to configure the input as need it.
+    'phoneFormat' => ['9999-999-9999'],
+    //Please refer to http://demos.krajee.com/masked-input to configure the input as need it.
+    'merchantIdFormat' => ['A-9{1,8}-9{1}'],
+    //Please refer to http://demos.krajee.com/masked-input to configure the input as need it.
+    'documentIdFormat' => ['A-9{1,8}'],
+    //Please refer to http://demos.krajee.com/masked-input to configure the input as need it.
 ];

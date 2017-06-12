@@ -14,7 +14,8 @@ abstract class SourceMessagesMigration extends Migration
         $messages = $this->getMessages();
 
         foreach ($messages as $message => $immutable) {
-            $this->insert('{{%message_source}}', ['category' => $category, 'message' => $message, 'immutable' => $immutable]);
+            $this->insert('{{%message_source}}',
+                ['category' => $category, 'message' => $message, 'immutable' => $immutable]);
         }
     }
 

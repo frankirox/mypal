@@ -13,7 +13,8 @@ use yii\helpers\ArrayHelper;
                 <?php if (Yii::$app->miranda->getDisplayLanguageShortcode($language) == $key) : ?>
                     <span><?= ($display == 'code') ? $key : $lang ?></span>
                 <?php else: ?>
-                    <?php $link = Yii::$app->urlManager->createUrl(ArrayHelper::merge($params, [$url, 'language' => $key])); ?>
+                    <?php $link = Yii::$app->urlManager->createUrl(ArrayHelper::merge($params,
+                        [$url, 'language' => $key])); ?>
                     <a href="<?= $link ?>" style="text-decoration: none;"><?= ($display == 'code') ? $key : $lang ?></a>
                 <?php endif; ?>
             </li>

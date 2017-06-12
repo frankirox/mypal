@@ -16,9 +16,9 @@ class m161115_185738_session_table_core extends Migration
         }
 
         $this->createTable(self::SESSION_TABLE, [
-            'id'            => $this->primaryKey()->unsigned(),
-            'expire'        => $this->integer(10),
-            'data'          => $this->binary(),
+            'id' => $this->primaryKey()->unsigned(),
+            'expire' => $this->integer(10),
+            'data' => $this->binary(),
         ], $tableOptions);
 
 

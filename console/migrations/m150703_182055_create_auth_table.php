@@ -6,7 +6,7 @@ class m150703_182055_create_auth_table extends Migration
 {
 
     const TABLE_NAME = '{{%auth}}';
-    
+
     public function safeUp()
     {
         $tableOptions = null;

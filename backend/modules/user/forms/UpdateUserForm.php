@@ -71,12 +71,12 @@ class UpdateUserForm extends Model
 
     public function init()
     {
-        if(empty($this->country)){
+        if (empty($this->country)) {
 
             $this->country = Yii::$app->params['defaultCountry'];
         }
 
-        if(empty($this->language)){
+        if (empty($this->language)) {
 
             $this->language = Yii::$app->params['defaultLanguage'];
         }
@@ -165,8 +165,20 @@ class UpdateUserForm extends Model
             [['username', 'email', 'bind_to_ip'], 'trim'],
             //custom Validation Methods
             ['username', 'validateUsernameUnique'],
-            ['username', 'match', 'pattern' => Yii::$app->miranda->usernameRegexp, 'message' => Yii::t('miranda', 'The username should contain only Latin letters, numbers and the following characters: "-" and "_".')],
-            ['username', 'match', 'not' => true, 'pattern' => Yii::$app->miranda->usernameBlackRegexp, 'message' => Yii::t('miranda', 'Username contains not allowed characters or words.')],
+            [
+                'username',
+                'match',
+                'pattern' => Yii::$app->miranda->usernameRegexp,
+                'message' => Yii::t('miranda',
+                    'The username should contain only Latin letters, numbers and the following characters: "-" and "_".')
+            ],
+            [
+                'username',
+                'match',
+                'not' => true,
+                'pattern' => Yii::$app->miranda->usernameBlackRegexp,
+                'message' => Yii::t('miranda', 'Username contains not allowed characters or words.')
+            ],
             ['email', 'validateEmailUnique'],
             ['bind_to_ip', 'validateBindToIp'],
         ];
@@ -237,15 +249,15 @@ class UpdateUserForm extends Model
             'status' => Yii::t('miranda', 'Status'),
             'email_confirmed' => Yii::t('miranda', 'E-mail confirmed'),
             'email' => Yii::t('miranda', 'E-mail'),
-            'user_id'     => Yii::t('miranda', 'User'),
+            'user_id' => Yii::t('miranda', 'User'),
             'document_id' => Yii::t('miranda', 'Document ID'),
             'merchant_id' => Yii::t('miranda', 'Merchant ID'),
-            'first_name'  => Yii::t('miranda', 'First Name'),
-            'last_name'   => Yii::t('miranda', 'Last Name'),
-            'phone'       => Yii::t('miranda', 'Phone'),
-            'timezone'    => Yii::t('miranda', 'Timezone'),
-            'language'    => Yii::t('miranda', 'Language'),
-            'country'     => Yii::t('miranda', 'Country'),
+            'first_name' => Yii::t('miranda', 'First Name'),
+            'last_name' => Yii::t('miranda', 'Last Name'),
+            'phone' => Yii::t('miranda', 'Phone'),
+            'timezone' => Yii::t('miranda', 'Timezone'),
+            'language' => Yii::t('miranda', 'Language'),
+            'country' => Yii::t('miranda', 'Country'),
         ];
     }
 
@@ -253,7 +265,7 @@ class UpdateUserForm extends Model
     public function save()
     {
 
-        if($this->validate()){
+        if ($this->validate()) {
 
             $user = User::findOne($this->user_id);
             $user->setAttributes([
@@ -286,7 +298,7 @@ class UpdateUserForm extends Model
                 'avatar' => $this->avatar,
             ]);
 
-            if($user->validate() && $profile->validate()){
+            if ($user->validate() && $profile->validate()) {
 
                 $user->save();
                 $profile->save();

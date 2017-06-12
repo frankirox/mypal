@@ -34,8 +34,11 @@ class PermissionController extends BaseController
         $routes = Route::find()->asArray()->all();
 
         $permissions = Permission::find()
-            ->andWhere(['not in', Yii::$app->miranda->auth_item_table . '.name',
-                [Yii::$app->miranda->commonPermissionName, $id]])
+            ->andWhere([
+                'not in',
+                Yii::$app->miranda->auth_item_table . '.name',
+                [Yii::$app->miranda->commonPermissionName, $id]
+            ])
             ->joinWith('group')
             ->all();
 
@@ -47,7 +50,8 @@ class PermissionController extends BaseController
         $childRoutes = AuthHelper::getChildrenByType($item->name, AbstractItem::TYPE_ROUTE);
         $childPermissions = AuthHelper::getChildrenByType($item->name, AbstractItem::TYPE_PERMISSION);
 
-        return $this->renderIsAjax('view', compact('item', 'childPermissions', 'routes', 'permissionsByGroup', 'childRoutes'));
+        return $this->renderIsAjax('view',
+            compact('item', 'childPermissions', 'routes', 'permissionsByGroup', 'childRoutes'));
     }
 
     /**

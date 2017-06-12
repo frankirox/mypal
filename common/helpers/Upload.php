@@ -1,4 +1,5 @@
 <?php
+
 namespace common\helpers;
 
 use Yii;
@@ -15,19 +16,20 @@ class Upload
 
     public static function file(UploadedFile $fileInstance, $dir = '', $namePostfix = true)
     {
-        $fileName = Upload::getUploadPath($dir) . DIRECTORY_SEPARATOR . Upload::getFileName($fileInstance, $namePostfix);
+        $fileName = Upload::getUploadPath($dir) . DIRECTORY_SEPARATOR . Upload::getFileName($fileInstance,
+                $namePostfix);
 
-        if(!$fileInstance->saveAs($fileName)){
-            throw new HttpException(500, 'Cannot upload file "'.$fileName.'". Please check write permissions.');
+        if (!$fileInstance->saveAs($fileName)) {
+            throw new HttpException(500, 'Cannot upload file "' . $fileName . '". Please check write permissions.');
         }
         return Upload::getLink($fileName);
     }
 
     static function getUploadPath($dir)
     {
-        $uploadPath = Yii::getAlias('@storage').DIRECTORY_SEPARATOR.self::$UPLOADS_DIR.($dir ? DIRECTORY_SEPARATOR.$dir : '');
-        if(!FileHelper::createDirectory($uploadPath)){
-            throw new HttpException(500, 'Cannot create "'.$uploadPath.'". Please check write permissions.');
+        $uploadPath = Yii::getAlias('@storage') . DIRECTORY_SEPARATOR . self::$UPLOADS_DIR . ($dir ? DIRECTORY_SEPARATOR . $dir : '');
+        if (!FileHelper::createDirectory($uploadPath)) {
+            throw new HttpException(500, 'Cannot create "' . $uploadPath . '". Please check write permissions.');
         }
         return $uploadPath;
     }
@@ -40,9 +42,9 @@ class Upload
 
     static function getFileName($fileInstanse, $namePostfix = true)
     {
-        $baseName = str_ireplace('.'.$fileInstanse->extension, '', $fileInstanse->name);
-        $fileName =  StringHelper::truncate(Inflector::slug($baseName), 32, '');
-        if($namePostfix || !$fileName) {
+        $baseName = str_ireplace('.' . $fileInstanse->extension, '', $fileInstanse->name);
+        $fileName = StringHelper::truncate(Inflector::slug($baseName), 32, '');
+        if ($namePostfix || !$fileName) {
             $fileName .= ($fileName ? '-' : '') . substr(uniqid(md5(rand()), true), 0, 10);
         }
         $fileName .= '.' . $fileInstanse->extension;

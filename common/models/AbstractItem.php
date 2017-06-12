@@ -72,14 +72,14 @@ abstract class AbstractItem extends ActiveRecord
      */
     public static function addChildren($parentName, $childrenNames, $throwException = false)
     {
-        $parent = (object) ['name' => $parentName];
+        $parent = (object)['name' => $parentName];
 
-        $childrenNames = (array) $childrenNames;
+        $childrenNames = (array)$childrenNames;
 
         $dbManager = new DbManager();
 
         foreach ($childrenNames as $childName) {
-            $child = (object) ['name' => $childName];
+            $child = (object)['name' => $childName];
 
             try {
                 $dbManager->addChild($parent, $child);
@@ -99,12 +99,12 @@ abstract class AbstractItem extends ActiveRecord
      */
     public static function removeChildren($parentName, $childrenNames)
     {
-        $childrenNames = (array) $childrenNames;
+        $childrenNames = (array)$childrenNames;
 
         foreach ($childrenNames as $childName) {
             Yii::$app->db->createCommand()
-                    ->delete(Yii::$app->miranda->auth_item_child_table, ['parent' => $parentName, 'child' => $childName])
-                    ->execute();
+                ->delete(Yii::$app->miranda->auth_item_child_table, ['parent' => $parentName, 'child' => $childName])
+                ->execute();
         }
 
         AuthHelper::invalidatePermissions();
@@ -171,8 +171,8 @@ abstract class AbstractItem extends ActiveRecord
     {
         if (Role::find()->where(['name' => $this->name])->exists()) {
             $this->addError('name', Yii::t('yii', '{attribute} "{value}" has already been taken.', [
-                        'attribute' => $this->getAttributeLabel($attribute),
-                        'value' => $this->$attribute,
+                'attribute' => $this->getAttributeLabel($attribute),
+                'value' => $this->$attribute,
             ]));
         }
     }

@@ -34,7 +34,7 @@ class InitAdminController extends Controller
     public $defaultAction = 'init';
 
     /**
-     * @var boolean indicate whether is root user initialization allowed 
+     * @var boolean indicate whether is root user initialization allowed
      * more that one time.
      */
     public $allowOverwrite = false;
@@ -70,7 +70,8 @@ class InitAdminController extends Controller
      */
     public function options($actionId)
     {
-        return array_merge(parent::options($actionId), ['allowOverwrite', 'interactive', 'username', 'password', 'email', 'db']);
+        return array_merge(parent::options($actionId),
+            ['allowOverwrite', 'interactive', 'username', 'password', 'email', 'db']);
     }
 
     /**
@@ -94,7 +95,7 @@ class InitAdminController extends Controller
 
             echo "Miranda CMS Root User Init Tool\n";
             if (isset($this->db->dsn)) {
-                echo "Database Connection: ".$this->db->dsn."\n\n";
+                echo "Database Connection: " . $this->db->dsn . "\n\n";
             }
             return true;
         } else {
@@ -157,7 +158,7 @@ class InitAdminController extends Controller
             return;
         }
 
-        if ( ($this->interactive==false) or ($this->confirm("Create root user '{$this->username}' with password '{$this->password}' ?")) ) {
+        if (($this->interactive == false) or ($this->confirm("Create root user '{$this->username}' with password '{$this->password}' ?"))) {
 
             if (!$this->createUser($this->username, $this->password, $this->email)) {
                 echo "\nCreation failed.\n";
@@ -215,14 +216,14 @@ class InitAdminController extends Controller
     {
 
         if ($this->canUpdateRootUser()) {
-            $security      = new Security();
+            $security = new Security();
             $password_hash = $security->generatePasswordHash($password);
 
             $result = $this->db->createCommand()->update('{{%user}}', [
-                    'username' => $username,
-                    'password_hash' => $password_hash,
-                    'email' => $email,
-                    ], [ 'id' => '1'])->execute();
+                'username' => $username,
+                'password_hash' => $password_hash,
+                'email' => $email,
+            ], ['id' => '1'])->execute();
 
             if ($result > 0) {
                 return true;

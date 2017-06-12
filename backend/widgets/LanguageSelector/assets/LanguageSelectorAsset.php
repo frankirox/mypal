@@ -7,7 +7,7 @@ use yii\web\JqueryAsset;
 
 /**
  * Class LanguageSelectorAsset
- * 
+ *
  * @package common\widgets\assets
  */
 class LanguageSelectorAsset extends AssetBundle
@@ -18,5 +18,5 @@ class LanguageSelectorAsset extends AssetBundle
     public $css = [
         'css/language-selector.css',
     ];
-    
+
 }

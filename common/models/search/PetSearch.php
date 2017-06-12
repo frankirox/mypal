@@ -22,8 +22,20 @@ class PetSearch extends Pet
     public function rules()
     {
         return [
-            [['id', 'created_by', 'updated_by', 'age','status'], 'integer'],
-            [['sold_at_operand', 'created_at_operand', 'breed', 'name', 'age', 'sold_at', 'created_at', 'updated_at'], 'safe'],
+            [['id', 'created_by', 'updated_by', 'age', 'status'], 'integer'],
+            [
+                [
+                    'sold_at_operand',
+                    'created_at_operand',
+                    'breed',
+                    'name',
+                    'age',
+                    'sold_at',
+                    'created_at',
+                    'updated_at'
+                ],
+                'safe'
+            ],
         ];
     }
 
@@ -75,8 +87,16 @@ class PetSearch extends Pet
             'updated_by' => $this->updated_by,
         ]);
 
-        $query->andFilterWhere([($this->sold_at_operand) ? $this->sold_at_operand : '=', 'sold_at', ($this->sold_at) ? strtotime($this->sold_at) : null]);
-        $query->andFilterWhere([($this->created_at_operand) ? $this->created_at_operand : '=', 'created_at', ($this->created_at) ? strtotime($this->created_at) : null]);
+        $query->andFilterWhere([
+            ($this->sold_at_operand) ? $this->sold_at_operand : '=',
+            'sold_at',
+            ($this->sold_at) ? strtotime($this->sold_at) : null
+        ]);
+        $query->andFilterWhere([
+            ($this->created_at_operand) ? $this->created_at_operand : '=',
+            'created_at',
+            ($this->created_at) ? strtotime($this->created_at) : null
+        ]);
 
 
         $query->andFilterWhere(['like', 'name', $this->name])

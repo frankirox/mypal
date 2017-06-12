@@ -31,7 +31,8 @@ $this->registerCss($css);
     <div class="row">
         <div class="col-sm-12">
             <h3 class="lte-hide-title page-title"><?= Html::encode($this->title) ?></h3>
-            <?= Html::a(Yii::t('miranda', 'Edit'), ['update', 'id' => $item->name], ['class' => 'btn btn-sm btn-primary']) ?>
+            <?= Html::a(Yii::t('miranda', 'Edit'), ['update', 'id' => $item->name],
+                ['class' => 'btn btn-sm btn-primary']) ?>
             <?= Html::a(Yii::t('miranda', 'Create'), ['create'], ['class' => 'btn btn-sm btn-primary']) ?>
         </div>
     </div>
@@ -90,7 +91,8 @@ $this->registerCss($css);
                     <div class="row">
                         <div class="col-sm-3">
                             <?php if (User::hasPermission('manageRolesAndPermissions')): ?>
-                                <?= Html::submitButton(Yii::t('miranda', 'Save'), ['class' => 'btn btn-primary btn-sm']) ?>
+                                <?= Html::submitButton(Yii::t('miranda', 'Save'),
+                                    ['class' => 'btn btn-primary btn-sm']) ?>
                             <?php endif; ?>
                         </div>
 

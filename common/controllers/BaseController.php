@@ -45,7 +45,7 @@ abstract class BaseController extends Controller
 
             // If there is a post-request, redirect the application 
             // to the provided url of the selected language
-            if (Yii::$app->getRequest()->post('language', NULL)) {
+            if (Yii::$app->getRequest()->post('language', null)) {
                 $language = Yii::$app->miranda->getSourceLanguageShortcode(Yii::$app->getRequest()->post('language'));
 
                 if (!isset($languages[$language])) {
@@ -57,7 +57,7 @@ abstract class BaseController extends Controller
             }
 
             // Set the application lang if provided by GET, session or cookie
-            if ($language = Yii::$app->getRequest()->get('language', NULL)) {
+            if ($language = Yii::$app->getRequest()->get('language', null)) {
 
                 $language = Yii::$app->miranda->getSourceLanguageShortcode($language);
 
@@ -72,28 +72,32 @@ abstract class BaseController extends Controller
                     'value' => Yii::$app->session->get('language'),
                     'expire' => time() + 31536000 // a year
                 ]));
-            } else if (Yii::$app->session->has('language')) {
+            } else {
+                if (Yii::$app->session->has('language')) {
 
-                $language = Yii::$app->session->get('language');
-                $language = Yii::$app->miranda->getSourceLanguageShortcode($language);
+                    $language = Yii::$app->session->get('language');
+                    $language = Yii::$app->miranda->getSourceLanguageShortcode($language);
 
-                if (!isset($languages[$language])) {
-                    throw new NotFoundHttpException();
+                    if (!isset($languages[$language])) {
+                        throw new NotFoundHttpException();
+                    }
+
+                    Yii::$app->language = $language;
+
+                } else {
+                    if (isset(Yii::$app->request->cookies['language'])) {
+
+                        $language = Yii::$app->request->cookies['language']->value;
+                        $language = Yii::$app->miranda->getSourceLanguageShortcode($language);
+
+                        if (!isset($languages[$language])) {
+                            throw new NotFoundHttpException();
+                        }
+
+                        Yii::$app->language = $language;
+
+                    }
                 }
-
-                Yii::$app->language = $language;
-
-            } else if (isset(Yii::$app->request->cookies['language'])) {
-
-                $language = Yii::$app->request->cookies['language']->value;
-                $language = Yii::$app->miranda->getSourceLanguageShortcode($language);
-
-                if (!isset($languages[$language])) {
-                    throw new NotFoundHttpException();
-                }
-
-                Yii::$app->language = $language;
-
             }
 
             Yii::$app->formatter->locale = Yii::$app->language;

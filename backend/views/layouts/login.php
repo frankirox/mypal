@@ -44,8 +44,9 @@ $background = $assetBundle->baseUrl . '/images/congruent_pentagon.png';
         <div style="padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 1%;">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h1 id="login-title"><?= Html::img($logo, ['class' => 'admin-logo', 'alt' => Yii::$app->name ]) ?>
-                        <?= Yii::$app->name ?> <span style="font-size: 12px"><?= \common\components\Miranda::VERSION ?></span>
+                    <h1 id="login-title"><?= Html::img($logo, ['class' => 'admin-logo', 'alt' => Yii::$app->name]) ?>
+                        <?= Yii::$app->name ?> <span
+                                style="font-size: 12px"><?= \common\components\Miranda::VERSION ?></span>
                     </h1>
                 </div>
             </div>

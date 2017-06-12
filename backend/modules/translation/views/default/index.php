@@ -16,12 +16,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h3><?= Html::encode($this->title) ?></h3>
             </div>
             <div class="col-sm-4 text-right">
-                <?= Html::a(Yii::t('miranda/translation', 'Add New Source Message'), ['/translation/source/create'], ['class' => 'btn btn-sm btn-primary']) ?>
+                <?= Html::a(Yii::t('miranda/translation', 'Add New Source Message'), ['/translation/source/create'],
+                    ['class' => 'btn btn-sm btn-primary']) ?>
             </div>
         </div>
 
         <hr>
-        
+
         <div class="row">
             <div class="col-md-4">
                 <div class="panel panel-default">
@@ -32,13 +33,19 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <li>
                                     <h4>
                                         <b>[<?= strtoupper($category) ?>]</b>
-                                        <?= Yii::t('miranda/translation', '{n, plural, =1{1 message} other{# messages}}', ['n' => $count]) ?>
+                                        <?= Yii::t('miranda/translation',
+                                            '{n, plural, =1{1 message} other{# messages}}', ['n' => $count]) ?>
                                     </h4>
 
                                     <?php foreach ($languages as $language => $languageLabel) : ?>
-                                        <?php $link = ['/translation/default/index', 'category' => $category, 'translation' => $language] ?>
+                                        <?php $link = [
+                                            '/translation/default/index',
+                                            'category' => $category,
+                                            'translation' => $language
+                                        ] ?>
                                         <?php $options = (($currentLanguage == $language) && ($currentCategory == $category)) ? ['class' => 'active'] : [] ?>
-                                        <?= Html::a("<span class='label label-default'>$languageLabel</span>", $link, $options) ?>
+                                        <?= Html::a("<span class='label label-default'>$languageLabel</span>", $link,
+                                            $options) ?>
                                     <?php endforeach; ?>
 
                                 </li>
@@ -55,7 +62,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         <?php if (!$currentLanguage || !$currentCategory): ?>
                             <h4>
-                                <?= Yii::t('miranda/translation', 'Please, select message group and language to view translations...') ?>
+                                <?= Yii::t('miranda/translation',
+                                    'Please, select message group and language to view translations...') ?>
                             </h4>
                         <?php else: ?>
 
@@ -65,11 +73,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?php
                                 $links = '';
                                 if (User::hasPermission('updateSourceMessages') && (!$message->source->immutable || User::hasPermission('updateImmutableSourceMessages'))) {
-                                    $links .= ' ' . Html::a('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>', ['/translation/source/update', 'id' => $message->source_id]);
+                                    $links .= ' ' . Html::a('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>',
+                                            ['/translation/source/update', 'id' => $message->source_id]);
                                 }
                                 ?>
 
-                                <?= $form->field($message, "[$index]translation")->label($message->source->message . $links) ?>
+                                <?= $form->field($message,
+                                    "[$index]translation")->label($message->source->message . $links) ?>
 
                             <?php endforeach; ?>
 

@@ -33,22 +33,35 @@ $this->title = Yii::t('miranda/auth', 'Authorization');
                         ])
                         ?>
 
-                        <?= $form->field($model, 'username')->textInput(['placeholder' => $model->getAttributeLabel('username'), 'autocomplete' => 'off']) ?>
+                        <?= $form->field($model, 'username')->textInput([
+                            'placeholder' => $model->getAttributeLabel('username'),
+                            'autocomplete' => 'off'
+                        ]) ?>
 
-                        <?= $form->field($model, 'password')->passwordInput(['placeholder' => $model->getAttributeLabel('password'), 'autocomplete' => 'off']) ?>
+                        <?= $form->field($model, 'password')->passwordInput([
+                            'placeholder' => $model->getAttributeLabel('password'),
+                            'autocomplete' => 'off'
+                        ]) ?>
 
                         <?= $form->field($model, 'rememberMe')->checkbox(['value' => true]) ?>
 
-                        <?= Html::submitButton(Yii::t('miranda/auth', 'Login'), ['class' => 'btn btn-lg btn-success btn-block']) ?>
+                        <?= Html::submitButton(Yii::t('miranda/auth', 'Login'),
+                            ['class' => 'btn btn-lg btn-success btn-block']) ?>
 
                         <br>
 
                         <div class="row">
                             <div class="col-sm-6 text-left">
-                                <?=  \common\widgets\LanguageSelector::widget(['display' => 'label', 'view' => 'pills']); ?>
+                                <?= \common\widgets\LanguageSelector::widget([
+                                    'display' => 'label',
+                                    'view' => 'pills'
+                                ]); ?>
                             </div>
                             <div class="col-sm-6 text-right">
-                                <?= Html::a(Yii::t('miranda/auth', "Forgot password?"), ['default/reset-password', 'language' =>  Yii::$app->miranda->getDisplayLanguageShortcode(Yii::$app->language)]) ?>
+                                <?= Html::a(Yii::t('miranda/auth', "Forgot password?"), [
+                                    'default/reset-password',
+                                    'language' => Yii::$app->miranda->getDisplayLanguageShortcode(Yii::$app->language)
+                                ]) ?>
                             </div>
                         </div>
 

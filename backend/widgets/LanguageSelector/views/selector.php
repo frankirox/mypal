@@ -8,14 +8,14 @@ use yii\helpers\ArrayHelper;
 ?>
 
 <ul class="dropdown-menu dropdown-usermenu" id="front-end-dorpdown-menu">
-        <?php foreach ($languages as $key => $lang) : ?>
+    <?php foreach ($languages as $key => $lang) : ?>
 
-            <?php $link = Yii::$app->urlManager->createUrl(ArrayHelper::merge($params, [$url, 'language' => $key])); ?>
+        <?php $link = Yii::$app->urlManager->createUrl(ArrayHelper::merge($params, [$url, 'language' => $key])); ?>
 
-            <li role="language">
-                <a href="<?= $link ?>"><?= $lang ?></a>
-            </li>
+        <li role="language">
+            <a href="<?= $link ?>"><?= $lang ?></a>
+        </li>
 
-        <?php endforeach; ?>
+    <?php endforeach; ?>
 </ul>
 

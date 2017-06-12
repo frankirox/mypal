@@ -1,4 +1,5 @@
 <?php
+
 namespace common\behaviors;
 
 use yii\db\ActiveRecord;
@@ -18,7 +19,7 @@ class SortableModel extends \yii\base\Behavior
 
     public function findMaxOrderNum()
     {
-        if(!$this->owner->order_num) {
+        if (!$this->owner->order_num) {
             $maxOrderNum = (int)(new \yii\db\Query())
                 ->select('MAX(`order_num`)')
                 ->from($this->owner->tableName())

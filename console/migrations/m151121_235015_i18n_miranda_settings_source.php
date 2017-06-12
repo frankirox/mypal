@@ -16,7 +16,7 @@ class m151121_235015_i18n_miranda_settings_source extends SourceMessagesMigratio
             'General Settings' => 1,
             'Reading Settings' => 1,
             'Contact Settings' => 1,
-            'Social Settings'  => 1,
+            'Social Settings' => 1,
             'Site Title' => 1,
             'Site Description' => 1,
             'Admin Email' => 1,

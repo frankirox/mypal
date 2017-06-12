@@ -53,13 +53,13 @@ class AuthModule extends \yii\base\Module
             $this->attributeParsers = [];
         }
 
-        $this->attributeParsers = ArrayHelper::merge(self::getDefaultAttributeParsers(), $this->attributeParsers) ;
+        $this->attributeParsers = ArrayHelper::merge(self::getDefaultAttributeParsers(), $this->attributeParsers);
     }
 
     public static function getDefaultAttributeParsers()
     {
         return [
-            'google' => function($attributes) {
+            'google' => function ($attributes) {
                 $result['source'] = 'google';
                 $result['source_id'] = ArrayHelper::getValue($attributes, 'id');
                 $result['email'] = ArrayHelper::getValue($attributes, 'emails.0.value');
@@ -69,7 +69,7 @@ class AuthModule extends \yii\base\Module
                 $result['last_name'] = ArrayHelper::getValue($attributes, 'name.familyName');
                 return $result;
             },
-            'facebook' => function($attributes) {
+            'facebook' => function ($attributes) {
                 $result['source'] = 'facebook';
                 $result['source_id'] = ArrayHelper::getValue($attributes, 'id');
                 $result['email'] = ArrayHelper::getValue($attributes, 'email');
@@ -77,7 +77,7 @@ class AuthModule extends \yii\base\Module
                 $result['username'] = Inflector::slug($username, '_');
                 return $result;
             },
-            'twitter' => function($attributes) {
+            'twitter' => function ($attributes) {
                 $result['source'] = 'twitter';
                 $result['source_id'] = ArrayHelper::getValue($attributes, 'id');
                 $result['email'] = null;
@@ -86,7 +86,7 @@ class AuthModule extends \yii\base\Module
                 $result['first_name'] = ArrayHelper::getValue($attributes, 'name');
                 return $result;
             },
-            'github' => function($attributes) {
+            'github' => function ($attributes) {
                 $result['source'] = 'github';
                 $result['source_id'] = ArrayHelper::getValue($attributes, 'id');
                 $result['email'] = ArrayHelper::getValue($attributes, 'email');
@@ -94,7 +94,7 @@ class AuthModule extends \yii\base\Module
                 $result['username'] = Inflector::slug($username, '_');
                 return $result;
             },
-            'linkedin' => function($attributes) {
+            'linkedin' => function ($attributes) {
                 $result['source'] = 'linkedin';
                 $result['source_id'] = ArrayHelper::getValue($attributes, 'id');
                 $result['email'] = ArrayHelper::getValue($attributes, 'email');
@@ -102,7 +102,7 @@ class AuthModule extends \yii\base\Module
                 $result['username'] = Inflector::slug($username, '_');
                 return $result;
             },
-            'vkontakte' => function($attributes) {
+            'vkontakte' => function ($attributes) {
                 $result['source'] = 'vkontakte';
                 $result['source_id'] = ArrayHelper::getValue($attributes, 'id');
                 $result['email'] = ArrayHelper::getValue($attributes, 'email');
@@ -113,9 +113,9 @@ class AuthModule extends \yii\base\Module
                 $result['username'] = Inflector::slug($username, '_');
 
                 $gender = ArrayHelper::getValue($attributes, 'sex');
-                if($gender == 2){
+                if ($gender == 2) {
                     $result['gender'] = User::GENDER_MALE;
-                } elseif($gender == 1){
+                } elseif ($gender == 1) {
                     $result['gender'] = User::GENDER_FEMALE;
                 } else {
                     $result['gender'] = User::GENDER_NOT_SET;

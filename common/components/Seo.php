@@ -22,23 +22,23 @@ class Seo extends Component
      *
      * @var string cache key
      */
-    public $cacheKey     = 'settings';
+    public $cacheKey = 'settings';
 
     public $fields = ['title', 'author', 'keywords', 'description', 'index', 'follow'];
-    
+
     public $title;
     public $author;
     public $keywords;
     public $description;
-    public $index        = true;
-    public $follow       = true;
+    public $index = true;
+    public $follow = true;
     public $isMetaLoaded = false;
 
     public function loadMetaTags($preferUrlWithParams = true)
     {
         $request = Yii::$app->getRequest();
-        $path    = '/'.$request->getPathInfo();
-        $url     = $request->getUrl();
+        $path = '/' . $request->getPathInfo();
+        $url = $request->getUrl();
 
         $preferOrder = ($preferUrlWithParams) ? 'DESC' : 'ASC';
 

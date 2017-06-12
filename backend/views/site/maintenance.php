@@ -70,12 +70,14 @@ $this->registerCss("
 
 <div class="col-middle">
     <div class="text-center">
-        <i class="fa fa-cog fa-spin-custom" style="font-size: 272px; color: #ccc;"></i> <i class="fa fa-cog fa-spin-custom-inverse" style="font-size: 172px; color: #ccc;"></i>
-        <h1><?= Yii::t('miranda', 'Under Maintenance')?></h1>
+        <i class="fa fa-cog fa-spin-custom" style="font-size: 272px; color: #ccc;"></i> <i
+                class="fa fa-cog fa-spin-custom-inverse" style="font-size: 172px; color: #ccc;"></i>
+        <h1><?= Yii::t('miranda', 'Under Maintenance') ?></h1>
         <p>
-            <?= Yii::t('miranda', 'We are working hard for you and will return in a few minutes...')?>
+            <?= Yii::t('miranda', 'We are working hard for you and will return in a few minutes...') ?>
         </p>
         <br>
-        <?= \yii\helpers\Html::a(Yii::t('miranda', 'Try again'), \yii\helpers\Url::toRoute('/site/index'),['class' => 'btn btn-lg btn-success']); ?>
+        <?= \yii\helpers\Html::a(Yii::t('miranda', 'Try again'), \yii\helpers\Url::toRoute('/site/index'),
+            ['class' => 'btn btn-lg btn-success']); ?>
     </div>
 </div>

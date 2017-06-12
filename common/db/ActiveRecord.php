@@ -7,7 +7,7 @@ namespace common\db;
  */
 class ActiveRecord extends \yii\db\ActiveRecord
 {
-    /** @var string  */
+    /** @var string */
     public static $SLUG_PATTERN = '/^[0-9a-z-]{0,128}$/';
 
     /*public function behaviors()
@@ -24,7 +24,7 @@ class ActiveRecord extends \yii\db\ActiveRecord
      */
     public function isMultilingual()
     {
-        return ($this->getBehavior('multilingual') !== NULL);
+        return ($this->getBehavior('multilingual') !== null);
     }
 
     /**
@@ -43,8 +43,8 @@ class ActiveRecord extends \yii\db\ActiveRecord
     public function formatErrors()
     {
         $result = '';
-        foreach($this->getErrors() as $attribute => $errors) {
-            $result .= implode(" ", $errors)." ";
+        foreach ($this->getErrors() as $attribute => $errors) {
+            $result .= implode(" ", $errors) . " ";
         }
         return $result;
     }

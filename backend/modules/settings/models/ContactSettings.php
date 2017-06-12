@@ -27,8 +27,8 @@ class ContactSettings extends BaseSettingsModel
     {
         return ArrayHelper::merge(parent::rules(),
             [
-                [['address','phone','whatsapp','skype','google_maps_url'], 'string'],
-                ['email','email'],
+                [['address', 'phone', 'whatsapp', 'skype', 'google_maps_url'], 'string'],
+                ['email', 'email'],
             ]);
     }
 

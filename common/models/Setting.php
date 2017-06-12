@@ -3,6 +3,7 @@
 namespace common\models;   //common\models;
 
 use Yii;
+
 /**
  * This is the model class for table "setting".
  *
@@ -66,7 +67,7 @@ class Setting extends \common\db\ActiveRecord
      * @param type $key
      * @return type
      */
-    public static function getSetting($group, $key, $language = NULL)
+    public static function getSetting($group, $key, $language = null)
     {
         return self::findOne(['group' => $group, 'key' => $key, 'language' => $language]);
     }

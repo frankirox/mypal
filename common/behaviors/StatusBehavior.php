@@ -1,4 +1,5 @@
 <?php
+
 namespace common\behaviors;
 
 use Yii;
@@ -15,11 +16,10 @@ class StatusBehavior extends \yii\base\Behavior
     {
         $modelClass = $this->model;
 
-        if(($model = $modelClass::findOne($id))){
+        if (($model = $modelClass::findOne($id))) {
             $model->status = $status;
             $model->update();
-        }
-        else{
+        } else {
             $this->error = Yii::t('easyii', 'Not found');
         }
 

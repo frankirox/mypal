@@ -16,7 +16,8 @@ class ActiveForm extends \yii\bootstrap\ActiveForm
         $fields = [];
 
         $isMultilingualOption = (isset($options['multilingual']) && $options['multilingual']);
-        $isMultilingualAttribute = (method_exists($model, 'isMultilingual') && $model->isMultilingual() && $model->hasLangAttribute($attribute));
+        $isMultilingualAttribute = (method_exists($model,
+                'isMultilingual') && $model->isMultilingual() && $model->hasLangAttribute($attribute));
 
         if ($isMultilingualOption || $isMultilingualAttribute) {
             $languages = array_keys(Yii::$app->miranda->languages);

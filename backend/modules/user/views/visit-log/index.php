@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <hr>
-                
+
                 <?php
                 Pjax::begin([
                     'id' => 'user-visit-log-grid-pjax',
@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     ['view', 'id' => $model->id], ['data-pjax' => 0]);
                             },
                             'buttonOptions' => [
-                                'class'   => 'btn btn-xs btn-default',
+                                'class' => 'btn btn-xs btn-default',
                             ],
                             'buttonsTemplate' => ''
                         ],

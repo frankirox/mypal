@@ -39,7 +39,7 @@ class DefaultController extends BaseController
         $model = new CreateUserForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
+
             return $this->redirect(['/user/default/index']);
         }
 

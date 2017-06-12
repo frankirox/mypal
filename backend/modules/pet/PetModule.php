@@ -27,7 +27,7 @@ class PetModule extends \yii\base\Module
      *
      * @var string
      */
-    public $post_table          = '{{%post}}';
+    public $post_table = '{{%post}}';
     public $controllerNamespace = 'backend\modules\pet\controllers';
     public $viewList;
     public $layoutList;
@@ -89,7 +89,7 @@ class PetModule extends \yii\base\Module
      *
      * @var string
      */
-    public $thumbnailSize =  'medium';
+    public $thumbnailSize = 'medium';
 
     /**
      * Default views and layouts
@@ -111,7 +111,7 @@ class PetModule extends \yii\base\Module
      */
     public function init()
     {
-        if(in_array($this->thumbnailSize, [])){
+        if (in_array($this->thumbnailSize, [])) {
             $this->thumbnailSize = 'medium';
         }
 

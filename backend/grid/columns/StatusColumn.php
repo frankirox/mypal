@@ -74,9 +74,11 @@ class StatusColumn extends DataColumn
         $this->setDefaultOptions();
 
         if ($this->toggleUrl) {
-            if ($this->withPjax)
+            if ($this->withPjax) {
                 $this->grid->view->registerJs($this->jsWithPjax());
-            else $this->grid->view->registerJs($this->jsWithoutPjax());
+            } else {
+                $this->grid->view->registerJs($this->jsWithoutPjax());
+            }
         }
 
         $this->initOptions();
@@ -138,8 +140,9 @@ class StatusColumn extends DataColumn
      */
     protected function setDefaultOptions()
     {
-        if ($this->withPjax AND !$this->pjaxId)
+        if ($this->withPjax AND !$this->pjaxId) {
             $this->pjaxId = $this->grid->id . '-pjax';
+        }
     }
 
     /**

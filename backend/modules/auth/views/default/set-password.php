@@ -29,7 +29,8 @@ $this->title = Yii::t('miranda/auth', 'Set Password');
 
                         <?= $form->field($model, 'repeat_password')->passwordInput(['maxlength' => 255]) ?>
 
-                        <?= Html::submitButton(Yii::t('miranda', 'Update'), ['class' => 'btn btn-lg btn-primary btn-block']) ?>
+                        <?= Html::submitButton(Yii::t('miranda', 'Update'),
+                            ['class' => 'btn btn-lg btn-primary btn-block']) ?>
 
                         <?php ActiveForm::end() ?>
                     </div>

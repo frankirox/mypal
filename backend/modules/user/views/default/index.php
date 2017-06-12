@@ -25,7 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <h3><?= Html::encode($this->title) ?></h3>
         </div>
         <div class="col-sm-4 text-right">
-            <?= Html::a(Yii::t('miranda', 'Add New'), ['/user/default/create'], ['class' => 'btn btn-sm btn-primary']) ?>
+            <?= Html::a(Yii::t('miranda', 'Add New'), ['/user/default/create'],
+                ['class' => 'btn btn-sm btn-primary']) ?>
         </div>
     </div>
 
@@ -46,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <hr>
-            
+
             <?php
             Pjax::begin([
                 'id' => 'user-grid-pjax',
@@ -69,19 +70,20 @@ $this->params['breadcrumbs'][] = $this->title;
                         'class' => 'backend\grid\columns\TitleActionColumn',
                         'title' => function (User $model) {
                             if (User::hasPermission('editUsers')) {
-                                return Html::a($model->username, ['/user/default/update', 'id' => $model->id], ['data-pjax' => 0]);
+                                return Html::a($model->username, ['/user/default/update', 'id' => $model->id],
+                                    ['data-pjax' => 0]);
                             } else {
                                 return $model->username;
                             }
                         },
                         'buttonOptions' => [
-                            'class'   => 'btn btn-xs btn-default',
+                            'class' => 'btn btn-xs btn-default',
                         ],
                         'buttonsTemplate' => '{update} {delete} {permissions} {password}',
                         'buttons' => [
                             'permissions' => function ($url, $model, $key) {
 
-                                if($model->superadmin){
+                                if ($model->superadmin) {
 
                                     return null;
                                 }
@@ -89,7 +91,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return Html::a(Yii::t('miranda/user', 'Permissions'),
                                     Url::to(['user-permission/set', 'id' => $model->id]), [
                                         'title' => Yii::t('miranda/user', 'Permissions'),
-                                        'class'   => 'btn btn-xs btn-default',
+                                        'class' => 'btn btn-xs btn-default',
                                         'data-pjax' => '0'
                                     ]
                                 );
@@ -98,7 +100,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return Html::a(Yii::t('miranda/user', 'Password'),
                                     Url::to(['default/change-password', 'id' => $model->id]), [
                                         'title' => Yii::t('miranda/user', 'Password'),
-                                        'class'   => 'btn btn-xs btn-default',
+                                        'class' => 'btn btn-xs btn-default',
                                         'data-pjax' => '0'
                                     ]
                                 );
@@ -122,14 +124,15 @@ $this->params['breadcrumbs'][] = $this->title;
                             'name', 'description'),
                         'value' => function (User $model) {
 
-                            if($model->superadmin){
+                            if ($model->superadmin) {
 
                                 return Yii::t('miranda', 'All');
                             }
 
-                            return implode(', ', ArrayHelper::map(Role::getUserRoles($model->id),'name', function($model){
-                                return ucfirst($model->name);
-                            }));
+                            return implode(', ',
+                                ArrayHelper::map(Role::getUserRoles($model->id), 'name', function ($model) {
+                                    return ucfirst($model->name);
+                                }));
                         },
                         'format' => 'raw',
                         'visible' => User::hasPermission('viewUserRoles'),

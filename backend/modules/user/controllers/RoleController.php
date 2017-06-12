@@ -54,7 +54,8 @@ class RoleController extends BaseController
 
         $currentPermissions = $currentRoutesAndPermissions->permissions;
 
-        return $this->renderIsAjax('view', compact('role', 'allRoles', 'childRoles', 'currentPermissions', 'permissionsByGroup'));
+        return $this->renderIsAjax('view',
+            compact('role', 'allRoles', 'childRoles', 'currentPermissions', 'permissionsByGroup'));
     }
 
     /**

@@ -12,14 +12,14 @@ class TimezoneSelect extends \yii\bootstrap\Widget
     public $attribute;
     public $timezones = [];
     public $hint;
-    public $allowEmpty =  false;
+    public $allowEmpty = false;
 
     public function init()
     {
         parent::init();
 
-        if(empty($this->timezones)){
-            
+        if (empty($this->timezones)) {
+
             $list = \DateTimeZone::listIdentifiers();
             for ($i = 0; $i < count($list); $i++) {
                 $this->timezones[$list[$i]] = $list[$i];

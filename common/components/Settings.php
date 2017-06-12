@@ -84,7 +84,7 @@ class Settings extends Component
      * @param null $default Default value
      * @return mixed
      */
-    public function get($key, $default = NULL, $language = NULL)
+    public function get($key, $default = null, $language = null)
     {
         $key = self::explodeKey($key);
 
@@ -115,12 +115,12 @@ class Settings extends Component
      * @param $description - description field in order of creating new setting field
      * @return boolean
      */
-    public function set($key, $value, $description = NULL)
+    public function set($key, $value, $description = null)
     {
         $model = $this->modelClass;
         $key = self::explodeKey($key);
 
-        $language = isset($key[2]) ? $key[2] : NULL;
+        $language = isset($key[2]) ? $key[2] : null;
         $group = $key[0];
         $key = $key[1];
 
@@ -165,7 +165,7 @@ class Settings extends Component
 
 
         if (!is_dir($frontendRuntimeCachePath)) {
-            @mkdir($frontendRuntimeCachePath );
+            @mkdir($frontendRuntimeCachePath);
             @chmod("$frontendRuntimeCachePath", 0777);
         }
 
@@ -190,7 +190,7 @@ class Settings extends Component
      * @param type $default Default value
      * @return mixed
      */
-    public function getFromDB($group, $key, $language = NULL, $default = NULL)
+    public function getFromDB($group, $key, $language = null, $default = null)
     {
         $model = $this->modelClass;
         $setting = $model::getSetting($group, $key, $language);
@@ -203,9 +203,9 @@ class Settings extends Component
      * @param string $group Setting group
      * @param string $key Setting key
      */
-    protected function load($group, $key, $language = NULL)
+    protected function load($group, $key, $language = null)
     {
-        $value = NULL;
+        $value = null;
 
         if ($this->cache instanceof Cache) {
             $value = $this->cache->get($this->cacheKey . $group . $key . $language);
@@ -218,7 +218,7 @@ class Settings extends Component
             $value = $this->getFromDB($group, $key, $language);
         }
 
-        if ($value !== NULL) {
+        if ($value !== null) {
             $this->_data[$group][$key][$language] = $value;
         }
     }

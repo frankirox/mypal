@@ -14,7 +14,7 @@ class DefaultController extends BaseController
 {
     public $modelClass = 'common\models\Pet';
     public $modelSearchClass = 'common\models\search\PetSearch';
-    public $enableOnlyActions = ['index','validate','create','update'];
+    public $enableOnlyActions = ['index', 'validate', 'create', 'update'];
 
     protected function getRedirectPage($action, $model = null)
     {

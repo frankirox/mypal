@@ -3,7 +3,7 @@
 namespace common\db;
 
 /**
- * This class helps to create migrations for modules permissions. 
+ * This class helps to create migrations for modules permissions.
  */
 abstract class PermissionsMigration extends \yii\db\Migration
 {
@@ -23,22 +23,31 @@ abstract class PermissionsMigration extends \yii\db\Migration
 
         //Insert new items
         foreach ($params as $group => $permissions) {
-            
+
             //Insert general links
             if (isset($permissions['links'])) {
                 foreach ($permissions['links'] as $link) {
-                    $this->insert(self::AUTH_ITEM_TABLE, ['name' => $link, 'type' => '3', 'created_at' => time(), 'updated_at' => time()]);
+                    $this->insert(self::AUTH_ITEM_TABLE,
+                        ['name' => $link, 'type' => '3', 'created_at' => time(), 'updated_at' => time()]);
                 }
                 unset($permissions['links']);
             }
 
             foreach ($permissions as $code => $permission) {
                 $title = (isset($permission['title'])) ? $permission['title'] : '';
-                $this->insert(self::AUTH_ITEM_TABLE, ['name' => $code, 'group_code' => $group, 'description' => $title, 'type' => '2', 'created_at' => time(), 'updated_at' => time()]);
+                $this->insert(self::AUTH_ITEM_TABLE, [
+                    'name' => $code,
+                    'group_code' => $group,
+                    'description' => $title,
+                    'type' => '2',
+                    'created_at' => time(),
+                    'updated_at' => time()
+                ]);
 
                 if (isset($permission['links'])) {
                     foreach ($permission['links'] as $link) {
-                        $this->insert(self::AUTH_ITEM_TABLE, ['name' => $link, 'type' => '3', 'created_at' => time(), 'updated_at' => time()]);
+                        $this->insert(self::AUTH_ITEM_TABLE,
+                            ['name' => $link, 'type' => '3', 'created_at' => time(), 'updated_at' => time()]);
                     }
                 }
             }
@@ -79,7 +88,7 @@ abstract class PermissionsMigration extends \yii\db\Migration
 
         //Delete Link created items
         foreach ($params as $group => $permissions) {
-            
+
             //Delete general links
             if (isset($permissions['links'])) {
                 foreach ($permissions['links'] as $link) {
@@ -131,7 +140,7 @@ abstract class PermissionsMigration extends \yii\db\Migration
      * All items except permissions groups and roles will be created automatically.
      *
      * Example of settings that may be returned by this method:
-     * 
+     *
      * ```
      * 'groupCode' => [
      *   'links' => [
@@ -162,7 +171,7 @@ abstract class PermissionsMigration extends \yii\db\Migration
 
     /**
      * Executes before up method.
-     * 
+     *
      * @return mixed
      */
     public function beforeUp()
@@ -172,7 +181,7 @@ abstract class PermissionsMigration extends \yii\db\Migration
 
     /**
      * Executes after up method.
-     * 
+     *
      * @return mixed
      */
     public function afterUp()
@@ -182,7 +191,7 @@ abstract class PermissionsMigration extends \yii\db\Migration
 
     /**
      * Executes before down method.
-     * 
+     *
      * @return mixed
      */
     public function beforeDown()
@@ -192,7 +201,7 @@ abstract class PermissionsMigration extends \yii\db\Migration
 
     /**
      * Executes after down method.
-     * 
+     *
      * @return mixed
      */
     public function afterDown()
@@ -202,18 +211,19 @@ abstract class PermissionsMigration extends \yii\db\Migration
 
     /**
      * Creates new permissions group.
-     * 
+     *
      * @param string $code
      * @param string $name
      */
     public function addPermissionsGroup($code, $name)
     {
-        $this->insert(self::AUTH_ITEM_GROUP_TABLE, ['code' => $code, 'name' => $name, 'created_at' => time(), 'updated_at' => time()]);
+        $this->insert(self::AUTH_ITEM_GROUP_TABLE,
+            ['code' => $code, 'name' => $name, 'created_at' => time(), 'updated_at' => time()]);
     }
 
     /**
      * Deletes permissions group.
-     * 
+     *
      * @param string $code
      */
     public function deletePermissionsGroup($code)
@@ -223,18 +233,24 @@ abstract class PermissionsMigration extends \yii\db\Migration
 
     /**
      * Creates new role.
-     * 
+     *
      * @param string $name
      * @param string $description
      */
     public function addRole($name, $description)
     {
-        $this->insert(self::AUTH_ITEM_TABLE, ['name' => $name, 'type' => '1', 'description' => $description, 'created_at' => time(), 'updated_at' => time()]);
+        $this->insert(self::AUTH_ITEM_TABLE, [
+            'name' => $name,
+            'type' => '1',
+            'description' => $description,
+            'created_at' => time(),
+            'updated_at' => time()
+        ]);
     }
 
     /**
      * Deletes role.
-     * 
+     *
      * @param string $name
      */
     public function deleteRole($name)

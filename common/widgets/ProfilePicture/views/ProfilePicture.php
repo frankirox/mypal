@@ -248,7 +248,7 @@ $(function() {
 JS;
 
 
-$this->registerJs($js,\yii\web\View::POS_END,'imgSelectJS')
+$this->registerJs($js, \yii\web\View::POS_END, 'imgSelectJS')
 
 ?>
 
@@ -277,10 +277,17 @@ $this->registerJs($js,\yii\web\View::POS_END,'imgSelectJS')
                     <input type="hidden" id="h">
 
                     <div class="imgSelect-actions">
-                        <button type="button" class="btn btn-primary btn-small save" onclick="imgSelect.save()">Save Image</button>
-                        <button type="button" class="btn btn-primary btn-small new-snap" onclick="imgSelect.newWebcam()">New Snapshot</button>
-                        <button type="button" class="btn btn-primary btn-small capture" onClick="imgSelect.webcamSnap()">Capture</button>
-                        <button type="button" class="btn btn-default btn-small" onClick="imgSelect.cancel()">Cancel</button>
+                        <button type="button" class="btn btn-primary btn-small save" onclick="imgSelect.save()">Save
+                            Image
+                        </button>
+                        <button type="button" class="btn btn-primary btn-small new-snap"
+                                onclick="imgSelect.newWebcam()">New Snapshot
+                        </button>
+                        <button type="button" class="btn btn-primary btn-small capture"
+                                onClick="imgSelect.webcamSnap()">Capture
+                        </button>
+                        <button type="button" class="btn btn-default btn-small" onClick="imgSelect.cancel()">Cancel
+                        </button>
                     </div>
                 </div>
 
@@ -296,7 +303,8 @@ $this->registerJs($js,\yii\web\View::POS_END,'imgSelectJS')
 
         <div class="row">
             <div class="col-md-12">
-                <img src="<?= $model->{$attribute}?>" width="200" height="200" class="img img-thumbnail <?= $imgReplacingClass ?>">
+                <img src="<?= $model->{$attribute} ?>" width="200" height="200"
+                     class="img img-thumbnail <?= $imgReplacingClass ?>">
             </div>
         </div>
 
@@ -313,7 +321,6 @@ $this->registerJs($js,\yii\web\View::POS_END,'imgSelectJS')
                 <button type="button" class="btn btn-success btn-block" onclick="imgSelect.webcam()">Webcam</button>
             </div>
         </div>
-
 
 
     </div>

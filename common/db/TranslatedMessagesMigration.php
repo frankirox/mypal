@@ -16,8 +16,10 @@ abstract class TranslatedMessagesMigration extends Migration
 
         foreach ($messages as $message => $translation) {
             if (isset($sources[$message])) {
-                $this->delete('{{%message}}', ['source_id' => $sources[$message]->id, 'language' => $language]); //Delete if exists
-                $this->insert('{{%message}}', ['source_id' => $sources[$message]->id, 'translation' => $translation, 'language' => $language]);
+                $this->delete('{{%message}}',
+                    ['source_id' => $sources[$message]->id, 'language' => $language]); //Delete if exists
+                $this->insert('{{%message}}',
+                    ['source_id' => $sources[$message]->id, 'translation' => $translation, 'language' => $language]);
             }
         }
     }

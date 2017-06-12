@@ -1,4 +1,5 @@
 <?php
+
 namespace backend\modules\user\forms;
 
 use common\models\User;
@@ -40,7 +41,6 @@ use yii\helpers\VarDumper;
  * @property string $newPasswordConfirmation
  *
  */
-
 class UpdateAccountForm extends Model
 {
 
@@ -147,28 +147,28 @@ class UpdateAccountForm extends Model
     public function attributeLabels()
     {
         return [
-            'document_id'               => Yii::t('miranda/profile', 'Document ID'),
-            'merchant_id'               => Yii::t('miranda/profile', 'Merchant ID'),
-            'title'                     => Yii::t('miranda/profile', 'Title'),
-            'gender'                    => Yii::t('miranda/profile', 'Gender'),
-            'birthday'                  => Yii::t('miranda/profile', 'Birthday'),
-            'first_name'                => Yii::t('miranda/profile', 'Firstname'),
-            'last_name'                 => Yii::t('miranda/profile', 'Lastname'),
-            'phone_1'                   => Yii::t('miranda/profile', 'Phone #1'),
-            'phone_2'                   => Yii::t('miranda/profile', 'Phone #2'),
-            'phone_3'                   => Yii::t('miranda/profile', 'Phone #3'),
-            'skype'                     => Yii::t('miranda/profile', 'Skype'),
-            'notes'                     => Yii::t('miranda/profile', 'Notes'),
-            'country'                   => Yii::t('miranda/profile', 'Country'),
-            'language'                  => Yii::t('miranda/profile', 'Language'),
-            'timezone'                  => Yii::t('miranda/profile', 'Timezone'),
-            'updated_at'                => Yii::t('miranda/profile', 'Updated At'),
-            'updated_by'                => Yii::t('miranda/profile', 'Updated By'),
-            'email'                     => Yii::t('miranda/profile', 'Email'),
-            'username'                  => Yii::t('miranda/profile', 'Username'),
-            'currentPassword'           => Yii::t('miranda/profile', 'Current Password'),
-            'newPassword'               => Yii::t('miranda/profile', 'New Password'),
-            'newPasswordConfimation'    => Yii::t('miranda/profile', 'New Password Confirmation'),
+            'document_id' => Yii::t('miranda/profile', 'Document ID'),
+            'merchant_id' => Yii::t('miranda/profile', 'Merchant ID'),
+            'title' => Yii::t('miranda/profile', 'Title'),
+            'gender' => Yii::t('miranda/profile', 'Gender'),
+            'birthday' => Yii::t('miranda/profile', 'Birthday'),
+            'first_name' => Yii::t('miranda/profile', 'Firstname'),
+            'last_name' => Yii::t('miranda/profile', 'Lastname'),
+            'phone_1' => Yii::t('miranda/profile', 'Phone #1'),
+            'phone_2' => Yii::t('miranda/profile', 'Phone #2'),
+            'phone_3' => Yii::t('miranda/profile', 'Phone #3'),
+            'skype' => Yii::t('miranda/profile', 'Skype'),
+            'notes' => Yii::t('miranda/profile', 'Notes'),
+            'country' => Yii::t('miranda/profile', 'Country'),
+            'language' => Yii::t('miranda/profile', 'Language'),
+            'timezone' => Yii::t('miranda/profile', 'Timezone'),
+            'updated_at' => Yii::t('miranda/profile', 'Updated At'),
+            'updated_by' => Yii::t('miranda/profile', 'Updated By'),
+            'email' => Yii::t('miranda/profile', 'Email'),
+            'username' => Yii::t('miranda/profile', 'Username'),
+            'currentPassword' => Yii::t('miranda/profile', 'Current Password'),
+            'newPassword' => Yii::t('miranda/profile', 'New Password'),
+            'newPasswordConfimation' => Yii::t('miranda/profile', 'New Password Confirmation'),
 
         ];
     }
@@ -176,11 +176,11 @@ class UpdateAccountForm extends Model
     public function uniqueUsername($attribute, $params)
     {
 
-        if (!empty($this->username)){
+        if (!empty($this->username)) {
 
             $existingUsername = User::find()->where(['username' => $this->username]);
 
-            if ($this->username == $existingUsername){
+            if ($this->username == $existingUsername) {
 
                 $this->addError($attribute, Yii::t('miranda/profile', 'This username is in use.'));
             }
@@ -193,11 +193,12 @@ class UpdateAccountForm extends Model
 
         $user = Yii::$app->user->identity;
 
-        if (!empty($this->currentPassword)){
+        if (!empty($this->currentPassword)) {
 
-            if (!password_verify($this->currentPassword, $user->password_hash)){
+            if (!password_verify($this->currentPassword, $user->password_hash)) {
 
-                $this->addError($attribute, Yii::t('miranda/profile', 'Password must match with the current password.'));
+                $this->addError($attribute,
+                    Yii::t('miranda/profile', 'Password must match with the current password.'));
             }
         }
 
@@ -206,7 +207,7 @@ class UpdateAccountForm extends Model
     public function save()
     {
 
-        if ($this->validate()){
+        if ($this->validate()) {
 
             $profile = Yii::$app->user->identity->profile;
 
@@ -233,16 +234,16 @@ class UpdateAccountForm extends Model
             $user->email = $this->email;
             $user->username = $this->username;
 
-            if (!empty($this->newPassword)){
+            if (!empty($this->newPassword)) {
 
                 $user->password = $this->newPassword;
                 //$user->newPassword = $this->newPassword;
                 //$user->newPasswordConfirmation = $this->newPasswordConfirmation;
             }
 
-            if ($user->validate() and $profile->validate()){
+            if ($user->validate() and $profile->validate()) {
 
-                if ($user->save() and $profile->save()){
+                if ($user->save() and $profile->save()) {
 
                     return true;
                 }

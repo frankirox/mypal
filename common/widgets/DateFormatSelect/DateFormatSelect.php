@@ -13,7 +13,7 @@ class DateFormatSelect extends \yii\bootstrap\Widget
     public $options = ['class' => 'form-group select-field'];
     public $attribute;
     public $hint;
-    public $allowEmpty =  false;
+    public $allowEmpty = false;
 
     public function init()
     {

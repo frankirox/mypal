@@ -111,7 +111,7 @@ class GridQuickLinks extends Widget
      *
      * @var boolean
      */
-    public $showCount = TRUE;
+    public $showCount = true;
 
     /**
      * Default options

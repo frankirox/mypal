@@ -15,8 +15,8 @@ class SiteController extends BaseController
     /**
      * @inheritdoc
      */
-    public $enableOnlyActions = ['index','error','maintenance'];
-    public $widgets = NULL;
+    public $enableOnlyActions = ['index', 'error', 'maintenance'];
+    public $widgets = null;
 
     public function actionIndex()
     {

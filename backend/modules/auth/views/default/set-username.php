@@ -26,11 +26,16 @@ $this->title = Yii::t('miranda/auth', 'Set Username');
                         'validateOnBlur' => false,
                     ]); ?>
 
-                    <?= $form->field($model, 'username')->textInput(['minlength' => 4, 'maxlength' => 255, 'autofocus' => false]) ?>
+                    <?= $form->field($model, 'username')->textInput([
+                        'minlength' => 4,
+                        'maxlength' => 255,
+                        'autofocus' => false
+                    ]) ?>
 
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                            <?= Html::submitButton(Yii::t('miranda', 'Confirm'), ['class' => 'btn btn-lg btn-primary btn-block']) ?>
+                            <?= Html::submitButton(Yii::t('miranda', 'Confirm'),
+                                ['class' => 'btn btn-lg btn-primary btn-block']) ?>
                         </div>
                     </div>
 

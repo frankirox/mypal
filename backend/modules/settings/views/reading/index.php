@@ -35,7 +35,8 @@ SettingsAsset::register($this);
                 <br>
 
 
-                <?= $form->field($model, 'page_size')->textInput(['maxlength' => true])->hint($model->getDescription('page_size')) ?>
+                <?= $form->field($model,
+                    'page_size')->textInput(['maxlength' => true])->hint($model->getDescription('page_size')) ?>
 
             </div>
             <div class="panel-footer">

@@ -28,13 +28,15 @@ use common\widgets\ActiveForm;
 
                         <div class="row">
                             <div class="col-md-6">
-                                <?php $categories = ArrayHelper::merge(MessageSource::getCategories(), [' ' => Yii::t('miranda/translation', 'Create New Category')]) ?>
+                                <?php $categories = ArrayHelper::merge(MessageSource::getCategories(),
+                                    [' ' => Yii::t('miranda/translation', 'Create New Category')]) ?>
                                 <?= $form->field($model, 'category')->dropDownList($categories, ['prompt' => '']) ?>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group new-category-group">
                                     <label class="control-label"
-                                           for="new-category"><?= Yii::t('miranda/translation', 'New Category Name') ?></label>
+                                           for="new-category"><?= Yii::t('miranda/translation',
+                                            'New Category Name') ?></label>
                                     <input type="text" id="new-category" class="form-control" name="category"
                                            value="<?= Yii::$app->getRequest()->post('category') ?>">
                                 </div>
@@ -58,18 +60,22 @@ use common\widgets\ActiveForm;
 
                             <div class="form-group">
                                 <?php if ($model->isNewRecord): ?>
-                                    <?= Html::submitButton(Yii::t('miranda', 'Create'), ['class' => 'btn btn-primary']) ?>
-                                    <?= Html::a(Yii::t('miranda', 'Cancel'), ['/translation/default/index'], ['class' => 'btn btn-default']) ?>
+                                    <?= Html::submitButton(Yii::t('miranda', 'Create'),
+                                        ['class' => 'btn btn-primary']) ?>
+                                    <?= Html::a(Yii::t('miranda', 'Cancel'), ['/translation/default/index'],
+                                        ['class' => 'btn btn-default']) ?>
                                 <?php else: ?>
                                     <?= Html::submitButton(Yii::t('miranda', 'Save'), ['class' => 'btn btn-primary']) ?>
                                     <?=
-                                    Html::a(Yii::t('miranda', 'Delete'), ['/translation/source/delete', 'id' => $model->id], [
-                                        'class' => 'btn btn-default',
-                                        'data' => [
-                                            'confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
-                                            'method' => 'post',
-                                        ],
-                                    ])
+                                    Html::a(Yii::t('miranda', 'Delete'),
+                                        ['/translation/source/delete', 'id' => $model->id], [
+                                            'class' => 'btn btn-default',
+                                            'data' => [
+                                                'confirm' => Yii::t('yii',
+                                                    'Are you sure you want to delete this item?'),
+                                                'method' => 'post',
+                                            ],
+                                        ])
                                     ?>
                                 <?php endif; ?>
                             </div>

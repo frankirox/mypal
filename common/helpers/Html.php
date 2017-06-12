@@ -30,7 +30,7 @@ class Html extends \yii\helpers\Html
      */
     public static function checkbox($name, $checked = false, $options = [])
     {
-        $options['checked'] = (bool) $checked;
+        $options['checked'] = (bool)$checked;
         $value = array_key_exists('value', $options) ? $options['value'] : '1';
         if (isset($options['uncheck'])) {
             // add a hidden field so that if the checkbox is not selected, it still submits a value

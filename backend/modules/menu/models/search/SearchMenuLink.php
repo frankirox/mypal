@@ -24,7 +24,7 @@ class SearchMenuLink extends MenuLink
         return [
             [['order', 'alwaysVisible', 'created_by', 'updated_by'], 'integer'],
             [['target'], 'string'],
-            [['id', 'menu_id', 'parent_id', 'link', 'label', 'image', 'created_at', 'updated_at', 'target' ], 'safe'],
+            [['id', 'menu_id', 'parent_id', 'link', 'label', 'image', 'created_at', 'updated_at', 'target'], 'safe'],
         ];
     }
 
@@ -77,7 +77,7 @@ class SearchMenuLink extends MenuLink
             ->andFilterWhere(['alwaysVisible' => $this->alwaysVisible])
             ->andFilterWhere(['like', 'id', $this->id])
             ->andWhere(['parent_id' => $this->parent_id])
-            ->andFilterWhere(['like', 'target' , $this->target]);
+            ->andFilterWhere(['like', 'target', $this->target]);
 
         return $dataProvider;
     }

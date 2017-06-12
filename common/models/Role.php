@@ -72,8 +72,13 @@ class Role extends AbstractItem
      * @throws \InvalidArgumentException
      * @return true|static|string
      */
-    public static function assignRoutesViaPermission($roleName, $permissionName, $routes, $permissionDescription = null, $groupCode = null)
-    {
+    public static function assignRoutesViaPermission(
+        $roleName,
+        $permissionName,
+        $routes,
+        $permissionDescription = null,
+        $groupCode = null
+    ) {
         $role = static::findOne(['name' => $roleName]);
 
         if (!$role) {
@@ -92,16 +97,16 @@ class Role extends AbstractItem
 
         try {
             Yii::$app->db->createCommand()
-                    ->insert(Yii::$app->miranda->auth_item_child_table, [
-                        'parent' => $role->name,
-                        'child' => $permission->name,
-                    ])->execute();
+                ->insert(Yii::$app->miranda->auth_item_child_table, [
+                    'parent' => $role->name,
+                    'child' => $permission->name,
+                ])->execute();
         } catch (Exception $e) {
             // Don't throw Exception because we may have this permission for this role,
             // but need to add new routes to it
         }
 
-        $routes = (array) $routes;
+        $routes = (array)$routes;
 
         foreach ($routes as $route) {
             $route = '/' . ltrim($route, '/');
@@ -110,10 +115,10 @@ class Role extends AbstractItem
 
             try {
                 Yii::$app->db->createCommand()
-                        ->insert(Yii::$app->miranda->auth_item_child_table, [
-                            'parent' => $permission->name,
-                            'child' => $route,
-                        ])->execute();
+                    ->insert(Yii::$app->miranda->auth_item_child_table, [
+                        'parent' => $permission->name,
+                        'child' => $route,
+                    ])->execute();
             } catch (Exception $e) {
                 // Don't throw Exception because this permission may already have this route,
                 // so just go to the next route

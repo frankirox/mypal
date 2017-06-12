@@ -55,12 +55,15 @@ use common\widgets\LanguagePills;
                         <div class="form-group">
                             <?php if ($model->isNewRecord): ?>
 
-                                <?= Html::submitButton(Yii::t('miranda', 'Create'), ['class' => 'btn btn-block btn-primary']) ?>
-                                <?= Html::a(Yii::t('miranda', 'Cancel'), ['/menu/default/index'], ['class' => 'btn btn-block btn-default']) ?>
+                                <?= Html::submitButton(Yii::t('miranda', 'Create'),
+                                    ['class' => 'btn btn-block btn-primary']) ?>
+                                <?= Html::a(Yii::t('miranda', 'Cancel'), ['/menu/default/index'],
+                                    ['class' => 'btn btn-block btn-default']) ?>
 
                             <?php else: ?>
 
-                                <?= Html::submitButton(Yii::t('miranda', 'Save'), ['class' => 'btn btn-block btn-primary']) ?>
+                                <?= Html::submitButton(Yii::t('miranda', 'Save'),
+                                    ['class' => 'btn btn-block btn-primary']) ?>
                                 <?= Html::a(Yii::t('miranda', 'Delete'), ['/menu/default/delete', 'id' => $model->id], [
                                     'class' => 'btn btn-block btn-default',
                                     'data' => [

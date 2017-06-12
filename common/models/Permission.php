@@ -37,7 +37,7 @@ class Permission extends AbstractItem
     public static function assignRoutes($permissionName, $routes, $permissionDescription = null, $groupCode = null)
     {
         $permission = static::findOne(['name' => $permissionName]);
-        $routes = (array) $routes;
+        $routes = (array)$routes;
 
         if (!$permission) {
             $permission = static::create($permissionName, $permissionDescription, $groupCode);
@@ -51,10 +51,10 @@ class Permission extends AbstractItem
             $route = '/' . ltrim($route, '/');
             try {
                 Yii::$app->db->createCommand()
-                        ->insert(Yii::$app->miranda->auth_item_child_table, [
-                            'parent' => $permission->name,
-                            'child' => $route,
-                        ])->execute();
+                    ->insert(Yii::$app->miranda->auth_item_child_table, [
+                        'parent' => $permission->name,
+                        'child' => $route,
+                    ])->execute();
             } catch (Exception $e) {
                 // Don't throw Exception because this permission may already have this route,
                 // so just go to the next route

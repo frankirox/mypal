@@ -74,14 +74,14 @@ class AccessFilter extends ActionFilter
 
             return true;
 
-        }else{
+        } else {
 
             $modelId = Yii::$app->getRequest()->getQueryParam('id');
             $modelClass = (isset($this->owner->modelClass)) ? $this->owner->modelClass : null;
 
-            if($modelId && $modelClass){
+            if ($modelId && $modelClass) {
 
-                if(MirandaHelper::isImplemented($modelClass, \common\models\interfaces\OwnerAccess::CLASSNAME)){
+                if (MirandaHelper::isImplemented($modelClass, \common\models\interfaces\OwnerAccess::CLASSNAME)) {
                     //Check access for owners
                     if (User::hasPermission($modelClass::getFullAccessPermission())) {
 

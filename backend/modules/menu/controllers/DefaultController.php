@@ -48,7 +48,7 @@ class DefaultController extends BaseController
         }
     }
 
-     /**
+    /**
      * Lists all models.
      * @return mixed
      */
@@ -71,17 +71,17 @@ class DefaultController extends BaseController
 
     public function actionSaveOrders()
     {
-        if(Yii::$app->getRequest()->isAjax){
+        if (Yii::$app->getRequest()->isAjax) {
             $n = 1;
             $params = [];
             $select = [];
             $db = Yii::$app->db;
             $settings = Yii::$app->getRequest()->post('settings');
-            
+
             foreach ($settings as $setting) {
                 $select[] = "SELECT :id_{$n} as 'id', :order_{$n} as 'order', :parent_{$n} as 'parent_id', :target{$n} as 'target'";
                 $params[":id_{$n}"] = $setting[0];
-                $params[":order_{$n}"] = (int) $setting[1];
+                $params[":order_{$n}"] = (int)$setting[1];
                 $params[":parent_{$n}"] = (isset($setting[2])) ? $setting[2] : '';
                 $params[":target{$n}"] = (isset($setting[3])) ? $setting[3] : '';
                 //$params[":target{$n}"] = $setting[3];

@@ -46,7 +46,7 @@ class CacheController extends BaseController
 
 
         if (!is_dir($frontendRuntimeCachePath)) {
-            @mkdir($frontendRuntimeCachePath );
+            @mkdir($frontendRuntimeCachePath);
             @chmod("$frontendRuntimeCachePath", 0777);
         }
 
@@ -57,7 +57,7 @@ class CacheController extends BaseController
 
         //Yii::$app->session->removeAll()
 
-        if (Yii::$app->cache->flush() &&  Yii::$app->db->schema->refresh()) {
+        if (Yii::$app->cache->flush() && Yii::$app->db->schema->refresh()) {
             Yii::$app->session->setFlash('crudMessage', 'Cache has been flushed.');
         } else {
             Yii::$app->session->setFlash('crudMessage', 'Failed to flush cache.');

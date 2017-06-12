@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <hr>
-            
+
             <?php
             Pjax::begin([
                 'id' => 'permission-groups-grid-pjax',
@@ -73,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         },
                         'buttonOptions' => [
-                            'class'   => 'btn btn-xs btn-default',
+                            'class' => 'btn btn-xs btn-default',
                         ],
                         'buttonsTemplate' => '{update} {delete}',
                     ],

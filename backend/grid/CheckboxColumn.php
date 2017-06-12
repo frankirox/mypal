@@ -18,26 +18,26 @@ class CheckboxColumn extends \kartik\grid\CheckboxColumn
      * This method may be overridden to customize the rendering of the header cell.
      * @return string the rendering result
      */
-   /* protected function renderHeaderCellContent()
-    {
-        return CheckboxX::widget([
-            'name'=> $this->name,
-            'options'=> ['class' => 'select-on-check-all'],
-            'pluginOptions'=>['threeState'=>false]
-        ]);
+    /* protected function renderHeaderCellContent()
+     {
+         return CheckboxX::widget([
+             'name'=> $this->name,
+             'options'=> ['class' => 'select-on-check-all'],
+             'pluginOptions'=>['threeState'=>false]
+         ]);
 
-    }*/
+     }*/
 
     /**
      * @inheritdoc
      */
-   /* protected function renderDataCellContent($model, $key, $index)
-    {
-        return CheckboxX::widget([
-            'name'=> $this->name,
-            'options'=> $this->checkboxOptions,
-            'pluginOptions'=>['threeState'=>false]
-        ]);
-    }*/
+    /* protected function renderDataCellContent($model, $key, $index)
+     {
+         return CheckboxX::widget([
+             'name'=> $this->name,
+             'options'=> $this->checkboxOptions,
+             'pluginOptions'=>['threeState'=>false]
+         ]);
+     }*/
 
 }

@@ -11,7 +11,8 @@ use kartik\widgets\Select2;
  * @var yii\web\View $this
  * @var common\models\User $model
  */
-$this->title = Yii::t('miranda/user', 'Update User') . ' "' . $model->first_name . ' ' . $model->last_name . ' ('. $model->username .')' . '"';
+$this->title = Yii::t('miranda/user',
+        'Update User') . ' "' . $model->first_name . ' ' . $model->last_name . ' (' . $model->username . ')' . '"';
 $this->params['breadcrumbs'][] = ['label' => Yii::t('miranda/user', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -49,10 +50,16 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ]); ?>
                             </div>
                             <div class="col-md-5">
-                                <?= $form->field($model, 'first_name')->textInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
+                                <?= $form->field($model, 'first_name')->textInput([
+                                    'maxlength' => 255,
+                                    'autocomplete' => 'off'
+                                ]) ?>
                             </div>
                             <div class="col-md-5">
-                                <?= $form->field($model, 'last_name')->textInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
+                                <?= $form->field($model, 'last_name')->textInput([
+                                    'maxlength' => 255,
+                                    'autocomplete' => 'off'
+                                ]) ?>
                             </div>
                         </div>
 
@@ -127,13 +134,19 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ]); ?>
                             </div>
                             <div class="col-md-3">
-                                <?= $form->field($model, 'skype')->textInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
+                                <?= $form->field($model, 'skype')->textInput([
+                                    'maxlength' => 255,
+                                    'autocomplete' => 'off'
+                                ]) ?>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
-                                <?= $form->field($model, 'username')->textInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
+                                <?= $form->field($model, 'username')->textInput([
+                                    'maxlength' => 255,
+                                    'autocomplete' => 'off'
+                                ]) ?>
                             </div>
                             <div class="col-md-6">
                                 <?= $form->field($model, 'email')->widget(MaskedInput::className(), [
@@ -237,8 +250,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'labelOptions' => ['class' => 'cbx-label'],
                             ])->widget(\kartik\checkbox\CheckboxX::classname(),
                                 [
-                                    'autoLabel'=>false,
-                                    'pluginOptions'=>['threeState'=>false]
+                                    'autoLabel' => false,
+                                    'pluginOptions' => ['threeState' => false]
                                 ]
                             );
                             ?>
@@ -249,8 +262,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'labelOptions' => ['class' => 'cbx-label'],
                                 ])->widget(\kartik\checkbox\CheckboxX::classname(),
                                     [
-                                        'autoLabel'=>false,
-                                        'pluginOptions'=>['threeState'=>false]
+                                        'autoLabel' => false,
+                                        'pluginOptions' => ['threeState' => false]
                                     ]
                                 );
                                 ?>
@@ -260,12 +273,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
                             <div class="form-group ">
                                 <?= Html::submitButton(Yii::t('miranda', 'Update'), ['class' => 'btn btn-primary']) ?>
-                                <?= Html::a(Yii::t('miranda', 'Cancel'), ['/user/default/index'], ['class' => 'btn btn-default']) ?>
+                                <?= Html::a(Yii::t('miranda', 'Cancel'), ['/user/default/index'],
+                                    ['class' => 'btn btn-default']) ?>
                             </div>
                         </div>
                     </div>
                 </div>
-
 
 
             </div>

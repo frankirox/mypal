@@ -54,21 +54,25 @@ class UpdateCredentialsForm extends Model
     public function rules()
     {
         return [
-            [['username', 'email','current_password'], 'required'],
-            [['username', 'email', 'password', 'repeat_password','current_password'], 'trim'],
-            [['email'],'email'],
-            ['username', 'unique',
+            [['username', 'email', 'current_password'], 'required'],
+            [['username', 'email', 'password', 'repeat_password', 'current_password'], 'trim'],
+            [['email'], 'email'],
+            [
+                'username',
+                'unique',
                 'targetClass' => 'common\models\User',
                 'targetAttribute' => 'username',
-                'when' => function($model){
+                'when' => function ($model) {
 
                     return $model->user->username != $this->username;
                 }
             ],
-            ['email', 'unique',
+            [
+                'email',
+                'unique',
                 'targetClass' => 'common\models\User',
                 'targetAttribute' => 'email',
-                'when' => function($model){
+                'when' => function ($model) {
 
                     return $model->user->email != $this->email;
                 }
@@ -77,7 +81,7 @@ class UpdateCredentialsForm extends Model
             ['username', 'string', 'max' => 50],
             //['username', 'match', 'pattern' => Yii::$app->miranda->usernameRegexp, 'message' => Yii::t('miranda/auth', 'The username should contain only Latin letters, numbers and the following characters: "-" and "_".')],
             //['username', 'match', 'not' => true, 'pattern' => Yii::$app->miranda->usernameBlackRegexp, 'message' => Yii::t('miranda/auth', 'Username contains not allowed characters or words.')],
-            [[ 'email', 'password', 'repeat_password', 'current_password'], 'string', 'max' => 255],
+            [['email', 'password', 'repeat_password', 'current_password'], 'string', 'max' => 255],
             [['password', 'repeat_password', 'current_password'], 'string', 'min' => 6],
             ['repeat_password', 'compare', 'compareAttribute' => 'password'],
             ['current_password', 'validateCurrentPassword'],
@@ -134,7 +138,7 @@ class UpdateCredentialsForm extends Model
         $this->user->email = $this->email;
         $this->user->username = $this->username;
 
-        if(!empty($this->password)){
+        if (!empty($this->password)) {
             $this->user->password = $this->password;
         }
 

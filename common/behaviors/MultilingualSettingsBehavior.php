@@ -1,4 +1,5 @@
 <?php
+
 namespace common\behaviors;
 
 use Yii;
@@ -153,24 +154,29 @@ class MultilingualSettingsBehavior extends Behavior
         $validators = $owner->getValidators();
 
         foreach ($rules as $rule) {
-            if (in_array($rule[1], $this->excludedValidators))
+            if (in_array($rule[1], $this->excludedValidators)) {
                 continue;
+            }
 
             $rule_attributes = is_array($rule[0]) ? $rule[0] : [$rule[0]];
             $attributes = array_intersect($this->attributes, $rule_attributes);
 
-            if (empty($attributes))
+            if (empty($attributes)) {
                 continue;
+            }
 
             $rule_attributes = [];
             foreach ($attributes as $key => $attribute) {
-                foreach ($this->languages as $language)
-                    if ($language != $this->defaultLanguage)
+                foreach ($this->languages as $language) {
+                    if ($language != $this->defaultLanguage) {
                         $rule_attributes[] = $this->getAttributeName($attribute, $language);
+                    }
+                }
             }
 
-            if (isset($rule['skipOnEmpty']) && !$rule['skipOnEmpty'])
+            if (isset($rule['skipOnEmpty']) && !$rule['skipOnEmpty']) {
                 $rule['skipOnEmpty'] = !$this->requireTranslations;
+            }
 
             $params = array_slice($rule, 2);
 
@@ -201,7 +207,8 @@ class MultilingualSettingsBehavior extends Behavior
     public function beforeValidate()
     {
         foreach ($this->attributes as $attribute) {
-            $this->setLangAttribute($this->getAttributeName($attribute, $this->defaultLanguage), $this->getLangAttribute($attribute));
+            $this->setLangAttribute($this->getAttributeName($attribute, $this->defaultLanguage),
+                $this->getLangAttribute($attribute));
         }
     }
 
@@ -220,7 +227,8 @@ class MultilingualSettingsBehavior extends Behavior
                     foreach ($translations as $translation) {
                         if ($this->getLanguageSubtag($translation->{$this->languageField}) == $lang) {
                             $attributeName = $this->localizedPrefix . $attribute;
-                            $this->setLangAttribute($this->getAttributeName($attribute, $lang), $translation->{$attributeName});
+                            $this->setLangAttribute($this->getAttributeName($attribute, $lang),
+                                $translation->{$attributeName});
 
                             if ($lang == $this->defaultLanguage) {
                                 $this->setLangAttribute($attribute, $translation->{$attributeName});
@@ -295,7 +303,7 @@ class MultilingualSettingsBehavior extends Behavior
 
     /**
      * Extract language two-letter abbreviation (ISO 639-1) from language key.
-     * 
+     *
      * @param $language
      * @return string
      */

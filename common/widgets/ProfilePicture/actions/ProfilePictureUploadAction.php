@@ -1,6 +1,6 @@
 <?php
 
-namespace  common\widgets\ProfilePicture\actions;
+namespace common\widgets\ProfilePicture\actions;
 
 use Yii;
 use yii\base\Action;
@@ -25,7 +25,7 @@ class ProfilePictureUploadAction extends ProfilePictureBaseAction
             $max_upload = (int)(ini_get('upload_max_filesize'));
             $memory_limit = (int)(ini_get('memory_limit'));
             $upload_limit = min($max_upload, $max_post, $memory_limit);
-            
+
             $errors = array(
                 0 => "The file is to big. Upload a image under $upload_limit",
                 1 => 'This file extension is not allowed !',
@@ -49,7 +49,7 @@ class ProfilePictureUploadAction extends ProfilePictureBaseAction
                         $ext = '.' . $ext;
                         $this->filename = 'tmp_img_' . $this->filename;
 
-                        $file = $this->upload_path . DIRECTORY_SEPARATOR  . $this->filename . $ext;
+                        $file = $this->upload_path . DIRECTORY_SEPARATOR . $this->filename . $ext;
                         if (move_uploaded_file($image['tmp_name'], $file)) {
 
                             $image = new SimpleImage();

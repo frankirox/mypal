@@ -12,7 +12,8 @@
         <div class="row">
             <nav class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#/pets"><i class="glyphicon glyphicon-th-large"></i>Return to Pets List</a>
+                    <a class="navbar-brand" href="#/pets"><i class="glyphicon glyphicon-th-large"></i>Return to Pets
+                        List</a>
                     <a class="navbar-brand pull-right"><i class="glyphicon glyphicon-edit"></i>
                         Currently Editing Pet Number: {{pet.id}}</a>
                 </div>
@@ -33,7 +34,8 @@
                         <div class="form-group">
                             <label class="col-md-2">Age (in Months)</label>
                             <div class="col-md-4">
-                                <input name="age" ng-model="pet.age" ng-pattern="/^(0|\-?[1-9][0-9]*)$/"  type="text" class="form-control"
+                                <input name="age" ng-model="pet.age" ng-pattern="/^(0|\-?[1-9][0-9]*)$/" type="text"
+                                       class="form-control"
                                        placeholder="Enter Pet's Age in Months" required/>
                                 <span ng-show="editPet.age.$dirty && editPet.age.$invalid"
                                       class="help-inline">Age is Required</span>
@@ -49,7 +51,8 @@
                         <div class="form-group">
                             <label class="col-md-2">Price</label>
                             <div class="col-md-4">
-                                <input name="price" ng-model="pet.price" type="text" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" class="form-control"
+                                <input name="price" ng-model="pet.price" type="text"
+                                       ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" class="form-control"
                                        placeholder="Enter Pet's Price" required/>
                                 <span ng-show="editPet.price.$dirty && editPet.price.$invalid"
                                       class="help-inline">Price is Required</span>

@@ -20,7 +20,7 @@ class CarouselImageQuery extends ActiveQuery
 
     public function active()
     {
-        $this->andWhere(['status' =>  CarouselImage::STATUS_ON]);
+        $this->andWhere(['status' => CarouselImage::STATUS_ON]);
         return $this;
     }
 

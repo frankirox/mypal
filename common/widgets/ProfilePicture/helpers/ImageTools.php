@@ -9,7 +9,8 @@ namespace common\widgets\ProfilePicture\helpers;
  * Time: 16:29
  */
 
-class ImageTools{
+class ImageTools
+{
 
     static function imagebmp($img, $filename = false)
     {
@@ -154,7 +155,8 @@ class ImageTools{
                 break;
         }
 
-        imagecopyresampled($newImage, $source, 0, 0, $start_width, $start_height, $newImageWidth, $newImageHeight, $width,
+        imagecopyresampled($newImage, $source, 0, 0, $start_width, $start_height, $newImageWidth, $newImageHeight,
+            $width,
             $height);
 
         switch ($imageType) {

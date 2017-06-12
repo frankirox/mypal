@@ -51,8 +51,12 @@ class UserVisitLogSearch extends UserVisitLog
         if ($this->visit_time) {
             $tmp = explode(' - ', $this->visit_time);
             if (isset($tmp[0], $tmp[1])) {
-                $query->andFilterWhere(['between', static::tableName() . '.visit_time',
-                    strtotime($tmp[0]), strtotime($tmp[1])]);
+                $query->andFilterWhere([
+                    'between',
+                    static::tableName() . '.visit_time',
+                    strtotime($tmp[0]),
+                    strtotime($tmp[1])
+                ]);
             }
         }
 

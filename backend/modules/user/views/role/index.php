@@ -63,14 +63,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ['data-pjax' => 0]);
                         },
                         'buttonOptions' => [
-                            'class'   => 'btn btn-xs btn-default',
+                            'class' => 'btn btn-xs btn-default',
                         ],
                         'buttons' => [
                             'view' => function ($url, $model, $key) {
                                 $options = array_merge([
                                     'title' => Yii::t('miranda', 'Settings'),
                                     'aria-label' => Yii::t('miranda', 'Settings'),
-                                    'class'   => 'btn btn-xs btn-default',
+                                    'class' => 'btn btn-xs btn-default',
                                     'data-pjax' => '0',
                                 ]);
                                 return Html::a(Yii::t('miranda', 'Settings'), $url, $options);

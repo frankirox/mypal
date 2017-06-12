@@ -31,11 +31,15 @@ class SignupForm extends Model
             [['username', 'email', 'password', 'repeat_password', 'captcha'], 'required'],
             [['username', 'email', 'password', 'repeat_password'], 'trim'],
             [['email'], 'email'],
-            ['username', 'unique',
+            [
+                'username',
+                'unique',
                 'targetClass' => 'common\models\User',
                 'targetAttribute' => 'username',
             ],
-            ['email', 'unique',
+            [
+                'email',
+                'unique',
                 'targetClass' => 'common\models\User',
                 'targetAttribute' => 'email',
             ],
@@ -104,20 +108,20 @@ class SignupForm extends Model
 
         }
 
-        if($user->save()){
+        if ($user->save()) {
 
             $profile = new Profile([
                 'user_id' => $user->id,
                 'first_name' => $this->first_name,
                 'last_name' => $this->last_name,
-                'country'   => $this->country,
+                'country' => $this->country,
             ]);
 
-            if(!$profile->save()){
+            if (!$profile->save()) {
 
                 $user->delete();
 
-            }else{
+            } else {
 
                 return $user;
             }
@@ -157,7 +161,7 @@ class SignupForm extends Model
         $user = User::findInactiveByConfirmationToken($token);
 
         if ($user) {
-            
+
             $user->status = User::STATUS_ACTIVE;
             $user->email_confirmed = 1;
             $user->removeConfirmationToken();

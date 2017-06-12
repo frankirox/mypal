@@ -19,10 +19,10 @@ $this->context->layout = 'clean';
         <h1 class="error-number"><?= $exception->statusCode ?></h1>
         <h2><?= nl2br(Html::encode($message)) ?></h2>
         <p>
-            <?= Yii::t('miranda', 'The above error occurred while the Web server was processing your request.')?>
+            <?= Yii::t('miranda', 'The above error occurred while the Web server was processing your request.') ?>
         </p>
         <p>
-            <?= Yii::t('miranda', 'Please contact us if you think this is a server error, Thank you.')?>
+            <?= Yii::t('miranda', 'Please contact us if you think this is a server error, Thank you.') ?>
         </p>
     </div>
 </div>

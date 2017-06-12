@@ -1,6 +1,6 @@
 <?php
 
-namespace  backend\modules\translation\controllers;
+namespace backend\modules\translation\controllers;
 
 use backend\controllers\BaseController;
 use common\models\User;

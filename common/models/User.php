@@ -27,14 +27,14 @@ use common\models\query\UserQuery;
  * @property string $create_ip
  * @property string $create_time
  * @property integer $updated_time
- * @property string  $ban_time
- * @property string  $ban_reason
+ * @property string $ban_time
+ * @property string $ban_reason
  * @property integer $permanent_session
  * @property integer $active
  *
- * @property Profile   $profile
- * @property Role[]      $roles
- * @property Role      $commonRole
+ * @property Profile $profile
+ * @property Role[] $roles
+ * @property Role $commonRole
  * @property UserKey[] $userKeys
  * @property UserAuth[] $userAuths
  * @property Sessions[] $sessions
@@ -138,7 +138,7 @@ class User extends UserIdentity
         $language = Yii::$app->miranda->defaultLanguage;
 
 
-        if (!empty($profile->language)){
+        if (!empty($profile->language)) {
 
             $language = $profile->language;
         }
@@ -154,7 +154,7 @@ class User extends UserIdentity
         $language = Yii::$app->miranda->defaultLanguage;
 
 
-        if (!empty($profile->language)){
+        if (!empty($profile->language)) {
 
             $language = $profile->language;
         }
@@ -177,11 +177,11 @@ class User extends UserIdentity
     {
         try {
             Yii::$app->db->createCommand()
-                    ->insert(Yii::$app->miranda->auth_assignment_table, [
-                        'user_id' => $userId,
-                        'item_name' => $roleName,
-                        'created_at' => time(),
-                    ])->execute();
+                ->insert(Yii::$app->miranda->auth_assignment_table, [
+                    'user_id' => $userId,
+                    'item_name' => $roleName,
+                    'created_at' => time(),
+                ])->execute();
 
             AuthHelper::invalidatePermissions();
 
@@ -217,8 +217,8 @@ class User extends UserIdentity
     public static function revokeRole($userId, $roleName)
     {
         $result = Yii::$app->db->createCommand()
-                        ->delete(Yii::$app->miranda->auth_assignment_table, ['user_id' => $userId, 'item_name' => $roleName])
-                        ->execute() > 0;
+                ->delete(Yii::$app->miranda->auth_assignment_table, ['user_id' => $userId, 'item_name' => $roleName])
+                ->execute() > 0;
 
         if ($result) {
             AuthHelper::invalidatePermissions();
@@ -238,7 +238,7 @@ class User extends UserIdentity
         if ($superAdminAllowed AND Yii::$app->user->isSuperAdmin) {
             return true;
         }
-        $roles = (array) $roles;
+        $roles = (array)$roles;
 
         AuthHelper::ensurePermissionsUpToDate();
 
@@ -368,7 +368,8 @@ class User extends UserIdentity
 
             foreach ($ips as $ip) {
                 if (!filter_var(trim($ip), FILTER_VALIDATE_IP)) {
-                    $this->addError('bind_to_ip', Yii::t('miranda', "Wrong format. Enter valid IPs separated by comma"));
+                    $this->addError('bind_to_ip',
+                        Yii::t('miranda', "Wrong format. Enter valid IPs separated by comma"));
                 }
             }
         }
@@ -411,7 +412,7 @@ class User extends UserIdentity
     public function getRoles()
     {
         return $this->hasMany(Role::className(), ['name' => 'item_name'])
-                        ->viaTable(Yii::$app->miranda->auth_assignment_table, ['user_id' => 'id']);
+            ->viaTable(Yii::$app->miranda->auth_assignment_table, ['user_id' => 'id']);
     }
 
     /**

@@ -14,7 +14,8 @@ LanguageSelectorAsset::register($this);
                     <a><?= ($display == 'code') ? $key : $lang ?></a>
                 </li>
             <?php else: ?>
-                <?php $link = Yii::$app->urlManager->createUrl(ArrayHelper::merge($params, [$url, 'language' => $key])); ?>
+                <?php $link = Yii::$app->urlManager->createUrl(ArrayHelper::merge($params,
+                    [$url, 'language' => $key])); ?>
                 <li role="language">
                     <a href="<?= $link ?>"><?= ($display == 'code') ? $key : $lang ?></a>
                 </li>

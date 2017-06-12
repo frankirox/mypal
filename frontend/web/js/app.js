@@ -6,12 +6,12 @@ var app = angular.module('app', [
     'controllers'       //Our module frontend/web/js/controllers.js
 ]);
 
-app.factory("appServices", ['$http', function($http) {
+app.factory("appServices", ['$http', function ($http) {
 
     var serviceBase = '/api/v1/pet';
     var obj = {};
 
-    obj.getPet = function(id){
+    obj.getPet = function (id) {
         return $http.get(serviceBase + '/' + id);
     };
 
@@ -19,30 +19,24 @@ app.factory("appServices", ['$http', function($http) {
 }]);
 
 app.config(['$routeProvider', '$httpProvider',
-    function($routeProvider, $httpProvider) {
-        $routeProvider.
-            when('/', {
-                templateUrl: 'partials/index.html'
-            }).
-            when('/login', {
-                templateUrl: 'partials/login.html',
-                controller: 'LoginController'
-            }).
-            when('/pets', {
-                templateUrl: 'partials/pets.html',
-                controller: 'PetsController'
-            }).
-            when('/create-pet', {
-                templateUrl: 'partials/create-pet.html',
-                controller: 'PetCreateController'
-            }).
-            when('/edit-pet/:petId', {
-                templateUrl: 'partials/edit-pet.html',
-                controller: 'PetEditController'
-            }).
-            otherwise({
-                templateUrl: 'partials/404.html'
-            });
+    function ($routeProvider, $httpProvider) {
+        $routeProvider.when('/', {
+            templateUrl: 'partials/index.html'
+        }).when('/login', {
+            templateUrl: 'partials/login.html',
+            controller: 'LoginController'
+        }).when('/pets', {
+            templateUrl: 'partials/pets.html',
+            controller: 'PetsController'
+        }).when('/create-pet', {
+            templateUrl: 'partials/create-pet.html',
+            controller: 'PetCreateController'
+        }).when('/edit-pet/:petId', {
+            templateUrl: 'partials/edit-pet.html',
+            controller: 'PetEditController'
+        }).otherwise({
+            templateUrl: 'partials/404.html'
+        });
         $httpProvider.interceptors.push('authInterceptor');
     }
 ]);

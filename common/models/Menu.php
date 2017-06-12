@@ -71,14 +71,24 @@ class Menu extends ActiveRecord
         return [
             [['title'], 'required'],
             ['id', 'unique'],
-            ['id', 'filter', 'filter' => function ($value) {
-                // normalize phone input here
-                return mb_strtolower($value);
-            }],
+            [
+                'id',
+                'filter',
+                'filter' => function ($value) {
+                    // normalize phone input here
+                    return mb_strtolower($value);
+                }
+            ],
             [['created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
             [['id'], 'string', 'max' => 64],
             [['title'], 'string', 'max' => 255],
-            [['id'], 'match', 'pattern' => '/^[a-z0-9_-]+$/', 'message' => Yii::t('miranda', 'Menu ID can only contain lowercase alphanumeric characters, underscores and dashes.')],
+            [
+                ['id'],
+                'match',
+                'pattern' => '/^[a-z0-9_-]+$/',
+                'message' => Yii::t('miranda',
+                    'Menu ID can only contain lowercase alphanumeric characters, underscores and dashes.')
+            ],
         ];
     }
 
@@ -122,12 +132,12 @@ class Menu extends ActiveRecord
     {
         $menu = self::findOne($menu_id);
 
-        if($menu instanceof self){
+        if ($menu instanceof self) {
 
             return $menu->title;
         }
 
-        return  null;
+        return null;
     }
 
 
@@ -138,9 +148,9 @@ class Menu extends ActiveRecord
     public static function getMenuItems($menu_id)
     {
         $links = self::findOne($menu_id)
-                ->getLinks()
-                ->orderBy(['parent_id' => 'ASC', 'order' => 'ASC'])
-                ->all();
+            ->getLinks()
+            ->orderBy(['parent_id' => 'ASC', 'order' => 'ASC'])
+            ->all();
 
         return self::generateNavigationItems($links);
     }
@@ -168,27 +178,27 @@ class Menu extends ActiveRecord
 
         $subItems = self::generateSubItems($link->id, $menuLinks);
 
-        $item['label'] =  $link->label;
+        $item['label'] = $link->label;
         $item['icon'] = $link->image;
 
-        if(Yii::$app->user->isGuest){
+        if (Yii::$app->user->isGuest) {
             $item['visible'] = false;
-        }else{
+        } else {
             $item['visible'] = true;
         }
 
 
-        if (!empty($link->permissions)){
+        if (!empty($link->permissions)) {
 
-            $explodedPermissions = explode(',',$link->permissions);
+            $explodedPermissions = explode(',', $link->permissions);
 
             $permissionCompliance = true;
 
-            if(is_array($explodedPermissions)){
+            if (is_array($explodedPermissions)) {
 
-                foreach($explodedPermissions as $explodedPermission){
+                foreach ($explodedPermissions as $explodedPermission) {
 
-                    if(!User::hasPermission(trim($explodedPermission))){
+                    if (!User::hasPermission(trim($explodedPermission))) {
 
                         $permissionCompliance = false;
                     }
@@ -205,7 +215,7 @@ class Menu extends ActiveRecord
         if ($link->link) {
             $url = parse_url($link->link);
             $item['url'] = (isset($url['scheme'])) ? $link->link : [$link->link];
-        }else{
+        } else {
 
             $item['url'] = 'javascript:void(0);';
         }
@@ -229,7 +239,7 @@ class Menu extends ActiveRecord
             return $items;
         }
 
-        return NULL;
+        return null;
     }
 
     /**

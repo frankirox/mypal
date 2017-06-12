@@ -51,7 +51,7 @@ class UserSetting extends \common\db\ActiveRecord
         ];
     }
 
-    public function get($key, $default = NULL)
+    public function get($key, $default = null)
     {
         if ($setting = self::findOne(['user_id' => Yii::$app->user->id, 'key' => $key])) {
             return $setting->value;
@@ -65,14 +65,14 @@ class UserSetting extends \common\db\ActiveRecord
         try {
             if ($setting = self::findOne(['user_id' => Yii::$app->user->id, 'key' => $key])) {
                 $setting->value = $value;
-                return ($setting->save()) ? TRUE : FALSE;
+                return ($setting->save()) ? true : false;
             }
         } catch (Exception $ex) {
             print_r($ex);
             die;
         }
 
-        return FALSE;
+        return false;
     }
 
 }

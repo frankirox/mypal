@@ -16,7 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="panel panel-default">
         <div class="panel-body">
 
-            <?= Html::a(Yii::t('miranda', 'Edit'), ['/post/default/update', 'id' => $model->id], ['class' => 'btn btn-sm btn-primary']) ?>
+            <?= Html::a(Yii::t('miranda', 'Edit'), ['/post/default/update', 'id' => $model->id],
+                ['class' => 'btn btn-sm btn-primary']) ?>
 
             <?= Html::a(Yii::t('miranda', 'Delete'), ['/post/default/delete', 'id' => $model->id], [
                 'class' => 'btn btn-sm btn-default',
@@ -26,7 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
             ]) ?>
 
-            <?= Html::a(Yii::t('miranda', 'Add New'), ['/post/default/create'], ['class' => 'btn btn-sm btn-primary pull-right']) ?>
+            <?= Html::a(Yii::t('miranda', 'Add New'), ['/post/default/create'],
+                ['class' => 'btn btn-sm btn-primary pull-right']) ?>
 
         </div>
     </div>
@@ -34,7 +36,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="panel panel-default">
         <div class="panel-body">
             <h2><?= $model->title ?></h2>
-            <?= $model->getThumbnail(['class' => 'thumbnail pull-left', 'style' => 'width: 240px; margin:0 7px 7px 0;']) ?>
+            <?= $model->getThumbnail([
+                'class' => 'thumbnail pull-left',
+                'style' => 'width: 240px; margin:0 7px 7px 0;'
+            ]) ?>
             <?= $model->content ?>
         </div>
     </div>

@@ -20,7 +20,7 @@ class m160711_002906_miranda_settings_spanish_translations extends TranslatedMes
             'General Settings' => 'Ajustes generales',
             'Reading Settings' => 'Ajustes de lectura',
             'Contact Settings' => 'Ajustes de contacto',
-            'Social Settings'  => 'Ajustes sociales',
+            'Social Settings' => 'Ajustes sociales',
             'Site Title' => 'Título del sitio',
             'Site Description' => 'Descripción del sitio',
             'Admin Email' => 'E-mail del administrador',

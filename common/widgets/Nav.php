@@ -82,9 +82,9 @@ class Nav extends \yii\bootstrap\Nav
      * @return string the rendering result.
      * @throws InvalidConfigException
      */
-    public function renderItems($itemsList = NULL, $level = 0)
+    public function renderItems($itemsList = null, $level = 0)
     {
-        $renderItems = ($itemsList === NULL) ? $this->items : $itemsList;
+        $renderItems = ($itemsList === null) ? $this->items : $itemsList;
         $items = [];
         foreach ($renderItems as $i => $item) {
             if (isset($item['visible']) && !$item['visible']) {
@@ -157,13 +157,17 @@ class Nav extends \yii\bootstrap\Nav
      */
     private function getLevelOptions($level = 0)
     {
-        if ($this->options === NULL) return NULL;
+        if ($this->options === null) {
+            return null;
+        }
 
-        if (isset($this->options[$level]) && is_array($this->options[$level]))
+        if (isset($this->options[$level]) && is_array($this->options[$level])) {
             return $this->options[$level];
+        }
 
-        if (!isset($this->options[$level]) && isset($this->options[0]) && is_array($this->options[0]))
+        if (!isset($this->options[$level]) && isset($this->options[0]) && is_array($this->options[0])) {
             return ['class' => 'nav'];
+        }
 
         return $this->options;
     }

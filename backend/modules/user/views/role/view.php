@@ -26,7 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <h3><?= Html::encode($this->title) ?></h3>
         </div>
         <div class="col-sm-4 text-right">
-            <?= Html::a(Yii::t('miranda', 'Edit'), ['update', 'id' => $role->name], ['class' => 'btn btn-sm btn-primary']) ?>
+            <?= Html::a(Yii::t('miranda', 'Edit'), ['update', 'id' => $role->name],
+                ['class' => 'btn btn-sm btn-primary']) ?>
             <?= Html::a(Yii::t('miranda', 'Create'), ['create'], ['class' => 'btn btn-sm btn-primary']) ?>
         </div>
     </div>
@@ -37,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="panel-heading">
                     <strong>
                         <span
-                            class="glyphicon glyphicon-th"></span> <?= Yii::t('miranda/user', 'Child roles') ?>
+                                class="glyphicon glyphicon-th"></span> <?= Yii::t('miranda/user', 'Child roles') ?>
                     </strong>
                 </div>
                 <div class="panel-body">
@@ -55,7 +56,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 $list .= '</ul>';
 
                                 $helpIcon = Html::beginTag('span', [
-                                    'title' => Yii::t('miranda/user', 'Permissions for "{role}" role', ['role' => $label]),
+                                    'title' => Yii::t('miranda/user', 'Permissions for "{role}" role',
+                                        ['role' => $label]),
                                     'data-content' => $list,
                                     'data-html' => 'true',
                                     'role' => 'button',

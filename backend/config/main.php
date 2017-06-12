@@ -11,11 +11,11 @@ return [
     'homeUrl' => '/admin',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'bootstrap' => ['miranda','log'],
+    'bootstrap' => ['miranda', 'log'],
     'on beforeRequest' => function ($event) {
         if (Yii::$app->params['maintenance']) {
 
-            if(!Yii::$app->user->isSuperAdmin && !preg_match('%debug/default%',Yii::$app->request->url)){
+            if (!Yii::$app->user->isSuperAdmin && !preg_match('%debug/default%', Yii::$app->request->url)) {
                 Yii::$app->catchAll = [
                     // force route if portal in maintenance mode
                     'site/maintenance',
@@ -24,11 +24,12 @@ return [
             }
         }
     },
-    'on beforeAction' => function($event){
+    'on beforeAction' => function ($event) {
 
         Yii::$app->view->registerMetaTag([
             'name' => 'robots',
-            'content' => "NOINDEX, NOFOLLOW" ]);
+            'content' => "NOINDEX, NOFOLLOW"
+        ]);
 
         //\bedezign\yii2\audit\web\JSLoggingAsset::register(\Yii::$app->view);
 
@@ -60,18 +61,6 @@ return [
         'request' => [
             'baseUrl' => '/admin',
         ],
-      /* 'assetManager' => [
-            'bundles' => [
-                'yii\bootstrap\BootstrapAsset' => [
-                    'sourcePath' => '@backend/assets/bootstrap/',
-                    'css' => ['css/bootstrap.min.css']
-                ],
-                'yii\bootstrap\BootstrapPluginAsset' => [
-                    'sourcePath' => '@backend/assets/bootstrap/',
-                    'js' => ['js/bootstrap.min.js']
-                ],
-            ],
-        ],*/
         'urlManager' => [
             'class' => 'backend\components\MultilingualUrlManager',
             'showScriptName' => false,

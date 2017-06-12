@@ -55,16 +55,17 @@ $this->params['breadcrumbs'][] = $user->profile->fullName . "({$user->username})
                         //'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-7\">{error}</div>",
                         //'labelOptions' => ['class' => 'col-lg-12 control-label'],
                     ],
-                    'enableClientValidation'    => false,
-                    'validateOnSubmit'          => false,
-                    'enableAjaxValidation'      => false,
+                    'enableClientValidation' => false,
+                    'validateOnSubmit' => false,
+                    'enableAjaxValidation' => false,
                 ]); ?>
 
                 <div class="row nomargin">
 
                     <div class="container bs-callout bs-callout-info">
 
-                        <h4><?= Yii::t('miranda/profile', 'Personal Information') ?></h4><hr>
+                        <h4><?= Yii::t('miranda/profile', 'Personal Information') ?></h4>
+                        <hr>
 
                         <div class="col-md-4 text-center">
 
@@ -94,25 +95,25 @@ $this->params['breadcrumbs'][] = $user->profile->fullName . "({$user->username})
                                 </div>
 
                                 <div class="col-md-5">
-                                    <?= $form->field($model, 'first_name',[
+                                    <?= $form->field($model, 'first_name', [
                                         'template' => "{label} {input} {error} <br>",
                                         'options' => [
-                                            'tag'=>'span'
+                                            'tag' => 'span'
                                         ]
                                     ])->textInput([
                                         'maxlength' => 255,
-                                        'class'     => 'form-control',
+                                        'class' => 'form-control',
                                     ]) ?>
                                 </div>
 
                                 <div class="col-md-5">
-                                    <?= $form->field($model, 'last_name',[
+                                    <?= $form->field($model, 'last_name', [
                                         'options' => [
-                                            'tag'=>'span'
+                                            'tag' => 'span'
                                         ]
                                     ])->textInput([
                                         'maxlength' => 255,
-                                        'class'     => 'form-control',
+                                        'class' => 'form-control',
                                     ]) ?>
                                 </div>
 
@@ -160,19 +161,19 @@ $this->params['breadcrumbs'][] = $user->profile->fullName . "({$user->username})
                                     <?=
                                     LanguageSelect::widget(
                                         [
-                                            'model'     => $model,
+                                            'model' => $model,
                                             'attribute' => 'language',
-                                            'form'      => $form,
+                                            'form' => $form,
                                         ]
                                     );
                                     ?>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <?= $form->field($model, 'timezone',[
+                                    <?= $form->field($model, 'timezone', [
                                         'template' => "{label} {input} {error} <br>",
                                         'options' => [
-                                            'tag'=>'span'
+                                            'tag' => 'span'
                                         ]
                                     ])->dropDownList(['TZ1' => 'TZ1'], ['promt' => '']); ?>
                                 </div>
@@ -186,29 +187,30 @@ $this->params['breadcrumbs'][] = $user->profile->fullName . "({$user->username})
 
                     <div class="container bs-callout bs-callout-info">
 
-                        <h4><?= Yii::t('miranda/profile', 'User account information') ?></h4><hr>
+                        <h4><?= Yii::t('miranda/profile', 'User account information') ?></h4>
+                        <hr>
 
-                        <?php if($user->email): ?>
+                        <?php if ($user->email): ?>
                             <div class="col-md-6">
-                                <?= $form->field($model, 'email',[
+                                <?= $form->field($model, 'email', [
                                     'options' => [
-                                        'tag'=>'span'
+                                        'tag' => 'span'
                                     ]
                                 ])->textInput([
                                     'maxlength' => 255,
-                                    'class'     => 'form-control',
+                                    'class' => 'form-control',
                                 ]) ?>
                             </div>
                         <?php endif; ?>
 
                         <div class="col-md-6">
-                            <?= $form->field($model, 'username',[
+                            <?= $form->field($model, 'username', [
                                 'options' => [
-                                    'tag'=>'span'
+                                    'tag' => 'span'
                                 ]
                             ])->textInput([
                                 'maxlength' => 255,
-                                'class'     => 'form-control',
+                                'class' => 'form-control',
                             ]) ?>
                         </div>
 
@@ -220,7 +222,8 @@ $this->params['breadcrumbs'][] = $user->profile->fullName . "({$user->username})
 
                     <div class="container bs-callout bs-callout-info">
 
-                        <h4><?= Yii::t('miranda/profile', 'Change Password') ?></h4><hr>
+                        <h4><?= Yii::t('miranda/profile', 'Change Password') ?></h4>
+                        <hr>
 
                         <div class="col-md-6">
                             <?= $form->field($model, 'newPassword')->passwordInput() ?>
@@ -237,29 +240,30 @@ $this->params['breadcrumbs'][] = $user->profile->fullName . "({$user->username})
                 <div class="row nomargin">
 
                     <div class="container bs-callout bs-callout-info">
-                        <h4><?= Yii::t('miranda/profile', 'Commercial Information') ?></h4><hr>
+                        <h4><?= Yii::t('miranda/profile', 'Commercial Information') ?></h4>
+                        <hr>
 
                         <div class="col-md-6">
-                            <?= $form->field($model, 'document_id',[
+                            <?= $form->field($model, 'document_id', [
                                 'template' => "{label} {input} {error} <br>",
                                 'options' => [
-                                    'tag'=>'span'
+                                    'tag' => 'span'
                                 ]
                             ])->textInput([
                                 'maxlength' => 255,
-                                'class'     => 'form-control',
+                                'class' => 'form-control',
                             ]) ?>
                         </div>
 
                         <div class="col-md-6">
-                            <?= $form->field($model, 'merchant_id',[
+                            <?= $form->field($model, 'merchant_id', [
                                 'template' => "{label} {input} {error} <br>",
                                 'options' => [
-                                    'tag'=>'span'
+                                    'tag' => 'span'
                                 ]
                             ])->textInput([
                                 'maxlength' => 255,
-                                'class'     => 'form-control',
+                                'class' => 'form-control',
                             ]) ?>
                         </div>
 
@@ -270,7 +274,8 @@ $this->params['breadcrumbs'][] = $user->profile->fullName . "({$user->username})
 
                     <div class="container bs-callout bs-callout-info">
 
-                        <h4><?= Yii::t('miranda/profile', 'Contact information') ?></h4><hr>
+                        <h4><?= Yii::t('miranda/profile', 'Contact information') ?></h4>
+                        <hr>
 
                         <div class="col-md-6">
                             <?= $form->field($model, 'phone_1')->widget(\yii\widgets\MaskedInput::classname(), [
@@ -291,14 +296,14 @@ $this->params['breadcrumbs'][] = $user->profile->fullName . "({$user->username})
                         </div>
 
                         <div class="col-md-6">
-                            <?= $form->field($model, 'skype',[
+                            <?= $form->field($model, 'skype', [
                                 'template' => "{label} {input} {error} <br>",
                                 'options' => [
-                                    'tag'=>'span'
+                                    'tag' => 'span'
                                 ]
                             ])->textInput([
                                 'maxlength' => 255,
-                                'class'     => 'form-control',
+                                'class' => 'form-control',
                             ]) ?>
                         </div>
 
@@ -309,17 +314,23 @@ $this->params['breadcrumbs'][] = $user->profile->fullName . "({$user->username})
 
                     <div class="container bs-callout bs-callout-info">
 
-                        <h4><?= Yii::t('miranda/profile', 'Other information') ?></h4><hr>
+                        <h4><?= Yii::t('miranda/profile', 'Other information') ?></h4>
+                        <hr>
 
                         <div class="col-md-12">
                             <?= $form->field($model, 'notes', [
                                 'hintType' => ActiveField::HINT_SPECIAL,
-                                'hintSettings' => ['placement' => 'right', 'onLabelClick' => true, 'onLabelHover' => false]
+                                'hintSettings' => [
+                                    'placement' => 'right',
+                                    'onLabelClick' => true,
+                                    'onLabelHover' => false
+                                ]
                             ])->textArea([
                                 'id' => 'address-input',
                                 'placeholder' => Yii::t('miranda/profile', 'Enter notes...'),
                                 'rows' => 4
-                            ])->hint(Yii::t('miranda/profile', 'Notes is used to leave comments to a user o either to remid yourself something important that must be done on the account')); ?>
+                            ])->hint(Yii::t('miranda/profile',
+                                'Notes is used to leave comments to a user o either to remid yourself something important that must be done on the account')); ?>
                         </div>
 
                     </div>
@@ -328,10 +339,12 @@ $this->params['breadcrumbs'][] = $user->profile->fullName . "({$user->username})
                 <div class="row nomargin">
                     <div class="container bs-callout bs-callout-danger">
 
-                        <h4><?= Yii::t('miranda/profile', 'Account Verification') ?></h4><hr>
+                        <h4><?= Yii::t('miranda/profile', 'Account Verification') ?></h4>
+                        <hr>
 
                         <div class="col-md-12">
-                            <h4 style="color:red"><?= Yii::t('miranda', 'Note: Updating your account information need current password verification.') ?></h4>
+                            <h4 style="color:red"><?= Yii::t('miranda',
+                                    'Note: Updating your account information need current password verification.') ?></h4>
                             <?= $form->field($model, 'currentPassword')->passwordInput() ?>
                         </div>
 
@@ -340,7 +353,8 @@ $this->params['breadcrumbs'][] = $user->profile->fullName . "({$user->username})
 
                 <div class="form-group">
                     <div class="col-lg-12">
-                        <?= Html::submitButton(Yii::t('miranda', 'Update'), ['class' => 'btn btn-block btn-lg btn-primary']) ?>
+                        <?= Html::submitButton(Yii::t('miranda', 'Update'),
+                            ['class' => 'btn btn-block btn-lg btn-primary']) ?>
                     </div>
                 </div>
 

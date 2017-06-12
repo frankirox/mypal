@@ -96,11 +96,14 @@ class AuthChoice extends BaseAuthChoice
 
         foreach ($clients as $externalService) {
             if ($this->displayClients == self::DISPLAY_ALL
-                || ($this->displayClients == self::DISPLAY_AUTHORIZED && in_array($externalService->getName(), $authorizedClients))
-                || ($this->displayClients == self::DISPLAY_NON_AUTHORIZED && !in_array($externalService->getName(), $authorizedClients))
+                || ($this->displayClients == self::DISPLAY_AUTHORIZED && in_array($externalService->getName(),
+                        $authorizedClients))
+                || ($this->displayClients == self::DISPLAY_NON_AUTHORIZED && !in_array($externalService->getName(),
+                        $authorizedClients))
             ) {
                 $shortViewClass = ($this->shortView) ? 'short-view' : '';
-                echo Html::beginTag('li', ['class' => 'auth-client ' . $shortViewClass . ' ' . $externalService->getName()]);
+                echo Html::beginTag('li',
+                    ['class' => 'auth-client ' . $shortViewClass . ' ' . $externalService->getName()]);
                 $this->clientLink($externalService);
                 echo Html::endTag('li');
             }

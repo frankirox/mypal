@@ -61,7 +61,7 @@ abstract class UserIdentity extends ActiveRecord implements IdentityInterface
         $expire = Yii::$app->miranda->confirmationTokenExpire;
 
         $parts = explode('_', $token);
-        $timestamp = (int) end($parts);
+        $timestamp = (int)end($parts);
 
         if ($timestamp + $expire < time()) {
             // token expired
@@ -69,8 +69,8 @@ abstract class UserIdentity extends ActiveRecord implements IdentityInterface
         }
 
         return static::findOne([
-                    'confirmation_token' => $token,
-                    'status' => User::STATUS_ACTIVE,
+            'confirmation_token' => $token,
+            'status' => User::STATUS_ACTIVE,
         ]);
     }
 
@@ -85,7 +85,7 @@ abstract class UserIdentity extends ActiveRecord implements IdentityInterface
         $expire = Yii::$app->miranda->confirmationTokenExpire;
 
         $parts = explode('_', $token);
-        $timestamp = (int) end($parts);
+        $timestamp = (int)end($parts);
 
         if ($timestamp + $expire < time()) {
             // token expired
@@ -93,8 +93,8 @@ abstract class UserIdentity extends ActiveRecord implements IdentityInterface
         }
 
         return static::findOne([
-                    'confirmation_token' => $token,
-                    'status' => User::STATUS_INACTIVE,
+            'confirmation_token' => $token,
+            'status' => User::STATUS_INACTIVE,
         ]);
     }
 

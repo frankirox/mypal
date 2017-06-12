@@ -59,9 +59,21 @@ class Users extends DashboardWidget
     public function getDefaultOptions()
     {
         return [
-            ['label' => Yii::t('miranda', 'Active'), 'icon' => 'ok', 'filterWhere' => ['status' => User::STATUS_ACTIVE]],
-            ['label' => Yii::t('miranda', 'Inactive'), 'icon' => 'ok', 'filterWhere' => ['status' => User::STATUS_INACTIVE]],
-            ['label' => Yii::t('miranda', 'Banned'), 'icon' => 'ok', 'filterWhere' => ['status' => User::STATUS_BANNED]],
+            [
+                'label' => Yii::t('miranda', 'Active'),
+                'icon' => 'ok',
+                'filterWhere' => ['status' => User::STATUS_ACTIVE]
+            ],
+            [
+                'label' => Yii::t('miranda', 'Inactive'),
+                'icon' => 'ok',
+                'filterWhere' => ['status' => User::STATUS_INACTIVE]
+            ],
+            [
+                'label' => Yii::t('miranda', 'Banned'),
+                'icon' => 'ok',
+                'filterWhere' => ['status' => User::STATUS_BANNED]
+            ],
         ];
     }
 }

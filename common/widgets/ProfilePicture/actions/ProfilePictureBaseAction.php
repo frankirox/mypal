@@ -1,6 +1,6 @@
 <?php
 
-namespace  common\widgets\ProfilePicture\actions;
+namespace common\widgets\ProfilePicture\actions;
 
 use Yii;
 use yii\base\Action;
@@ -19,7 +19,7 @@ abstract class ProfilePictureBaseAction extends Action
     public $min_width = 200;
     public $min_height = 200;
     public $crop_width = 200;
-    public $allowed_extensions = ['jpg','png','jpeg','gif','bmp'];
+    public $allowed_extensions = ['jpg', 'png', 'jpeg', 'gif', 'bmp'];
     public $upload_path = null;
     public $upload_path_url = null;
     protected $filename;

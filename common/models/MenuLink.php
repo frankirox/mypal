@@ -79,9 +79,15 @@ class MenuLink extends ActiveRecord
             [['order', 'alwaysVisible', 'created_by', 'updated_by', 'created_at', 'updated_at',], 'integer'],
             [['id', 'menu_id', 'parent_id'], 'string', 'max' => 64],
             [['link', 'label'], 'string', 'max' => 255],
-            [['target','permissions'], 'string', 'max' => 255], //agregado nuevo
+            [['target', 'permissions'], 'string', 'max' => 255], //agregado nuevo
             [['image'], 'string', 'max' => 128],
-            [['id'], 'match', 'pattern' => '/^[a-z0-9_-]+$/', 'message' => Yii::t('miranda', 'Link ID can only contain lowercase alphanumeric characters, underscores and dashes.')],
+            [
+                ['id'],
+                'match',
+                'pattern' => '/^[a-z0-9_-]+$/',
+                'message' => Yii::t('miranda',
+                    'Link ID can only contain lowercase alphanumeric characters, underscores and dashes.')
+            ],
             ['order', 'default', 'value' => 999],
         ];
     }
@@ -99,7 +105,7 @@ class MenuLink extends ActiveRecord
             'target' => Yii::t('miranda', 'Target'), // agregado nuevo
             'parent_id' => Yii::t('miranda', 'Parent Link'),
             'alwaysVisible' => Yii::t('miranda', 'Always Visible'),
-            'permissions' => Yii::t('miranda','Permissions'),
+            'permissions' => Yii::t('miranda', 'Permissions'),
             'image' => Yii::t('miranda', 'Icon'),
             'order' => Yii::t('miranda', 'Order'),
             'created_by' => Yii::t('miranda', 'Created By'),
@@ -124,16 +130,16 @@ class MenuLink extends ActiveRecord
     public function getSiblings()
     {
         $siblings = MenuLink::find()->joinWith('translations')
-                ->andFilterWhere(['like', 'menu_id', $this->menu_id])
-                ->andFilterWhere(['!=', 'menu_link.id', $this->id])
-                ->all();
+            ->andFilterWhere(['like', 'menu_id', $this->menu_id])
+            ->andFilterWhere(['!=', 'menu_link.id', $this->id])
+            ->all();
 
         $list = ArrayHelper::map(
-                        $siblings, 'id', function ($array, $default) {
-                    return $array->label . ' [' . $array->id . ']';
-                });
+            $siblings, 'id', function ($array, $default) {
+            return $array->label . ' [' . $array->id . ']';
+        });
 
-        return ArrayHelper::merge([NULL => Yii::t('miranda', 'No Parent')], $list);
+        return ArrayHelper::merge([null => Yii::t('miranda', 'No Parent')], $list);
     }
 
     /**

@@ -30,15 +30,15 @@ class DefaultController extends BaseController
 
         unset($languages[$sourceLanguage]);
 
-        $currentLanguage = Yii::$app->getRequest()->get('translation', NULL);
-        $currentCategory = Yii::$app->getRequest()->get('category', NULL);
+        $currentLanguage = Yii::$app->getRequest()->get('translation', null);
+        $currentCategory = Yii::$app->getRequest()->get('category', null);
 
         if (!in_array($currentLanguage, array_keys($languages))) {
-            $currentLanguage = NULL;
+            $currentLanguage = null;
         }
 
         if (!in_array($currentCategory, array_keys($categories))) {
-            $currentCategory = NULL;
+            $currentCategory = null;
         }
 
         if ($currentLanguage && $currentCategory) {

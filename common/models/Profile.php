@@ -1,4 +1,5 @@
 <?php
+
 namespace common\models;
 
 use Yii;
@@ -82,7 +83,7 @@ class Profile extends ActiveRecord
             [['notes'], 'string'],
             [['birthday'], 'date', 'format' => 'yyyy-MM-dd'],
             [['created_by', 'updated_by', 'created_at', 'updated_at'], 'integer'],
-            [['document_id', 'merchant_id','avatar'], 'safe'],
+            [['document_id', 'merchant_id', 'avatar'], 'safe'],
         ];
     }
 
@@ -150,7 +151,7 @@ class Profile extends ActiveRecord
     {
         return [
             [self::GENDER_MALE, Yii::t('miranda/profile', 'Male'), 'default'],
-            [self::GENDER_FEMALE,Yii::t('miranda/profile', 'Female'), 'default']
+            [self::GENDER_FEMALE, Yii::t('miranda/profile', 'Female'), 'default']
         ];
     }
 
@@ -219,16 +220,16 @@ class Profile extends ActiveRecord
     {
         if (!empty($this->avatar)) {
             $avatars = json_decode($this->avatar);
-            
+
             if (isset($avatars->$size)) {
 
                 $explodeContent = explode(DIRECTORY_SEPARATOR, $avatars->$size);
 
-                if(is_array($explodeContent)){
+                if (is_array($explodeContent)) {
 
                     $reverseArray = array_reverse($explodeContent);
                     $filename = $reverseArray[0];
-                    $url = Yii::$app->urlManager->hostInfo . '/storage/avatars/'. $filename;
+                    $url = Yii::$app->urlManager->hostInfo . '/storage/avatars/' . $filename;
 
                     return $url;
                 }

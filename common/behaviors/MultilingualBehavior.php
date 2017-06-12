@@ -191,24 +191,29 @@ class MultilingualBehavior extends Behavior
         $validators = $owner->getValidators();
 
         foreach ($rules as $rule) {
-            if (in_array($rule[1], $this->excludedValidators))
+            if (in_array($rule[1], $this->excludedValidators)) {
                 continue;
+            }
 
             $rule_attributes = is_array($rule[0]) ? $rule[0] : [$rule[0]];
             $attributes = array_intersect($this->attributes, $rule_attributes);
 
-            if (empty($attributes))
+            if (empty($attributes)) {
                 continue;
+            }
 
             $rule_attributes = [];
             foreach ($attributes as $key => $attribute) {
-                foreach ($this->languages as $language)
-                    if ($language != $this->defaultLanguage)
+                foreach ($this->languages as $language) {
+                    if ($language != $this->defaultLanguage) {
                         $rule_attributes[] = $this->getAttributeName($attribute, $language);
+                    }
+                }
             }
 
-            if (isset($rule['skipOnEmpty']) && !$rule['skipOnEmpty'])
+            if (isset($rule['skipOnEmpty']) && !$rule['skipOnEmpty']) {
                 $rule['skipOnEmpty'] = !$this->requireTranslations;
+            }
 
             $params = array_slice($rule, 2);
 
@@ -259,13 +264,14 @@ class MultilingualBehavior extends Behavior
     public function getTranslations()
     {
 
-        if(is_array($this->ownerPrimaryKey)){
+        if (is_array($this->ownerPrimaryKey)) {
             return $this->owner->hasMany($this->langClassName, [$this->langForeignKey => $this->ownerPrimaryKey[0]]);
-        }else{
+        } else {
             return $this->owner->hasMany($this->langClassName, [$this->langForeignKey => $this->ownerPrimaryKey]);
         }
 
     }
+
     /**
      * Relation to model translation
      * @param $language
@@ -275,10 +281,10 @@ class MultilingualBehavior extends Behavior
     {
         $language = $language ?: $this->getCurrentLanguage();
 
-        if(is_array($this->ownerPrimaryKey)){
+        if (is_array($this->ownerPrimaryKey)) {
             return $this->owner->hasOne($this->langClassName, [$this->langForeignKey => $this->ownerPrimaryKey[0]])
                 ->where([$this->languageField => $language]);
-        }else{
+        } else {
             return $this->owner->hasOne($this->langClassName, [$this->langForeignKey => $this->ownerPrimaryKey])
                 ->where([$this->languageField => $language]);
         }
@@ -292,7 +298,8 @@ class MultilingualBehavior extends Behavior
     public function beforeValidate()
     {
         foreach ($this->attributes as $attribute) {
-            $this->setLangAttribute($this->getAttributeName($attribute, $this->defaultLanguage), $this->getLangAttribute($attribute));
+            $this->setLangAttribute($this->getAttributeName($attribute, $this->defaultLanguage),
+                $this->getLangAttribute($attribute));
         }
     }
 
@@ -311,7 +318,8 @@ class MultilingualBehavior extends Behavior
                     foreach ($translations as $translation) {
                         if ($this->getLanguageBaseName($translation->{$this->languageField}) == $lang) {
                             $attributeName = $this->localizedPrefix . $attribute;
-                            $this->setLangAttribute($this->getAttributeName($attribute, $lang), $translation->{$attributeName});
+                            $this->setLangAttribute($this->getAttributeName($attribute, $lang),
+                                $translation->{$attributeName});
 
                             if ($lang == $this->defaultLanguage) {
                                 $this->setLangAttribute($attribute, $translation->{$attributeName});
@@ -391,10 +399,10 @@ class MultilingualBehavior extends Behavior
 
                 $primaryKey = $owner->getPrimaryKey();
 
-                if(is_array($primaryKey)){
+                if (is_array($primaryKey)) {
 
                     $translation->{$this->langForeignKey} = $primaryKey[0];
-                }else{
+                } else {
 
                     $translation->{$this->langForeignKey} = $primaryKey;
                 }
@@ -404,15 +412,17 @@ class MultilingualBehavior extends Behavior
             }
             $save = false;
             foreach ($this->attributes as $attribute) {
-                $value = $defaultLanguage ? $owner->$attribute : $this->getLangAttribute($this->getAttributeName($attribute, $lang));
+                $value = $defaultLanguage ? $owner->$attribute : $this->getLangAttribute($this->getAttributeName($attribute,
+                    $lang));
                 if ($value !== null) {
                     $field = $this->localizedPrefix . $attribute;
                     $translation->$field = $value;
                     $save = true;
                 }
             }
-            if ($translation->isNewRecord && !$save)
+            if ($translation->isNewRecord && !$save) {
                 continue;
+            }
             $translation->save();
         }
     }
@@ -423,7 +433,7 @@ class MultilingualBehavior extends Behavior
     public function canGetProperty($name, $checkVars = true)
     {
         return method_exists($this, 'get' . $name) || $checkVars && property_exists($this, $name)
-        || $this->hasLangAttribute($name);
+            || $this->hasLangAttribute($name);
     }
 
     /**
@@ -442,9 +452,12 @@ class MultilingualBehavior extends Behavior
         try {
             return parent::__get($name);
         } catch (UnknownPropertyException $e) {
-            if ($this->hasLangAttribute($name)) return $this->getLangAttribute($name);
-            // @codeCoverageIgnoreStart
-            else throw $e;
+            if ($this->hasLangAttribute($name)) {
+                return $this->getLangAttribute($name);
+            } // @codeCoverageIgnoreStart
+            else {
+                throw $e;
+            }
             // @codeCoverageIgnoreEnd
         }
     }
@@ -457,9 +470,12 @@ class MultilingualBehavior extends Behavior
         try {
             parent::__set($name, $value);
         } catch (UnknownPropertyException $e) {
-            if ($this->hasLangAttribute($name)) $this->setLangAttribute($name, $value);
-            // @codeCoverageIgnoreStart
-            else throw $e;
+            if ($this->hasLangAttribute($name)) {
+                $this->setLangAttribute($name, $value);
+            } // @codeCoverageIgnoreStart
+            else {
+                throw $e;
+            }
             // @codeCoverageIgnoreEnd
         }
     }

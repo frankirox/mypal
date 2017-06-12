@@ -6,7 +6,7 @@ use yii\widgets\ListView;
 /* @var $searchLinkModel common\menu\models\search\SearchMenuLink */
 
 $dataProvider = $searchLinkModel->search((is_array($searchParams) ? $searchParams : []));
-$queryParams  = Yii::$app->getRequest()->getQueryParams();
+$queryParams = Yii::$app->getRequest()->getQueryParams();
 ?>
 
 <?php if (empty($queryParams)): ?>
@@ -15,7 +15,8 @@ $queryParams  = Yii::$app->getRequest()->getQueryParams();
     </h4>
 <?php elseif (!isset($parentId) && $dataProvider->count == 0): ?>
     <h4>
-        <?= Yii::t('miranda/menu', 'Selected menu doesn\'t contain any link. Click "Add New Link" to create a link for this menu.') ?>
+        <?= Yii::t('miranda/menu',
+            'Selected menu doesn\'t contain any link. Click "Add New Link" to create a link for this menu.') ?>
     </h4>
 <?php else: ?>
     <?=
@@ -34,8 +35,8 @@ $queryParams  = Yii::$app->getRequest()->getQueryParams();
             'class' => 'sortable-item',
         ],
         'itemView' => function ($model, $key, $index, $widget) use ($searchLinkModel) {
-        return $this->render('link', ['model' => $model, 'searchLinkModel' => $searchLinkModel]);
-    },
+            return $this->render('link', ['model' => $model, 'searchLinkModel' => $searchLinkModel]);
+        },
     ])
     ?>
 <?php endif; ?>

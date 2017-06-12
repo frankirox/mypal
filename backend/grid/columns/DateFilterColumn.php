@@ -22,7 +22,6 @@ class DateFilterColumn extends DataColumn
     public $filterInputOptions = ['style' => 'width:80%', 'class' => 'form-control', 'id' => null];
 
 
-
     /**
      * Renders the filter cell content.
      * The default implementation simply renders a space.
@@ -53,9 +52,13 @@ class DateFilterColumn extends DataColumn
                 $this->attribute . '_operand', $filterOptions, [
                     'class' => 'form-control pull-left',
                     'style' => 'width: 20%; appearance: none; -moz-appearance: none; -webkit-appearance: none;',
-                    ]);
-            $field = DatePicker::widget(['model' => $model, 'attribute' => $this->attribute,
-                'options' => $this->filterInputOptions, 'dateFormat' => 'yyyy-MM-dd',]);
+                ]);
+            $field = DatePicker::widget([
+                'model' => $model,
+                'attribute' => $this->attribute,
+                'options' => $this->filterInputOptions,
+                'dateFormat' => 'yyyy-MM-dd',
+            ]);
 
             return $dropDown . $field . $error;
         } else {

@@ -7,7 +7,7 @@ use yii\web\JqueryAsset;
 
 /**
  * Class LanguagePillsAsset
- * 
+ *
  * @package common\assets
  */
 class LanguagePillsAsset extends AssetBundle

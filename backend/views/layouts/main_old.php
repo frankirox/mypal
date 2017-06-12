@@ -36,7 +36,8 @@ MetisMenuAsset::register($this);
         <?php
         $logo = $assetBundle->baseUrl . '/images/admin-logo.png';
         NavBar::begin([
-            'brandLabel' => Html::img($logo, ['class' => 'admin-logo', 'alt' => 'optilandia.com']) . '<b>optilandia.com</b> ',
+            'brandLabel' => Html::img($logo,
+                    ['class' => 'admin-logo', 'alt' => 'optilandia.com']) . '<b>optilandia.com</b> ',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'navbar-inverse navbar-static-top',
@@ -48,7 +49,10 @@ MetisMenuAsset::register($this);
         ]);
 
         $menuItems = [
-            ['label' => str_replace('http://', '', Yii::$app->urlManager->hostInfo), 'url' => Yii::$app->urlManager->hostInfo],
+            [
+                'label' => str_replace('http://', '', Yii::$app->urlManager->hostInfo),
+                'url' => Yii::$app->urlManager->hostInfo
+            ],
         ];
 
         if (Yii::$app->user->isGuest) {

@@ -92,15 +92,18 @@ use backend\widgets;
 
         <?php
         if ($countCaracter >= 40 and $countCaracter <= 70) {
-            $Text = Yii::t("miranda/seoanalizer", "the title of the page contains more 40 characters and less than 70 characters is the limit recommended");
+            $Text = Yii::t("miranda/seoanalizer",
+                "the title of the page contains more 40 characters and less than 70 characters is the limit recommended");
             echo '<i class="fa  fa-check-circle   pull-left" style="color:green"></i>';
             echo '<div style="Color:black">' . $Text . '</div>';
         } elseif ($countCaracter > 70) {
-            $Text = Yii::t("miranda/seoanalizer", "the title of the page contains more than 70 characters the recommended limit");
+            $Text = Yii::t("miranda/seoanalizer",
+                "the title of the page contains more than 70 characters the recommended limit");
             echo '<i class="fa  fa-check-circle   pull-left" style="color:red"></i>';
             echo '<div style="Color:black">' . $Text . '</div>';
         } elseif ($countCaracter < 40) {
-            $Text = Yii::t("miranda/seoanalizer", "the title of the page contains less than 40 characters the recommended limit");
+            $Text = Yii::t("miranda/seoanalizer",
+                "the title of the page contains less than 40 characters the recommended limit");
             echo '<i class="fa  fa-check-circle   pull-left" style="color:yellow"></i>';
             echo '<div style="Color:black">' . $Text . '</div>';
         }

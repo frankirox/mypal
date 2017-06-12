@@ -28,7 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'password')->passwordInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
 
-                <?= $form->field($model, 'repeat_password')->passwordInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
+                <?= $form->field($model, 'repeat_password')->passwordInput([
+                    'maxlength' => 255,
+                    'autocomplete' => 'off'
+                ]) ?>
 
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-9">

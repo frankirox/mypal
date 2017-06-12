@@ -2,7 +2,7 @@
 
 namespace common\widgets\ProfilePicture;
 
-class ProfilePicture extends  \yii\bootstrap\Widget
+class ProfilePicture extends \yii\bootstrap\Widget
 {
 
     public $model;
@@ -24,12 +24,12 @@ class ProfilePicture extends  \yii\bootstrap\Widget
         return $this->render(
             'ProfilePicture',
             [
-                'model'   => $this->model,
+                'model' => $this->model,
                 'attribute' => $this->attribute,
-                'options'   => $this->options,
-                'webcamActionUrl'   => $this->webcamActionUrl,
-                'uploadActionUrl'   => $this->uploadActionUrl,
-                'saveActionUrl'   => $this->saveActionUrl,
+                'options' => $this->options,
+                'webcamActionUrl' => $this->webcamActionUrl,
+                'uploadActionUrl' => $this->uploadActionUrl,
+                'saveActionUrl' => $this->saveActionUrl,
                 'imgReplacingClass' => $this->imgReplacingClass,
                 'pluginOptions' => $this->pluginOptions,
             ]

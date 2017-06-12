@@ -26,7 +26,7 @@ class SocialSettings extends BaseSettingsModel
     {
         return ArrayHelper::merge(parent::rules(),
             [
-                [['facebook_url','twitter_url','linkedin_url','youtube_url','instagram_url'], 'string'],
+                [['facebook_url', 'twitter_url', 'linkedin_url', 'youtube_url', 'instagram_url'], 'string'],
                 ['facebook_url', 'default', 'value' => '#'],
                 ['twitter_url', 'default', 'value' => '#'],
                 ['linkedin_url', 'default', 'value' => '#'],

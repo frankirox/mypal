@@ -34,12 +34,18 @@ SettingsAsset::register($this);
             <div class="panel-body">
                 <br>
 
-                <?= $form->field($model, 'address')->textInput(['maxlength' => true])->hint($model->getDescription('address')) ?>
-                <?= $form->field($model, 'phone')->textInput(['maxlength' => true])->hint($model->getDescription('phone')) ?>
-                <?= $form->field($model, 'skype')->textInput(['maxlength' => true])->hint($model->getDescription('skype')) ?>
-                <?= $form->field($model, 'whatsapp')->textInput(['maxlength' => true])->hint($model->getDescription('whatsapp')) ?>
-                <?= $form->field($model, 'email')->textInput(['maxlength' => true])->hint($model->getDescription('email')) ?>
-                <?= $form->field($model, 'google_maps_url')->textInput(['maxlength' => true])->hint($model->getDescription('google_maps_url')) ?>
+                <?= $form->field($model,
+                    'address')->textInput(['maxlength' => true])->hint($model->getDescription('address')) ?>
+                <?= $form->field($model,
+                    'phone')->textInput(['maxlength' => true])->hint($model->getDescription('phone')) ?>
+                <?= $form->field($model,
+                    'skype')->textInput(['maxlength' => true])->hint($model->getDescription('skype')) ?>
+                <?= $form->field($model,
+                    'whatsapp')->textInput(['maxlength' => true])->hint($model->getDescription('whatsapp')) ?>
+                <?= $form->field($model,
+                    'email')->textInput(['maxlength' => true])->hint($model->getDescription('email')) ?>
+                <?= $form->field($model,
+                    'google_maps_url')->textInput(['maxlength' => true])->hint($model->getDescription('google_maps_url')) ?>
             </div>
             <div class="panel-footer">
                 <div class="row">

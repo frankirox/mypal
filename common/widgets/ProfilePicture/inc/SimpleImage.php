@@ -9,7 +9,6 @@
 */
 
 
-
 // Read & Save 24bit BMP files
 
 // Author: de77

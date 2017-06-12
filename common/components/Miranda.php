@@ -54,7 +54,7 @@ class Miranda extends Component
 
     /**
      * Permission that will be assigned automatically for everyone. You can assign
-     * routes like "site/index" to this permission and those routes will be 
+     * routes like "site/index" to this permission and those routes will be
      * available for everyone.
      *
      * @var string
@@ -76,7 +76,7 @@ class Miranda extends Component
     public $defaultRoles = [];
 
     /**
-     * Pattern that will be used to validate usernames on registration. Default 
+     * Pattern that will be used to validate usernames on registration. Default
      * pattern allows only numbers and letters.
      *
      * @var string
@@ -84,7 +84,7 @@ class Miranda extends Component
     public $usernameRegexp = '/^(\w|\d)+$/';
 
     /**
-     * Pattern that describe what names should not be allowed for username on 
+     * Pattern that describe what names should not be allowed for username on
      * registration. Default pattern does not allow anything having "admin".
      *
      * @var string
@@ -130,7 +130,7 @@ class Miranda extends Component
     public $maxAttempts = 5;
 
     /**
-     * Number of seconds after attempt counter to login, update or recover 
+     * Number of seconds after attempt counter to login, update or recover
      * password will reset.
      *
      * @var int
@@ -153,8 +153,8 @@ class Miranda extends Component
 
     /**
      * User table alias.
-     * 
-     * @var string 
+     *
+     * @var string
      */
     public $user_table = '{{%user}}';
 
@@ -167,51 +167,51 @@ class Miranda extends Component
 
     /**
      * User visit log table alias.
-     * 
-     * @var string 
+     *
+     * @var string
      */
     public $user_visit_log_table = '{{%user_visit_log}}';
 
     /**
      * Auth item table alias.
-     * 
-     * @var string 
+     *
+     * @var string
      */
     public $auth_item_table = '{{%auth_item}}';
 
     /**
      * Auth item child table alias.
-     * 
-     * @var string 
+     *
+     * @var string
      */
     public $auth_item_child_table = '{{%auth_item_child}}';
 
     /**
      * Auth item group table alias.
-     * 
-     * @var string 
+     *
+     * @var string
      */
     public $auth_item_group_table = '{{%auth_item_group}}';
 
     /**
      * Auth assignment table alias.
-     * 
-     * @var string 
+     *
+     * @var string
      */
     public $auth_assignment_table = '{{%auth_assignment}}';
 
     /**
      * Auth rule table alias.
-     * 
-     * @var string 
+     *
+     * @var string
      */
     public $auth_rule_table = '{{%auth_rule}}';
 
     /**
      * List of languages used in frontend rules. Contains the same values as
      * `$languages` but keys is replaced with `$languageRedirects`.
-     * 
-     * @var array 
+     *
+     * @var array
      */
     protected $_displayLanguages;
 
@@ -266,8 +266,8 @@ class Miranda extends Component
         if (!in_array(Yii::$app->language, array_keys($this->languages))) {
             throw new InvalidConfigException('Invalid language settings! Default application language should be included into `common\Miranda::$languages` setting.');
         }
-        
-        if(!empty(array_diff(array_keys($this->languageRedirects), array_keys($this->languages)))){
+
+        if (!empty(array_diff(array_keys($this->languageRedirects), array_keys($this->languages)))) {
             throw new InvalidConfigException('Invalid language redirects settings!');
         }
     }
@@ -309,7 +309,7 @@ class Miranda extends Component
 
     /**
      * Returns language shortcode that will be displayed on frontend.
-     * 
+     *
      * @param string $language
      * @return string
      */
@@ -320,7 +320,7 @@ class Miranda extends Component
 
     /**
      * Returns original language shortcode from its redirect.
-     * 
+     *
      * @param string $language
      * @return string
      */
@@ -336,9 +336,9 @@ class Miranda extends Component
     }
 
     /**
-     * Returns list of languages used in frontend rules. Contains the same values 
+     * Returns list of languages used in frontend rules. Contains the same values
      * as `$languages` but keys is replaced with `$languageRedirects`.
-     * 
+     *
      * @return array
      */
     public function getDisplayLanguages()
@@ -390,7 +390,7 @@ class Miranda extends Component
 
     /**
      * Returns an HTML hyperlink that can be displayed on your Web page.
-     * 
+     *
      * @return string
      */
     public static function poweredBlock()
@@ -400,12 +400,12 @@ class Miranda extends Component
 
     public static function powered()
     {
-        return Yii::t('miranda','The Content Management System For Developers Based on Yii Framework 2.');
+        return Yii::t('miranda', 'The Content Management System For Developers Based on Yii Framework 2.');
     }
 
     /**
      * Returns a string representing the current version of the Miranda CMS Core.
-     * 
+     *
      * @return string the version of Miranda CMS Core
      */
     public static function getVersion()
@@ -417,7 +417,7 @@ class Miranda extends Component
     public function getDefaultCountry()
     {
 
-        $value = Yii::$app->settings->get('general.country',Yii::$app->params['defaultCountry']);
+        $value = Yii::$app->settings->get('general.country', Yii::$app->params['defaultCountry']);
 
         return $value;
     }
@@ -425,7 +425,7 @@ class Miranda extends Component
     public function getDefaultTimezone()
     {
 
-        $value = Yii::$app->settings->get('general.timezone',Yii::$app->params['defaultTimezone']);
+        $value = Yii::$app->settings->get('general.timezone', Yii::$app->params['defaultTimezone']);
 
         return $value;
     }
@@ -433,7 +433,7 @@ class Miranda extends Component
     public function getDefaultLanguage()
     {
 
-        $value = Yii::$app->settings->get('general.language',Yii::$app->params['defaultLanguage']);
+        $value = Yii::$app->settings->get('general.language', Yii::$app->params['defaultLanguage']);
 
         return $value;
     }
@@ -441,7 +441,7 @@ class Miranda extends Component
     public function getDefaultDateFormat()
     {
 
-        $value = Yii::$app->settings->get('general.dateformat',Yii::$app->params['defaultDateFormat']);
+        $value = Yii::$app->settings->get('general.dateformat', Yii::$app->params['defaultDateFormat']);
 
         return $value;
     }
@@ -449,7 +449,7 @@ class Miranda extends Component
     public function getDefaultTimeFormat()
     {
 
-        $value = Yii::$app->settings->get('general.timeformat',Yii::$app->params['defaultTimeFormat']);
+        $value = Yii::$app->settings->get('general.timeformat', Yii::$app->params['defaultTimeFormat']);
 
         return $value;
     }

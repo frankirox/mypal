@@ -82,12 +82,12 @@ class CreateUserForm extends Model
 
     public function init()
     {
-        if(empty($this->country)){
+        if (empty($this->country)) {
 
             $this->country = Yii::$app->params['defaultCountry'];
         }
 
-        if(empty($this->language)){
+        if (empty($this->language)) {
 
             $this->language = Yii::$app->params['defaultLanguage'];
         }
@@ -181,8 +181,20 @@ class CreateUserForm extends Model
             [['username', 'email', 'bind_to_ip'], 'trim'],
             //custom Validation Methods
             ['username', 'validateUsernameUnique'],
-            ['username', 'match', 'pattern' => Yii::$app->miranda->usernameRegexp, 'message' => Yii::t('miranda', 'The username should contain only Latin letters, numbers and the following characters: "-" and "_".')],
-            ['username', 'match', 'not' => true, 'pattern' => Yii::$app->miranda->usernameBlackRegexp, 'message' => Yii::t('miranda', 'Username contains not allowed characters or words.')],
+            [
+                'username',
+                'match',
+                'pattern' => Yii::$app->miranda->usernameRegexp,
+                'message' => Yii::t('miranda',
+                    'The username should contain only Latin letters, numbers and the following characters: "-" and "_".')
+            ],
+            [
+                'username',
+                'match',
+                'not' => true,
+                'pattern' => Yii::$app->miranda->usernameBlackRegexp,
+                'message' => Yii::t('miranda', 'Username contains not allowed characters or words.')
+            ],
             ['email', 'validateEmailUnique'],
             ['bind_to_ip', 'validateBindToIp'],
             ['roles', 'safe'],
@@ -247,14 +259,14 @@ class CreateUserForm extends Model
             'repeat_password' => Yii::t('miranda', 'Repeat password'),
             'email_confirmed' => Yii::t('miranda', 'E-mail confirmed'),
             'email' => Yii::t('miranda', 'E-mail'),
-            'user_id'     => Yii::t('miranda', 'User'),
+            'user_id' => Yii::t('miranda', 'User'),
             'document_id' => Yii::t('miranda', 'Document ID'),
-            'first_name'  => Yii::t('miranda', 'First Name'),
-            'last_name'   => Yii::t('miranda', 'Last Name'),
-            'phone'       => Yii::t('miranda', 'Phone'),
-            'timezone'    => Yii::t('miranda', 'Timezone'),
-            'language'    => Yii::t('miranda', 'Language'),
-            'country'     => Yii::t('miranda', 'Country'),
+            'first_name' => Yii::t('miranda', 'First Name'),
+            'last_name' => Yii::t('miranda', 'Last Name'),
+            'phone' => Yii::t('miranda', 'Phone'),
+            'timezone' => Yii::t('miranda', 'Timezone'),
+            'language' => Yii::t('miranda', 'Language'),
+            'country' => Yii::t('miranda', 'Country'),
         ];
     }
 
@@ -262,7 +274,7 @@ class CreateUserForm extends Model
     public function save()
     {
 
-        if($this->validate()){
+        if ($this->validate()) {
 
             $user = new User([
                 'superadmin' => $this->superadmin,
@@ -275,7 +287,7 @@ class CreateUserForm extends Model
                 'bind_to_ip' => $this->bind_to_ip,
             ]);
 
-            if($user->save()){
+            if ($user->save()) {
 
                 $this->id = $user->id;
 
@@ -299,7 +311,7 @@ class CreateUserForm extends Model
                     'avatar' => $this->avatar,
                 ]);
 
-                if(!$profile->save()){
+                if (!$profile->save()) {
 
                     $user->delete();
 
@@ -308,14 +320,16 @@ class CreateUserForm extends Model
                     if (!empty($this->roles)) {
 
                         if (Yii::$app->user->id == $user->id) {
-                            Yii::$app->session->setFlash('error', Yii::t('miranda/user', 'You can not change own permissions'));
+                            Yii::$app->session->setFlash('error',
+                                Yii::t('miranda/user', 'You can not change own permissions'));
                             return $this->redirect(['/user/default/index']);
                         }
 
                         $oldAssignments = array_keys(Role::getUserRoles($user->id));
 
                         // To be sure that user didn't attempt to assign himself some unavailable roles
-                        $newAssignments = array_intersect(Role::getAvailableRoles(Yii::$app->user->isSuperAdmin, true), $this->roles);
+                        $newAssignments = array_intersect(Role::getAvailableRoles(Yii::$app->user->isSuperAdmin, true),
+                            $this->roles);
 
                         $toAssign = array_diff($newAssignments, $oldAssignments);
 

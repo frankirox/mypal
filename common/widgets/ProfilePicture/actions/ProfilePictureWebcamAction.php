@@ -1,6 +1,6 @@
 <?php
 
-namespace  common\widgets\ProfilePicture\actions;
+namespace common\widgets\ProfilePicture\actions;
 
 use Yii;
 use yii\base\Action;
@@ -20,7 +20,7 @@ class ProfilePictureWebcamAction extends ProfilePictureBaseAction
         $path = $this->upload_path;
         if (!empty($data)) {
             $file = 'tmp_img_' . $this->filename . '.jpg';
-            if (file_put_contents($path .DIRECTORY_SEPARATOR. $file, $data)) {
+            if (file_put_contents($path . DIRECTORY_SEPARATOR . $file, $data)) {
                 Yii::$app->session->set('_tmp_img', $file);
                 echo $this->upload_path_url . '/' . $file . '?' . time();
             } else {

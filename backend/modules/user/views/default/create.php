@@ -51,10 +51,16 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ]); ?>
                             </div>
                             <div class="col-md-5">
-                                <?= $form->field($model, 'first_name')->textInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
+                                <?= $form->field($model, 'first_name')->textInput([
+                                    'maxlength' => 255,
+                                    'autocomplete' => 'off'
+                                ]) ?>
                             </div>
                             <div class="col-md-5">
-                                <?= $form->field($model, 'last_name')->textInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
+                                <?= $form->field($model, 'last_name')->textInput([
+                                    'maxlength' => 255,
+                                    'autocomplete' => 'off'
+                                ]) ?>
                             </div>
                         </div>
 
@@ -129,13 +135,19 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ]); ?>
                             </div>
                             <div class="col-md-3">
-                                <?= $form->field($model, 'skype')->textInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
+                                <?= $form->field($model, 'skype')->textInput([
+                                    'maxlength' => 255,
+                                    'autocomplete' => 'off'
+                                ]) ?>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
-                                <?= $form->field($model, 'username')->textInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
+                                <?= $form->field($model, 'username')->textInput([
+                                    'maxlength' => 255,
+                                    'autocomplete' => 'off'
+                                ]) ?>
                             </div>
                             <div class="col-md-6">
                                 <?= $form->field($model, 'email')->widget(MaskedInput::className(), [
@@ -149,10 +161,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         <div class="row">
                             <div class="col-md-6">
-                                <?= $form->field($model, 'password')->passwordInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
+                                <?= $form->field($model, 'password')->passwordInput([
+                                    'maxlength' => 255,
+                                    'autocomplete' => 'off'
+                                ]) ?>
                             </div>
                             <div class="col-md-6">
-                                <?= $form->field($model, 'repeat_password')->passwordInput(['maxlength' => 255, 'autocomplete' => 'off']) ?>
+                                <?= $form->field($model, 'repeat_password')->passwordInput([
+                                    'maxlength' => 255,
+                                    'autocomplete' => 'off'
+                                ]) ?>
                             </div>
                         </div>
 
@@ -227,7 +245,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                     <div class="panel-body">
 
-                        <?= $form->field($model, 'roles')->checkboxList(ArrayHelper::map(Role::getAvailableRoles(), 'name', 'description'),
+                        <?= $form->field($model, 'roles')->checkboxList(ArrayHelper::map(Role::getAvailableRoles(),
+                            'name', 'description'),
                             [
                                 'item' => function ($index, $label, $name, $checked, $value) {
                                     $list = '<ul style="padding-left: 10px">';
@@ -237,7 +256,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     $list .= '</ul>';
 
                                     $helpIcon = Html::beginTag('span', [
-                                        'title' => Yii::t('miranda/user', 'Permissions for "{role}" role', ['role' => $label]),
+                                        'title' => Yii::t('miranda/user', 'Permissions for "{role}" role',
+                                            ['role' => $label]),
                                         'data-content' => $list,
                                         'data-html' => 'true',
                                         'role' => 'button',
@@ -289,8 +309,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'labelOptions' => ['class' => 'cbx-label'],
                             ])->widget(\kartik\checkbox\CheckboxX::classname(),
                                 [
-                                    'autoLabel'=>false,
-                                    'pluginOptions'=>['threeState'=>false]
+                                    'autoLabel' => false,
+                                    'pluginOptions' => ['threeState' => false]
                                 ]
                             );
                             ?>
@@ -301,8 +321,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'labelOptions' => ['class' => 'cbx-label'],
                                 ])->widget(\kartik\checkbox\CheckboxX::classname(),
                                     [
-                                        'autoLabel'=>false,
-                                        'pluginOptions'=>['threeState'=>false]
+                                        'autoLabel' => false,
+                                        'pluginOptions' => ['threeState' => false]
                                     ]
                                 );
                                 ?>
@@ -312,12 +332,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
                             <div class="form-group ">
                                 <?= Html::submitButton(Yii::t('miranda', 'Create'), ['class' => 'btn btn-primary']) ?>
-                                <?= Html::a(Yii::t('miranda', 'Cancel'), ['/user/default/index'], ['class' => 'btn btn-default']) ?>
+                                <?= Html::a(Yii::t('miranda', 'Cancel'), ['/user/default/index'],
+                                    ['class' => 'btn btn-default']) ?>
                             </div>
                         </div>
                     </div>
                 </div>
-
 
 
             </div>

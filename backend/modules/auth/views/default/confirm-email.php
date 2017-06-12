@@ -37,7 +37,8 @@ $this->title = Yii::t('miranda/auth', 'Confirm E-mail');
 
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
-                                <?= Html::submitButton(Yii::t('miranda/auth', 'Confirm'), ['class' => 'btn btn-lg btn-primary btn-block']) ?>
+                                <?= Html::submitButton(Yii::t('miranda/auth', 'Confirm'),
+                                    ['class' => 'btn btn-lg btn-primary btn-block']) ?>
                             </div>
                         </div>
 
@@ -46,10 +47,12 @@ $this->title = Yii::t('miranda/auth', 'Confirm E-mail');
                     <?php else: ?>
 
                         <div class="alert alert-info text-center">
-                            <?= Yii::t('miranda/auth', 'E-mail with activation link has been sent to <b>{email}</b>. This link will expire in {minutes} min.', [
-                                'email' => $model->user->email,
-                                'minutes' => $model->getTokenTimeLeft(true),
-                            ]) ?>
+                            <?= Yii::t('miranda/auth',
+                                'E-mail with activation link has been sent to <b>{email}</b>. This link will expire in {minutes} min.',
+                                [
+                                    'email' => $model->user->email,
+                                    'minutes' => $model->getTokenTimeLeft(true),
+                                ]) ?>
                         </div>
 
                     <?php endif; ?>

@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col-md-12 text-left">
         <a class="btn btn-lg btn-success" href="#/create-pet"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add New Pet</a>
@@ -27,8 +26,10 @@
                 <td>{{pet.sold_at}}</td>
                 <td>{{pet.created_at}}</td>
                 <td>
-                    <a href="#/edit-pet/{{pet.id}}" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Edit Pet</a>
-                    <a href="#/pets" ng-click="deletePet(pet)" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Delete Pet</a>
+                    <a href="#/edit-pet/{{pet.id}}" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp;
+                        Edit Pet</a>
+                    <a href="#/pets" ng-click="deletePet(pet)" class="btn">&nbsp;<i
+                            class="glyphicon glyphicon-edit"></i>&nbsp; Delete Pet</a>
                 </td>
             </tr>
             </tbody>

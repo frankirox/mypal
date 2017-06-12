@@ -27,7 +27,7 @@ class SeoViewBehavior extends Behavior
         parent::init();
 
         if (is_null($this->titleCallback)) {
-            $this->titleCallback = function($siteName, $viewTitle, $seoTitle) {
+            $this->titleCallback = function ($siteName, $viewTitle, $seoTitle) {
                 $title = ($seoTitle && !empty($seoTitle)) ? $seoTitle : $viewTitle;
                 return implode(' - ', [$siteName, $title]);
             };
@@ -42,21 +42,21 @@ class SeoViewBehavior extends Behavior
         Yii::$app->seo->loadMetaTags($this->preferUrlWithParams);
 
         $request = Yii::$app->getRequest();
-        $path    = $request->getPathInfo();
-        $url     = $request->getUrl();
+        $path = $request->getPathInfo();
+        $url = $request->getUrl();
 
         $titleCallback = $this->titleCallback;
-        $siteTitle     = Yii::$app->settings->get('general.title', 'Miranda Site', Yii::$app->language);
-        
+        $siteTitle = Yii::$app->settings->get('general.title', 'Miranda Site', Yii::$app->language);
+
         if (is_callable($titleCallback)) {
             $title = $titleCallback($siteTitle, $view->title, Yii::$app->seo->title);
         } else {
             $title = $siteTitle;
         }
 
-        echo "<title>{$title}</title>".PHP_EOL;
+        echo "<title>{$title}</title>" . PHP_EOL;
 
-        $index  = (Yii::$app->seo->index) ? 'index' : 'noindex';
+        $index = (Yii::$app->seo->index) ? 'index' : 'noindex';
         $follow = (Yii::$app->seo->follow) ? 'follow' : 'nofollow';
         $view->registerMetaTag(['name' => 'robots', 'content' => "$index, $follow"], 'index');
 
@@ -65,11 +65,13 @@ class SeoViewBehavior extends Behavior
         }
 
         if (Yii::$app->seo->keywords) {
-            $view->registerMetaTag(['name' => 'keywords', 'content' => Html::encode(Yii::$app->seo->keywords)], 'keywords');
+            $view->registerMetaTag(['name' => 'keywords', 'content' => Html::encode(Yii::$app->seo->keywords)],
+                'keywords');
         }
 
         if (Yii::$app->seo->description) {
-            $view->registerMetaTag(['name' => 'description', 'content' => Html::encode(Yii::$app->seo->description)], 'description');
+            $view->registerMetaTag(['name' => 'description', 'content' => Html::encode(Yii::$app->seo->description)],
+                'description');
         }
     }
 }

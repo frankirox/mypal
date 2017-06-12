@@ -50,7 +50,8 @@ class GeneralSettings extends BaseSettingsModel
             'multilingualSettings' => [
                 'class' => MultilingualSettingsBehavior::className(),
                 'attributes' => [
-                    'title', 'description'
+                    'title',
+                    'description'
                 ]
             ],
         ];
@@ -69,5 +70,5 @@ class GeneralSettings extends BaseSettingsModel
             'language' => Yii::t('miranda/settings', 'Default Language'),
         ];
     }
-    
+
 }

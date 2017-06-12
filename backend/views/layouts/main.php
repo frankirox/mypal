@@ -34,7 +34,7 @@ $avatar = ($userAvatar = Yii::$app->user->identity->profile->getAvatarUrl('large
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="<?= (Yii::$app->controller->minibar? "nav-sm" : "nav-md") ?>">
+<body class="<?= (Yii::$app->controller->minibar ? "nav-sm" : "nav-md") ?>">
 
 <?=
 ercling\pace\PaceWidget::widget(
@@ -188,7 +188,7 @@ ercling\pace\PaceWidget::widget(
                                 'title' => Yii::t('miranda', 'Are you sure you want to log out?'),
                             ]),
                         ]
-                    )?>
+                    ) ?>
                 </div>
                 <!-- /menu footer buttons -->
             </div>
@@ -213,17 +213,18 @@ ercling\pace\PaceWidget::widget(
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li>
-                                    <?= Html::a('<i class="fa fa-user pull-right"></i> '. Yii::t('miranda','My Account'), ['/auth/default/profile']) ?>
+                                    <?= Html::a('<i class="fa fa-user pull-right"></i> ' . Yii::t('miranda',
+                                            'My Account'), ['/auth/default/profile']) ?>
                                 </li>
-                               <!-- <li>
-                                    <a href="javascript:;">
-                                        <span class="badge bg-red pull-right">50%</span>
-                                        <span>Settings</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Help</a>
-                                </li>-->
+                                <!-- <li>
+                                     <a href="javascript:;">
+                                         <span class="badge bg-red pull-right">50%</span>
+                                         <span>Settings</span>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <a href="javascript:;">Help</a>
+                                 </li>-->
                                 <li>
                                     <?= Html::a(
                                         'Log Out ',
@@ -239,7 +240,7 @@ ercling\pace\PaceWidget::widget(
                                                 'title' => Yii::t('miranda', 'Are you sure you want to log out?'),
                                             ]),
                                         ]
-                                    )?>
+                                    ) ?>
                                 </li>
                             </ul>
                         </li>
@@ -257,79 +258,79 @@ ercling\pace\PaceWidget::widget(
 
                         </li>
 
-                       <!-- <li role="presentation" class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown"
-                               aria-expanded="false">
-                                <i class="fa fa-envelope-o"></i>
-                                <span class="badge bg-green">6</span>
-                            </a>
-                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                                <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="http://placehold.it/128x128" alt="Profile Image"/>
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="http://placehold.it/128x128" alt="Profile Image"/>
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="http://placehold.it/128x128" alt="Profile Image"/>
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                      <span class="image">
-                                        <img src="http://placehold.it/128x128" alt="Profile Image"/>
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="text-center">
-                                        <a href="/">
-                                            <strong>See All Alerts</strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>-->
+                        <!-- <li role="presentation" class="dropdown">
+                             <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown"
+                                aria-expanded="false">
+                                 <i class="fa fa-envelope-o"></i>
+                                 <span class="badge bg-green">6</span>
+                             </a>
+                             <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                 <li>
+                                     <a>
+                       <span class="image">
+                                         <img src="http://placehold.it/128x128" alt="Profile Image"/>
+                                     </span>
+                       <span>
+                                         <span>John Smith</span>
+                       <span class="time">3 mins ago</span>
+                       </span>
+                       <span class="message">
+                                         Film festivals used to be do-or-die moments for movie makers. They were where...
+                                     </span>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <a>
+                       <span class="image">
+                                         <img src="http://placehold.it/128x128" alt="Profile Image"/>
+                                     </span>
+                       <span>
+                                         <span>John Smith</span>
+                       <span class="time">3 mins ago</span>
+                       </span>
+                       <span class="message">
+                                         Film festivals used to be do-or-die moments for movie makers. They were where...
+                                     </span>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <a>
+                       <span class="image">
+                                         <img src="http://placehold.it/128x128" alt="Profile Image"/>
+                                     </span>
+                       <span>
+                                         <span>John Smith</span>
+                       <span class="time">3 mins ago</span>
+                       </span>
+                       <span class="message">
+                                         Film festivals used to be do-or-die moments for movie makers. They were where...
+                                     </span>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <a>
+                       <span class="image">
+                                         <img src="http://placehold.it/128x128" alt="Profile Image"/>
+                                     </span>
+                       <span>
+                                         <span>John Smith</span>
+                       <span class="time">3 mins ago</span>
+                       </span>
+                       <span class="message">
+                                         Film festivals used to be do-or-die moments for movie makers. They were where...
+                                     </span>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <div class="text-center">
+                                         <a href="/">
+                                             <strong>See All Alerts</strong>
+                                             <i class="fa fa-angle-right"></i>
+                                         </a>
+                                     </div>
+                                 </li>
+                             </ul>
+                         </li>-->
 
 
                     </ul>
@@ -342,21 +343,21 @@ ercling\pace\PaceWidget::widget(
         <!-- page content -->
         <div class="right_col" role="main">
 
-                <!--<div class="page-title">
-                    <div class="title_left">
-                        <h1>Test</h1>
-                    </div>
-                    <div class="title_right">
-                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Go!</button>
-                            </span>
-                            </div>
+            <!--<div class="page-title">
+                <div class="title_left">
+                    <h1>Test</h1>
+                </div>
+                <div class="title_right">
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button>
+                        </span>
                         </div>
                     </div>
-                </div>-->
+                </div>
+            </div>-->
 
             <div class="clearfix"></div>
 

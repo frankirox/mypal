@@ -34,92 +34,94 @@ SettingsAsset::register($this);
         ])
         ?>
 
-            <div class="panel panel-default">
-                <div class="panel-body">
+        <div class="panel panel-default">
+            <div class="panel-body">
 
-                    <?= LanguagePills::widget() ?>
+                <?= LanguagePills::widget() ?>
 
-                    <br>
-                    <br>
+                <br>
+                <br>
 
-                        <?= $form->field($model, 'title', ['multilingual' => true])->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'title', ['multilingual' => true])->textInput(['maxlength' => true]) ?>
 
-                        <?= $form->field($model, 'description', ['multilingual' => true])->textInput(['maxlength' => true])/*->hint($model->getDescription('description'))*/ ?>
+                <?= $form->field($model, 'description',
+                    ['multilingual' => true])->textInput(['maxlength' => true])/*->hint($model->getDescription('description'))*/ ?>
 
-                        <?= $form->field($model, 'email')->textInput(['maxlength' => true])->hint($model->getDescription('email')) ?>
+                <?= $form->field($model,
+                    'email')->textInput(['maxlength' => true])->hint($model->getDescription('email')) ?>
 
-                        <?=
-                        \common\widgets\TimezoneSelect\TimezoneSelect::widget(
-                            [
-                                'model' => $model,
-                                'attribute' => 'timezone',
-                                'form' => $form,
-                                'options' => ['class' => 'form-group select-field'],
-                                'hint' => $model->getDescription('timezone'),
-                            ]
-                        );
-                        ?>
+                <?=
+                \common\widgets\TimezoneSelect\TimezoneSelect::widget(
+                    [
+                        'model' => $model,
+                        'attribute' => 'timezone',
+                        'form' => $form,
+                        'options' => ['class' => 'form-group select-field'],
+                        'hint' => $model->getDescription('timezone'),
+                    ]
+                );
+                ?>
 
-                        <?=
-                        \common\widgets\DateFormatSelect\DateFormatSelect::widget(
-                            [
-                                'model' => $model,
-                                'attribute' => 'dateformat',
-                                'form' => $form,
-                                'options' => ['class' => 'form-group select-field'],
-                                'hint' => $model->getDescription('dateformat'),
-                            ]
-                        );
-                        ?>
+                <?=
+                \common\widgets\DateFormatSelect\DateFormatSelect::widget(
+                    [
+                        'model' => $model,
+                        'attribute' => 'dateformat',
+                        'form' => $form,
+                        'options' => ['class' => 'form-group select-field'],
+                        'hint' => $model->getDescription('dateformat'),
+                    ]
+                );
+                ?>
 
-                        <?=
-                        \common\widgets\TimeFormatSelect\TimeFormatSelect::widget(
-                            [
-                                'model' => $model,
-                                'attribute' => 'timeformat',
-                                'form' => $form,
-                                'options' => ['class' => 'form-group select-field'],
-                                'hint' => $model->getDescription('timeformat'),
-                            ]
-                        );
-                        ?>
+                <?=
+                \common\widgets\TimeFormatSelect\TimeFormatSelect::widget(
+                    [
+                        'model' => $model,
+                        'attribute' => 'timeformat',
+                        'form' => $form,
+                        'options' => ['class' => 'form-group select-field'],
+                        'hint' => $model->getDescription('timeformat'),
+                    ]
+                );
+                ?>
 
-                        <?=
-                        \common\widgets\CountrySelect\CountrySelect::widget(
-                            [
-                                'model' => $model,
-                                'attribute' => 'country',
-                                'form' => $form,
-                                'options' => ['class' => 'form-group select-field'],
-                                //'hint' => $model->getDescription('country'),
-                            ]
-                        );
-                        ?>
+                <?=
+                \common\widgets\CountrySelect\CountrySelect::widget(
+                    [
+                        'model' => $model,
+                        'attribute' => 'country',
+                        'form' => $form,
+                        'options' => ['class' => 'form-group select-field'],
+                        //'hint' => $model->getDescription('country'),
+                    ]
+                );
+                ?>
 
-                        <?=
-                        \common\widgets\LanguageSelect\LanguageSelect::widget(
-                            [
-                                'model' => $model,
-                                'attribute' => 'language',
-                                'form' => $form,
-                                'languages' => Yii::$app->params['languages'],
-                                'options' => ['class' => 'form-group select-field'],
-                                //'hint' => $model->getDescription('language'),
-                            ]
-                        );
-                        ?>
+                <?=
+                \common\widgets\LanguageSelect\LanguageSelect::widget(
+                    [
+                        'model' => $model,
+                        'attribute' => 'language',
+                        'form' => $form,
+                        'languages' => Yii::$app->params['languages'],
+                        'options' => ['class' => 'form-group select-field'],
+                        //'hint' => $model->getDescription('language'),
+                    ]
+                );
+                ?>
 
-                    <br>
+                <br>
 
-                </div>
-                <div class="panel-footer">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <?= Html::submitButton(Yii::t('miranda', 'Save'), ['class' => 'btn btn-block btn-primary']) ?>
-                        </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <?= Html::submitButton(Yii::t('miranda', 'Save'), ['class' => 'btn btn-block btn-primary']) ?>
                     </div>
                 </div>
             </div>
+        </div>
 
         <?php ActiveForm::end(); ?>
 

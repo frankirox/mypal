@@ -48,7 +48,7 @@ class User extends \yii\web\User
     public function getIsSuperAdmin()
     {
 
-        if(Yii::$app->user->isGuest){
+        if (Yii::$app->user->isGuest) {
 
             return false;
         }
@@ -63,7 +63,7 @@ class User extends \yii\web\User
     public function getUsername()
     {
 
-        if(Yii::$app->user->isGuest){
+        if (Yii::$app->user->isGuest) {
 
             return false;
         }
@@ -151,7 +151,7 @@ class User extends \yii\web\User
         $language = Yii::$app->miranda->defaultLanguage;
 
 
-        if (!empty($profile->language)){
+        if (!empty($profile->language)) {
 
             $language = $profile->language;
         }
@@ -167,7 +167,7 @@ class User extends \yii\web\User
         $language = Yii::$app->miranda->defaultLanguage;
 
 
-        if (!empty($profile->language)){
+        if (!empty($profile->language)) {
 
             $language = $profile->language;
         }

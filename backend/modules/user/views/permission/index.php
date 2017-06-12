@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <hr>
-            
+
             <?php
             Pjax::begin([
                 'id' => 'permission-grid-pjax',
@@ -68,18 +68,21 @@ $this->params['breadcrumbs'][] = $this->title;
                             return Html::a(
                                 $model->description,
                                 ['view', 'id' => $model->name],
-                                (($model->name == Yii::$app->miranda->commonPermissionName)) ? ['data-pjax' => 0, 'class' => 'label label-primary'] : ['data-pjax' => 0]
+                                (($model->name == Yii::$app->miranda->commonPermissionName)) ? [
+                                    'data-pjax' => 0,
+                                    'class' => 'label label-primary'
+                                ] : ['data-pjax' => 0]
                             );
                         },
                         'buttonOptions' => [
-                            'class'   => 'btn btn-xs btn-default',
+                            'class' => 'btn btn-xs btn-default',
                         ],
                         'buttons' => [
                             'view' => function ($url, $model, $key) {
                                 $options = array_merge([
                                     'title' => Yii::t('miranda', 'Settings'),
                                     'aria-label' => Yii::t('miranda', 'Settings'),
-                                    'class'   => 'btn btn-xs btn-default',
+                                    'class' => 'btn btn-xs btn-default',
                                     'data-pjax' => '0',
                                 ]);
                                 return Html::a(Yii::t('miranda', 'Settings'), $url, $options);

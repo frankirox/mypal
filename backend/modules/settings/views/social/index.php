@@ -34,11 +34,16 @@ SettingsAsset::register($this);
             <div class="panel-body">
                 <br>
 
-                <?= $form->field($model, 'facebook_url')->textInput(['maxlength' => true])->hint($model->getDescription('facebook_url')) ?>
-                <?= $form->field($model, 'twitter_url')->textInput(['maxlength' => true])->hint($model->getDescription('twitter_url')) ?>
-                <?= $form->field($model, 'instagram_url')->textInput(['maxlength' => true])->hint($model->getDescription('linkedin_url')) ?>
-                <?= $form->field($model, 'youtube_url')->textInput(['maxlength' => true])->hint($model->getDescription('linkedin_url')) ?>
-                <?= $form->field($model, 'linkedin_url')->textInput(['maxlength' => true])->hint($model->getDescription('linkedin_url')) ?>
+                <?= $form->field($model,
+                    'facebook_url')->textInput(['maxlength' => true])->hint($model->getDescription('facebook_url')) ?>
+                <?= $form->field($model,
+                    'twitter_url')->textInput(['maxlength' => true])->hint($model->getDescription('twitter_url')) ?>
+                <?= $form->field($model,
+                    'instagram_url')->textInput(['maxlength' => true])->hint($model->getDescription('linkedin_url')) ?>
+                <?= $form->field($model,
+                    'youtube_url')->textInput(['maxlength' => true])->hint($model->getDescription('linkedin_url')) ?>
+                <?= $form->field($model,
+                    'linkedin_url')->textInput(['maxlength' => true])->hint($model->getDescription('linkedin_url')) ?>
 
 
             </div>

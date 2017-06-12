@@ -69,7 +69,8 @@ class BaseSettingsModel extends Model
     {
         $attributes = $this->getAttributesDetails();
         foreach ($attributes as $attribute) {
-            $this->{$attribute->field} = Yii::$app->settings->getFromDB($attribute->group, $attribute->key, $attribute->language);
+            $this->{$attribute->field} = Yii::$app->settings->getFromDB($attribute->group, $attribute->key,
+                $attribute->language);
         }
 
         foreach ($this->rules() as $rule) {
@@ -132,7 +133,7 @@ class BaseSettingsModel extends Model
      */
     public function getGroup()
     {
-        return defined('static::GROUP') ? static::GROUP : NULL;
+        return defined('static::GROUP') ? static::GROUP : null;
     }
 
     /**
@@ -142,7 +143,7 @@ class BaseSettingsModel extends Model
      */
     public function isMultilingual()
     {
-        return ($this->getBehavior('multilingualSettings') !== NULL);
+        return ($this->getBehavior('multilingualSettings') !== null);
     }
 
 }

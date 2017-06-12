@@ -10,7 +10,10 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('miranda/user', 'Create Permission');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('miranda/user', 'Users'), 'url' => ['/user/default/index']];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('miranda/user', 'Permissions'), 'url' => ['/user/permission/index']];
+$this->params['breadcrumbs'][] = [
+    'label' => Yii::t('miranda/user', 'Permissions'),
+    'url' => ['/user/permission/index']
+];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

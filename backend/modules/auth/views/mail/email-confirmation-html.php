@@ -7,7 +7,10 @@ use yii\helpers\Html;
 
 ?>
 <?php
-$link = Yii::$app->urlManager->createAbsoluteUrl(['/auth/default/confirm-email-receive', 'token' => $user->confirmation_token]);
+$link = Yii::$app->urlManager->createAbsoluteUrl([
+    '/auth/default/confirm-email-receive',
+    'token' => $user->confirmation_token
+]);
 ?>
 
 

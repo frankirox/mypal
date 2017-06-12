@@ -6,7 +6,10 @@ use yii\helpers\Html;
 /* @var $model backend\modules\translation\models\MessageSource */
 
 $this->title = Yii::t('miranda/translation', 'Update Message Source');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('miranda/translation', 'Message Translation'), 'url' => ['/translation/default/index']];
+$this->params['breadcrumbs'][] = [
+    'label' => Yii::t('miranda/translation', 'Message Translation'),
+    'url' => ['/translation/default/index']
+];
 $this->params['breadcrumbs'][] = 'Update Message Source';
 ?>
 <div class="message-source-update">

@@ -66,8 +66,19 @@ abstract class BaseController extends \common\controllers\BaseController
      *
      * @var array
      */
-    protected $_implementedActions = ['index', 'view', 'create', 'update', 'delete',
-        'toggle-attribute', 'bulk-activate', 'bulk-deactivate', 'bulk-delete', 'grid-sort', 'grid-page-size'];
+    protected $_implementedActions = [
+        'index',
+        'view',
+        'create',
+        'update',
+        'delete',
+        'toggle-attribute',
+        'bulk-activate',
+        'bulk-deactivate',
+        'bulk-delete',
+        'grid-sort',
+        'grid-page-size'
+    ];
 
     /**
      * Layout file for admin panel
@@ -156,7 +167,7 @@ abstract class BaseController extends \common\controllers\BaseController
      */
     public function actionIndex()
     {
-        
+
         $modelClass = $this->modelClass;
         $searchModel = $this->modelSearchClass ? new $this->modelSearchClass : null;
 
@@ -307,7 +318,9 @@ abstract class BaseController extends \common\controllers\BaseController
             foreach (Yii::$app->request->post('selection', []) as $id) {
 
                 $model = $modelClass::findOne(['id' => $id]);
-                if ($model) $model->delete();
+                if ($model) {
+                    $model->delete();
+                }
             }
         }
     }
@@ -360,7 +373,7 @@ abstract class BaseController extends \common\controllers\BaseController
     {
         $modelClass = $this->modelClass;
         $model = new $modelClass;
-        
+
         if (method_exists($model, 'isMultilingual') && $model->isMultilingual()) {
             $condition = [];
             $primaryKey = $modelClass::primaryKey();
@@ -441,7 +454,7 @@ abstract class BaseController extends \common\controllers\BaseController
      */
     public function flash($type, $message)
     {
-        Yii::$app->getSession()->setFlash($type=='error'?'danger':$type, $message);
+        Yii::$app->getSession()->setFlash($type == 'error' ? 'danger' : $type, $message);
     }
 
     public function back()
@@ -455,7 +468,7 @@ abstract class BaseController extends \common\controllers\BaseController
      */
     public function setReturnUrl($url = null)
     {
-        Yii::$app->getSession()->set($this->module->id.'_return', $url ? Url::to($url) : Url::current());
+        Yii::$app->getSession()->set($this->module->id . '_return', $url ? Url::to($url) : Url::current());
     }
 
     /**
@@ -465,7 +478,8 @@ abstract class BaseController extends \common\controllers\BaseController
      */
     public function getReturnUrl($defaultUrl = null)
     {
-        return Yii::$app->getSession()->get($this->module->id.'_return', $defaultUrl ? Url::to($defaultUrl) : Url::to('/admin/'.$this->module->id));
+        return Yii::$app->getSession()->get($this->module->id . '_return',
+            $defaultUrl ? Url::to($defaultUrl) : Url::to('/admin/' . $this->module->id));
     }
 
     /**
@@ -476,14 +490,14 @@ abstract class BaseController extends \common\controllers\BaseController
      */
     public function formatResponse($success = '', $back = true)
     {
-        if(Yii::$app->request->isAjax){
+        if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-            if($this->error){
+            if ($this->error) {
                 return ['result' => 'error', 'error' => $this->error];
             } else {
                 $response = ['result' => 'success'];
-                if($success) {
-                    if(is_array($success)){
+                if ($success) {
+                    if (is_array($success)) {
                         $response = array_merge(['result' => 'success'], $success);
                     } else {
                         $response = array_merge(['result' => 'success'], ['message' => $success]);
@@ -491,15 +505,13 @@ abstract class BaseController extends \common\controllers\BaseController
                 }
                 return $response;
             }
-        }
-        else{
-            if($this->error){
+        } else {
+            if ($this->error) {
                 $this->flash('error', $this->error);
             } else {
-                if(is_array($success) && isset($success['message'])){
+                if (is_array($success) && isset($success['message'])) {
                     $this->flash('success', $success['message']);
-                }
-                elseif(is_string($success)){
+                } elseif (is_string($success)) {
                     $this->flash('success', $success);
                 }
             }

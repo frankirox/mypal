@@ -22,7 +22,6 @@ use Yii;
  *     ],
  * ]
  * ```
-
  */
 class TitleActionColumn extends \yii\grid\DataColumn
 {
@@ -228,7 +227,7 @@ class TitleActionColumn extends \yii\grid\DataColumn
             }
 
             return Html::activeTextInput($model, $this->attribute,
-                $this->filterInputOptions) . $error;
+                    $this->filterInputOptions) . $error;
         } else {
             return parent::renderFilterCellContent();
         }

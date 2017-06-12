@@ -33,14 +33,16 @@ class Route extends AbstractItem
         $auth_item_child = Yii::$app->miranda->auth_item_child_table;
 
         $routes = (new Query)
-                ->select(['name'])
-                ->from($auth_item)
-                ->innerJoin($auth_item_child, '(' . $auth_item_child . '.child = ' . $auth_item . '.name AND ' . $auth_item . '.type = :type)')
-                ->params([':type' => self::TYPE_ROUTE])
-                ->where([ $auth_item_child . '.parent' => $permissions])
-                ->column();
+            ->select(['name'])
+            ->from($auth_item)
+            ->innerJoin($auth_item_child,
+                '(' . $auth_item_child . '.child = ' . $auth_item . '.name AND ' . $auth_item . '.type = :type)')
+            ->params([':type' => self::TYPE_ROUTE])
+            ->where([$auth_item_child . '.parent' => $permissions])
+            ->column();
 
-        return $withSubRoutes ? static::withSubRoutes($routes, ArrayHelper::map(Route::find()->asArray()->all(), 'name', 'name')) : $routes;
+        return $withSubRoutes ? static::withSubRoutes($routes,
+            ArrayHelper::map(Route::find()->asArray()->all(), 'name', 'name')) : $routes;
     }
 
     /**
@@ -146,7 +148,9 @@ class Route extends AbstractItem
                 return true;
             }
 
-            if ($controller->hasProperty('freeAccessActions') AND in_array($action->id, $controller->freeAccessActions)) {
+            if ($controller->hasProperty('freeAccessActions') AND in_array($action->id,
+                    $controller->freeAccessActions)
+            ) {
                 return true;
             }
         }
@@ -181,12 +185,13 @@ class Route extends AbstractItem
 
         if ($commonRoutes === false) {
             $commonRoutesDB = (new Query())
-                    ->select('child')
-                    ->from(Yii::$app->miranda->auth_item_child_table)
-                    ->where(['parent' => Yii::$app->miranda->commonPermissionName])
-                    ->column();
+                ->select('child')
+                ->from(Yii::$app->miranda->auth_item_child_table)
+                ->where(['parent' => Yii::$app->miranda->commonPermissionName])
+                ->column();
 
-            $commonRoutes = Route::withSubRoutes($commonRoutesDB, ArrayHelper::map(Route::find()->asArray()->all(), 'name', 'name'));
+            $commonRoutes = Route::withSubRoutes($commonRoutesDB,
+                ArrayHelper::map(Route::find()->asArray()->all(), 'name', 'name'));
 
             Yii::$app->cache->set('__commonRoutes', $commonRoutes, 3600);
         }

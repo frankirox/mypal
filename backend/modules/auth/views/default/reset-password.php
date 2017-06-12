@@ -41,13 +41,17 @@ $this->title = Yii::t('miranda/auth', 'Password recovery');
                             'captchaAction' => ['/auth/captcha']
                         ]) ?>
 
-                        <?= Html::submitButton(Yii::t('miranda/auth', 'Reset Password'), ['class' => 'btn btn-lg btn-success btn-block']) ?>
+                        <?= Html::submitButton(Yii::t('miranda/auth', 'Reset Password'),
+                            ['class' => 'btn btn-lg btn-success btn-block']) ?>
 
                         <br>
 
                         <div class="row">
                             <div class="col-sm-12 text-center">
-                                <?= Html::a(Yii::t("miranda/auth", "Do you remember your password? Sign In"), ['default/login','language' => Yii::$app->miranda->getDisplayLanguageShortcode(Yii::$app->language)]) ?>
+                                <?= Html::a(Yii::t("miranda/auth", "Do you remember your password? Sign In"), [
+                                    'default/login',
+                                    'language' => Yii::$app->miranda->getDisplayLanguageShortcode(Yii::$app->language)
+                                ]) ?>
                             </div>
                         </div>
 
@@ -61,7 +65,7 @@ $this->title = Yii::t('miranda/auth', 'Password recovery');
     </div>
 
 
-                        <?php /*<div class="col-md-6 col-md-offset-3">
+<?php /*<div class="col-md-6 col-md-offset-3">
 
                             <div class="box">
 
@@ -89,7 +93,7 @@ $this->title = Yii::t('miranda/auth', 'Password recovery');
                         </div>*/ ?>
 
 
-    <?php /*<div id="update-wrapper">
+<?php /*<div id="update-wrapper">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
@@ -118,7 +122,7 @@ $this->title = Yii::t('miranda/auth', 'Password recovery');
                 </div>
             </div>
         </div>
-    </div> */?>
+    </div> */ ?>
 
 <?php
 $css = <<<CSS

@@ -40,7 +40,8 @@ class UserVisitLog extends ActiveRecord
         $model->user_id = $userId;
         $model->token = uniqid();
         $model->ip = MirandaHelper::getRealIp();
-        $model->language = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : Yii::$app->language;
+        $model->language = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0,
+            2) : Yii::$app->language;
         $model->browser = $browser->getBrowser();
         $model->os = $browser->getPlatform();
         $model->user_agent = $browser->getUserAgent();
@@ -56,16 +57,17 @@ class UserVisitLog extends ActiveRecord
      */
     public static function checkToken()
     {
-        if (Yii::$app->user->isGuest)
+        if (Yii::$app->user->isGuest) {
             return;
+        }
 
         $model = static::find()
-                ->andWhere(['user_id' => Yii::$app->user->id])
-                ->orderBy('id DESC')
-                ->asArray()
-                ->one();
+            ->andWhere(['user_id' => Yii::$app->user->id])
+            ->orderBy('id DESC')
+            ->asArray()
+            ->one();
 
-        if (!$model OR ( $model['token'] !== Yii::$app->session->get(self::SESSION_TOKEN))) {
+        if (!$model OR ($model['token'] !== Yii::$app->session->get(self::SESSION_TOKEN))) {
             Yii::$app->user->logout();
 
             echo "<script> location.reload();</script>";

@@ -27,7 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         <h2><?= $this->title ?></h2>
                         <div class="panel_toolbox">
-                            <?= Html::a(Yii::t('miranda/auth', 'Update Profile'), ['/auth/default/profile'], ['class' => 'btn btn-primary btn-sm']) ?>
+                            <?= Html::a(Yii::t('miranda/auth', 'Update Profile'), ['/auth/default/profile'],
+                                ['class' => 'btn btn-primary btn-sm']) ?>
                         </div>
                         <div class="clearfix"></div>
 
@@ -54,7 +55,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                             <hr>
 
-                            <?= Html::submitButton(Yii::t('miranda', 'Update'), ['class' => 'btn btn-lg btn-primary btn-block']) ?>
+                            <?= Html::submitButton(Yii::t('miranda', 'Update'),
+                                ['class' => 'btn btn-lg btn-primary btn-block']) ?>
 
                             <?php ActiveForm::end() ?>
 

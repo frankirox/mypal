@@ -11,7 +11,7 @@ use yii\bootstrap\Alert;
 /* @var $searchModel common\menu\models\search\SearchMenu */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title                   = Yii::t('miranda/menu', 'Menus');
+$this->title = Yii::t('miranda/menu', 'Menus');
 $this->params['breadcrumbs'][] = $this->title;
 
 MenuAsset::register($this);
@@ -38,8 +38,10 @@ MenuAsset::register($this);
             <h3><?= Html::encode($this->title) ?></h3>
         </div>
         <div class="col-sm-4 text-right">
-            <?= Html::a(Yii::t('miranda/menu', 'Add New Menu'), ['/menu/default/create'], ['class' => 'btn btn-sm btn-primary']) ?>
-            <?= Html::a(Yii::t('miranda/menu', 'Add New Link'), ['/menu/link/create'], ['class' => 'btn btn-sm btn-primary']) ?>
+            <?= Html::a(Yii::t('miranda/menu', 'Add New Menu'), ['/menu/default/create'],
+                ['class' => 'btn btn-sm btn-primary']) ?>
+            <?= Html::a(Yii::t('miranda/menu', 'Add New Link'), ['/menu/link/create'],
+                ['class' => 'btn btn-sm btn-primary']) ?>
         </div>
     </div>
 
@@ -61,9 +63,12 @@ MenuAsset::register($this);
                                 'buttonsTemplate' => '{update} {delete}',
                                 'title' => function (Menu $model) {
                                     if (User::hasPermission('viewMenuLinks')) {
-                                        return Html::a($model->title, ['/menu/default/index', 'SearchMenuLink[menu_id]' => $model->id], ['data-pjax' => 0]);
+                                        return Html::a($model->title,
+                                            ['/menu/default/index', 'SearchMenuLink[menu_id]' => $model->id],
+                                            ['data-pjax' => 0]);
                                     } else {
-                                        return Html::a($model->title, ['/menu/default/view', 'id' => $model->id], ['data-pjax' => 0]);
+                                        return Html::a($model->title, ['/menu/default/view', 'id' => $model->id],
+                                            ['data-pjax' => 0]);
                                     }
                                 },
                             ],

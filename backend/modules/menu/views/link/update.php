@@ -11,7 +11,10 @@ $formName = StringHelper::basename(SearchMenuLink::className());
 
 $this->title = Yii::t('miranda/menu', 'Update Menu Link');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('miranda/menu', 'Menus'), 'url' => ['/menu/default/index']];
-$this->params['breadcrumbs'][] = ['label' => $model->menu->title, 'url' => ['/menu/default/index', "{$formName}[menu_id]" => $model->menu_id]];
+$this->params['breadcrumbs'][] = [
+    'label' => $model->menu->title,
+    'url' => ['/menu/default/index', "{$formName}[menu_id]" => $model->menu_id]
+];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-link-update">

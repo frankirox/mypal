@@ -1,4 +1,5 @@
 <?php
+
 namespace common\helpers;
 
 class GD
@@ -32,12 +33,11 @@ class GD
 
     public function resize($width = null, $height = null)
     {
-        if(!$this->_image || (!$width && !$height)){
+        if (!$this->_image || (!$width && !$height)) {
             return false;
         }
 
-        if(!$width)
-        {
+        if (!$width) {
             if ($this->_height > $height) {
                 $ratio = $this->_height / $height;
                 $newWidth = round($this->_width / $ratio);
@@ -46,9 +46,7 @@ class GD
                 $newWidth = $this->_width;
                 $newHeight = $this->_height;
             }
-        }
-        elseif(!$height)
-        {
+        } elseif (!$height) {
             if ($this->_width > $width) {
                 $ratio = $this->_width / $width;
                 $newWidth = $width;
@@ -57,9 +55,7 @@ class GD
                 $newWidth = $this->_width;
                 $newHeight = $this->_height;
             }
-        }
-        else
-        {
+        } else {
             $newWidth = $width;
             $newHeight = $height;
         }
@@ -85,7 +81,7 @@ class GD
 
     public function cropThumbnail($width, $height)
     {
-        if(!$this->_image || !$width || !$height){
+        if (!$this->_image || !$width || !$height) {
             return false;
         }
 
@@ -95,30 +91,29 @@ class GD
         $newWidth = $this->_width;
         $newHeight = $this->_height;
 
-        if($sourceRatio !== $thumbRatio)
-        {
-            if($this->_width >= $this->_height){
-                if($thumbRatio > 1){
+        if ($sourceRatio !== $thumbRatio) {
+            if ($this->_width >= $this->_height) {
+                if ($thumbRatio > 1) {
                     $newHeight = $this->_width / $thumbRatio;
-                    if($newHeight > $this->_height){
+                    if ($newHeight > $this->_height) {
                         $newWidth = $this->_height * $thumbRatio;
                         $newHeight = $this->_height;
                     }
-                } elseif($thumbRatio == 1) {
+                } elseif ($thumbRatio == 1) {
                     $newWidth = $this->_height;
                     $newHeight = $this->_height;
                 } else {
                     $newWidth = $this->_height * $thumbRatio;
                 }
             } else {
-                if($thumbRatio > 1){
+                if ($thumbRatio > 1) {
                     $newHeight = $this->_width / $thumbRatio;
-                } elseif($thumbRatio == 1) {
+                } elseif ($thumbRatio == 1) {
                     $newWidth = $this->_width;
                     $newHeight = $this->_width;
                 } else {
                     $newHeight = $this->_width / $thumbRatio;
-                    if($newHeight > $this->_height){
+                    if ($newHeight > $this->_height) {
                         $newHeight = $this->_height;
                         $newWidth = $this->_height * $thumbRatio;
                     }
@@ -147,7 +142,7 @@ class GD
 
     public function save($file, $quality = 90)
     {
-        switch($this->_mime) {
+        switch ($this->_mime) {
             case 'image/jpeg':
                 return imagejpeg($this->_image, $file, $quality);
                 break;

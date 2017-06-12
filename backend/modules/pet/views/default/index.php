@@ -85,35 +85,35 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format' => 'raw',
                     ],
                     [
-                        'attribute'           => 'sold_at',
-                        'value'               => 'sold_at',
-                        'filterType'          => GridView::FILTER_DATE_RANGE,
+                        'attribute' => 'sold_at',
+                        'value' => 'sold_at',
+                        'filterType' => GridView::FILTER_DATE_RANGE,
                         'filterWidgetOptions' => ([
-                            'attribute'      => 'sold_at',
+                            'attribute' => 'sold_at',
                             'presetDropdown' => true,
-                            'convertFormat'  => true,
-                            'pluginOptions'  => [
+                            'convertFormat' => true,
+                            'pluginOptions' => [
                                 'locale' => ['format' => 'Y-m-d'],
                             ],
                         ]),
                         'format' => 'raw',
-                        'noWrap'=> true,
+                        'noWrap' => true,
 
                     ],
                     [
-                        'attribute'           => 'created_at',
-                        'value'               => 'created_at',
-                        'filterType'          => GridView::FILTER_DATE_RANGE,
+                        'attribute' => 'created_at',
+                        'value' => 'created_at',
+                        'filterType' => GridView::FILTER_DATE_RANGE,
                         'filterWidgetOptions' => ([
-                            'attribute'      => 'created_at',
+                            'attribute' => 'created_at',
                             'presetDropdown' => true,
-                            'convertFormat'  => true,
-                            'pluginOptions'  => [
+                            'convertFormat' => true,
+                            'pluginOptions' => [
                                 'locale' => ['format' => 'Y-m-d'],
                             ],
                         ]),
                         'format' => 'raw',
-                        'noWrap'=> true,
+                        'noWrap' => true,
 
                     ],
                     [
@@ -129,16 +129,18 @@ $this->params['breadcrumbs'][] = $this->title;
                         'class' => 'kartik\grid\ActionColumn',
                         'template' => '{update} {delete}',
                         'mergeHeader' => false,
-                        'noWrap'=> true,
+                        'noWrap' => true,
                         'buttons' => [
                             'update' => function ($url, $model) {
 
                                 if (Yii::$app->user->identity->hasPermission('editPets')) {
 
-                                    return Html::a('<div class="btn btn-sm btn-default"><i style="font-size:18px" class="fa fa-edit"></i></div>', $url, [
-                                        'title'  => Yii::t('miranda/pets', 'Update {pet}',['pet' => "{$model->breed} {$model->name}"]),
-                                        'class' => 'no-pjax',
-                                    ]);
+                                    return Html::a('<div class="btn btn-sm btn-default"><i style="font-size:18px" class="fa fa-edit"></i></div>',
+                                        $url, [
+                                            'title' => Yii::t('miranda/pets', 'Update {pet}',
+                                                ['pet' => "{$model->breed} {$model->name}"]),
+                                            'class' => 'no-pjax',
+                                        ]);
                                 }
 
                                 return null;
@@ -148,15 +150,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                 if (Yii::$app->user->identity->hasPermission('deletePets')) {
 
-                                    return Html::a('<div class="btn btn-sm btn-default"><i style="font-size:18px" class="fa fa-trash-o"></i></div>', $url, [
-                                        'title'  => Yii::t('miranda/pets', 'Delete {pet}',['pet' => "{$model->breed} {$model->name}"]),
-                                        'class' => 'no-pjax',
-                                        'data-method'  => 'post',
-                                        'data-confirm' => Yii::t(
-                                            'yii',
-                                            'Are you sure you want to delete this item?'
-                                        ),
-                                    ]);
+                                    return Html::a('<div class="btn btn-sm btn-default"><i style="font-size:18px" class="fa fa-trash-o"></i></div>',
+                                        $url, [
+                                            'title' => Yii::t('miranda/pets', 'Delete {pet}',
+                                                ['pet' => "{$model->breed} {$model->name}"]),
+                                            'class' => 'no-pjax',
+                                            'data-method' => 'post',
+                                            'data-confirm' => Yii::t(
+                                                'yii',
+                                                'Are you sure you want to delete this item?'
+                                            ),
+                                        ]);
                                 }
 
                                 return null;

@@ -35,7 +35,8 @@ AvatarAsset::register($this);
 
                     <h2><?= $this->title ?></h2>
                     <div class="panel_toolbox">
-                        <?= Html::a(Yii::t('miranda/auth', 'Update Access Credentials'), ['/auth/default/update-credentials'], ['class' => 'btn btn-primary btn-sm']) ?>
+                        <?= Html::a(Yii::t('miranda/auth', 'Update Access Credentials'),
+                            ['/auth/default/update-credentials'], ['class' => 'btn btn-primary btn-sm']) ?>
                     </div>
                     <div class="clearfix"></div>
 
@@ -76,7 +77,8 @@ AvatarAsset::register($this);
 
                                 <span class="btn btn-primary image-remove"
                                       data-action="<?= Url::to(['/auth/default/remove-avatar']) ?>"
-                                      title="<?= Yii::t('miranda/auth', 'Remove profile picture') ?>" data-toggle="tooltip"
+                                      title="<?= Yii::t('miranda/auth', 'Remove profile picture') ?>"
+                                      data-toggle="tooltip"
                                       data-placement="right">
                         <i class="fa fa-remove fa-lg"></i>
                     </span>
@@ -107,7 +109,8 @@ AvatarAsset::register($this);
 
                         <div class="row">
                             <div class="col-md-2">
-                                <?= $form->field($model, 'title')->dropDownList(\common\models\Profile::getTitleList()) ?>
+                                <?= $form->field($model,
+                                    'title')->dropDownList(\common\models\Profile::getTitleList()) ?>
                             </div>
                             <div class="col-md-5">
                                 <?= $form->field($model, 'first_name')->textInput(['maxlength' => 255]) ?>
@@ -119,7 +122,8 @@ AvatarAsset::register($this);
 
                         <div class="row">
                             <div class="col-md-6">
-                                <?= $form->field($model, 'gender')->dropDownList(\common\models\Profile::getGenderList()) ?>
+                                <?= $form->field($model,
+                                    'gender')->dropDownList(\common\models\Profile::getGenderList()) ?>
                             </div>
                             <div class="col-md-6">
                                 <?= $form->field($model, 'birthday')->widget(\yii\jui\DatePicker::classname(), [
@@ -152,7 +156,8 @@ AvatarAsset::register($this);
 
                         <hr>
 
-                        <?= Html::submitButton(Yii::t('miranda/auth', 'Save Profile'), ['class' => 'btn btn-primary btn-block']) ?>
+                        <?= Html::submitButton(Yii::t('miranda/auth', 'Save Profile'),
+                            ['class' => 'btn btn-primary btn-block']) ?>
 
                         <?php ActiveForm::end(); ?>
 
@@ -163,7 +168,6 @@ AvatarAsset::register($this);
     </div>
 
 </div>
-
 
 
 <?php
