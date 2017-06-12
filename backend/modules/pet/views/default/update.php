@@ -1,7 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use backend\modules\post\form\CreateMediaForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Pet */
