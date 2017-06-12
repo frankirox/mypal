@@ -80,7 +80,7 @@ use common\models\PostTag;
                                 <label class="control-label" style="float: left; padding-right: 5px;">
                                     <?= $model->attributeLabels()['updated_by'] ?> :
                                 </label>
-                                <span><?= $model->updatedBy->username ?></span>
+                                <span><?php /*$model->updatedBy->username*/ ?></span>
                             </div>
 
                             <hr>
