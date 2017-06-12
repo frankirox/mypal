@@ -1,17 +1,8 @@
 <?php
 
 use common\helpers\Html;
-//use common\media\widgets\TinyMce;
-use backend\modules\media\widgets\FileInput;
-use common\widgets\TinyMce;
-use common\models\User;
-use common\models\PostCategory;
-use common\models\Pet;
 use common\widgets\ActiveForm;
-use common\widgets\LanguagePills;
-use yii\jui\DatePicker;
-use common\widgets\MagicSuggest;
-use common\models\PostTag;
+
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Pet */
