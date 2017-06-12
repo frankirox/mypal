@@ -1,0 +1,43 @@
+
+<div class="row">
+    <div class="col-md-12 text-left">
+        <a class="btn btn-lg btn-success" href="#/create-pet"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add New Pet</a>
+        <hr>
+    </div>
+    <div class="col-md-12" ng-show="pets.length > 0">
+
+        <table class="table table-striped table-bordered">
+            <thead>
+            <th>ID</th>
+            <th>Breed</th>
+            <th>Age</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Sold At</th>
+            <th>Listed At</th>
+            <th>Actions</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="pet in pets">
+                <td>{{pet.id}}</td>
+                <td>{{pet.breed}}</td>
+                <td>{{pet.age}}</td>
+                <td>{{pet.name}}</td>
+                <td>{{pet.price}}</td>
+                <td>{{pet.sold_at}}</td>
+                <td>{{pet.created_at}}</td>
+                <td>
+                    <a href="#/edit-pet/{{pet.id}}" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Edit Pet</a>
+                    <a href="#/pets" ng-click="deletePet(pet)" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Delete Pet</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12" ng-show="pets.length == 0">
+        <div class="col-md-12">
+            <h4>No customers found</h4>
+        </div>
+    </div>
+</div>
+

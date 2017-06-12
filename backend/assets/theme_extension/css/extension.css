@@ -1,0 +1,112 @@
+.profile_info {
+    padding: 25px 0px 10px;
+    width: 65%;
+    float: left;
+}
+
+.breadcrumb {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #DDDDDD;
+}
+
+
+.page-title {
+    margin-top: 5px !important;
+    /*padding-top: 5px;
+    float: left;*/
+    display: inline-block;
+    margin-right: 15px;
+    width: auto;
+    height: auto;
+}
+
+
+.buttons, button, .btn{
+
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
+.table-condensed > thead > tr > th, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > td {
+    padding: 5px 7px;
+    text-align: left;
+}
+
+
+.grid-view thead tr.filters td {
+    padding-bottom: 15px !important;
+}
+
+.grid-view tbody tr td {
+    height: 50px;
+}
+
+.m-tb-20 {
+    margin: 20px 0;
+}
+
+.date-filter-input {
+    margin-left: 35px;
+    width: 97px !important;
+}
+
+.grid-view tbody tr .quick-actions {
+    /*display: none;*/
+    margin-top: -15px;
+}
+
+.grid-view .action-title {
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+.grid-view tbody tr:hover .quick-actions {
+    display: block;
+}
+
+.grid-view .table > thead > tr > th {
+    border-bottom: 1px solid #ddd;
+}
+
+.quick-actions {
+    font-size: 0.9em;
+    margin-top: 2px;
+}
+
+.quick-actions a {
+    padding-right: 5px;
+}
+
+.quick-actions a:before {
+    content: '';
+    border-left: 1px solid silver;
+    padding-left: 5px;
+}
+
+.quick-actions a:first-child:before {
+    content: none;
+}
+
+
+.tr-v-align-middle td{
+
+    vertical-align: middle !important;
+}
+
+.file-input-thumbnail.thumbnail{
+    height: auto !important;
+}
+
+.file-input-thumbnail > .thumbnail{
+    height: auto !important;
+}
+
+.login_content h1::before{
+
+    background: none;
+}
+
+.login_content h1::after{
+
+    background: none;
+}

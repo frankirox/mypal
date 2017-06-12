@@ -1,0 +1,18 @@
+<?php
+return [
+    'maintenance' => false,
+    'production' => false,
+    'MoneyMask' => [
+        'prefix' => '',
+        'suffix' => '',
+        'affixesStay' => false,
+        'thousands' => ',',
+        'decimal' => '.',
+        'precision' => 2,
+        'allowZero' => true,
+        'allowNegative' => false,
+    ],
+    'UA-Code' => '',
+    'CHAT-Code' => '',
+    'phoneMask' => '+9999 (999) 9999999',
+];

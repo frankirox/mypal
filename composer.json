@@ -1,0 +1,93 @@
+{
+  "name": "webmized.com",
+  "description": "Corporate site based on yii2 advanced",
+  "keywords": [
+    "web",
+    "shop",
+    "cms",
+    "yii2"
+  ],
+  "homepage": "http://www.webmized.com/",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Franchesco Fonseca",
+      "email": "fonseca.franchesco@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": ">=2.0.6",
+    "yiisoft/yii2-bootstrap": "*",
+    "yiisoft/yii2-swiftmailer": "*",
+    "yiisoft/yii2-authclient": "*",
+    "yiisoft/yii2-imagine": "*",
+    "yiisoft/yii2-jui": "*",
+    "bedezign/yii2-audit": "^1.0",
+    "yiister/yii2-gentelella": "~1.0",
+    "ercling/yii2-pace": "@dev",
+    "paulzi/yii2-nested-intervals": "^1.0",
+    "nicolasbize/magicsuggest": "*",
+    "pendalf89/yii2-tinymce": "@dev",
+    "2amigos/yii2-file-upload-widget": "*",
+    "2amigos/yii2-chartjs-widget" : "^2.0",
+    "yiidoc/yii2-timeago": "^2.0",
+    "tijsverkoyen/akismet": "^1.1",
+    "bower-asset/jquery": "@stable",
+    "bower-asset/bootstrap": "@stable",
+    "bower-asset/jquery.inputmask": "@stable",
+    "bower-asset/typeahead.js": "@stable",
+    "bower-asset/punycode": "@stable",
+    "linslin/yii2-curl": "*",
+    "intervention/image": "@stable",
+    "bupy7/yii2-widget-cropbox": "@dev",
+    "phpspec/php-diff": "^1.0",
+    "webvimark/date-range-picker": "@dev",
+    "ikimea/browser": "*",
+    "bower-asset/metisMenu": "*",
+    "rmrevin/yii2-fontawesome": "~2.12",
+    "yii2mod/yii2-sweet-alert": "@dev",
+    "kartik-v/yii2-detail-view": "@dev",
+    "kartik-v/yii2-password": "@dev",
+    "kartik-v/yii2-money": "@dev",
+    "kartik-v/yii2-date-range": "@dev",
+    "kartik-v/yii2-checkbox-x": "@dev",
+    "kartik-v/yii2-popover-x": "@dev",
+    "kartik-v/yii2-tabs-x":"@dev",
+    "kartik-v/yii2-editable": "@dev",
+    "kartik-v/yii2-dialog": "@dev",
+    "kartik-v/yii2-mpdf": "@dev",
+    "kartik-v/yii2-export": "@dev",
+    "kartik-v/yii2-dropdown-x": "@dev",
+    "kartik-v/yii2-nav-x": "@dev",
+    "kartik-v/yii2-grid": "@dev",
+    "kartik-v/yii2-markdown": "@dev",
+    "kartik-v/yii2-widget-colorinput": "@dev",
+    "kartik-v/yii2-widget-datepicker": "@dev",
+    "kartik-v/yii2-widgets": "@dev",
+    "kartik-v/yii2-helpers": "@dev",
+    "kartik-v/yii2-label-inplace": "@dev",
+    "kartik-v/yii2-krajee-base": "@dev",
+    "kartik-v/yii2-builder": "@dev",
+    "kartik-v/yii2-widget-depdrop": "@dev",
+    "kartik-v/yii2-datecontrol": "@dev",
+    "kartik-v/yii2-widget-select2": "@dev"
+  },
+  "require-dev": {
+    "yiisoft/yii2-codeception": "*",
+    "yiisoft/yii2-debug": "*",
+    "yiisoft/yii2-gii": "*",
+    "yiisoft/yii2-faker": "*"
+  },
+  "config": {
+    "process-timeout": 3600
+  },
+  "extra": {
+    "asset-installer-paths": {
+      "npm-asset-library": "vendor/npm",
+      "bower-asset-library": "vendor/bower"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+/* Custom Stuff goes here */
+
+.panel-inverse > .panel-heading {
+    color: #000;
+    background-color: #f7f7f9;
+    border-color: #c6c6c6;
+}
+
+.panel-inverse {
+    border-color: #c6c6c6 !important;
+}
+
+#page-grid-clear-filters-btn{
+
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
+#post-grid-clear-filters-btn{
+
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
+
+#comment-grid-clear-filters-btn{
+
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
+
+.grid-bulk-ok-button{
+
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
+
+.table-condensed > thead > tr > th, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > td {
+    text-align: left;
+    vertical-align: middle;
+}
+
+.form-group .btn {
+    margin-bottom: 0px !important;
+}
+
+.btn {
+    margin-bottom: 0px !important;
+}
+
+.mce-branding-powered-by{
+    display: none;
+}
+
+#login-title{
+    color:#000;
+}

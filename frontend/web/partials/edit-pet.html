@@ -1,0 +1,80 @@
+﻿<style type="text/css">
+    .form-horizontal input.ng-invalid.ng-dirty {
+        border-color: #FA787E;
+    }
+
+    .form-horizontal input.ng-valid.ng-dirty {
+        border-color: #78FA89;
+    }
+</style>
+<div class="view">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#/pets"><i class="glyphicon glyphicon-th-large"></i>Return to Pets List</a>
+                    <a class="navbar-brand pull-right"><i class="glyphicon glyphicon-edit"></i>
+                        Currently Editing Pet Number: {{pet.id}}</a>
+                </div>
+            </nav>
+            <div class="col-md-12">
+
+                <form role="form" name="editPet" class="form-horizontal">
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="col-md-2">Breed</label>
+                            <div class="col-md-4">
+                                <input name="breed" ng-model="pet.breed" type="text" class="form-control"
+                                       placeholder="Enter Pet's Breed" required/>
+                                <span ng-show="editPet.breed.$dirty && editPet.breed.$invalid"
+                                      class="help-inline">Breed is Required</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2">Age (in Months)</label>
+                            <div class="col-md-4">
+                                <input name="age" ng-model="pet.age" ng-pattern="/^(0|\-?[1-9][0-9]*)$/"  type="text" class="form-control"
+                                       placeholder="Enter Pet's Age in Months" required/>
+                                <span ng-show="editPet.age.$dirty && editPet.age.$invalid"
+                                      class="help-inline">Age is Required</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2">Name</label>
+                            <div class="col-md-4">
+                                <input name="name" ng-model="pet.name" type="text" class="form-control"
+                                       placeholder="Enter Pet's Name"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2">Price</label>
+                            <div class="col-md-4">
+                                <input name="price" ng-model="pet.price" type="text" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" class="form-control"
+                                       placeholder="Enter Pet's Price" required/>
+                                <span ng-show="editPet.price.$dirty && editPet.price.$invalid"
+                                      class="help-inline">Price is Required</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2">Sale Date</label>
+                            <div class="col-md-4">
+                                <input name="sold_at" ng-model="pet.sold_at" type="text" class="form-control"
+                                       placeholder="Enter Sale Date">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2"></label>
+                            <div class="col-md-4">
+                                <a href="#/pets" class="btn">Cerrar</a>
+                                <button ng-click="savePet(pet);"
+                                        ng-disabled="editPet.$invalid"
+                                        class="btn btn-primary">Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

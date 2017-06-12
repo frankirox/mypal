@@ -1,0 +1,53 @@
+<?php
+return [
+    'components' => [
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=localhost;dbname=enkel',
+            'username' => 'root',
+            'password' => '101089',
+            'charset' => 'utf8',
+            'enableSchemaCache' => false,
+            'schemaCacheDuration' => 3600,
+        ],
+        'assetManager' => [
+            'forceCopy' => true
+        ],
+        'mailer' => [
+            // send all mails to a file by default. You have to set
+            // 'useFileTransport' to false and configure a transport
+            // for the mailer to send real emails.
+            'useFileTransport' => true,
+            'class' => 'yii\swiftmailer\Mailer',
+            //'viewPath' => '@common/mail',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'optilandia.com@gmail.com',
+                'password' => 'optilandia1312',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
+            'htmlLayout' => '@common/modules/auth/views/mail/layouts/html',
+            'textLayout' => '@common/modules/auth/views/mail/layouts/text',
+        ],
+        'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
+                ],
+                /*[
+                    'class' => 'yii\log\EmailTarget',
+                    'levels' => ['error', 'warning'],
+                    'message' => [
+                        'from' => ['franchesco@webmized.com'],
+                        'to' => ['franchesco@webmized.com'],
+                        'subject' => 'Error Notification System',
+                    ],
+                ],*/
+            ],
+        ],
+    ],
+];
