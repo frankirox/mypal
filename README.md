@@ -1,7 +1,8 @@
 # MyPal Pet Store App Based On Miranda CMS And Yii2 PHP Framework
 
-###(Note: Miranda CMS is a personal starter kit)
-Installation
+### (Note: Miranda CMS is a personal starter kit project)
+
+#Installation
 ------------
 
 ### Installing the application.
